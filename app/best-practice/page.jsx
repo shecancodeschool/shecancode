@@ -2,7 +2,6 @@ import ReusablePageStructure from "../../components/ReusablePageStructure";
 import DefaultPageBanner from "../../components/DefaultPageBanner";
 import ReusableSection from "../../components/ReusableSection";
 import PageTitle from "../../components/PageTitle";
-import { ButtonTwo } from "../../components/Buttons";
 
 const page = () => {
     const bannerData = {
