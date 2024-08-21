@@ -32,10 +32,10 @@ const HomePageData = {
             source: "/blog-sm.jpg",
             alt: "Graduate"
         },
-        title: "We're here to help you transform your career",
-        description: "Our mission is to empower women in technology by providing them with the tools and resources they need to succeed. Research on Bruce H. Lipton, Ph.D. an Epigeneticist. Bruce Lipton is an American developmental biologist known for promoting the idea that genes and DNA can be manipulated by a person's beliefs. He is also known for his work on epigenetics.",
+        title: "We're the leading program in empowering women in tech.",
+        description: "In SheCanCODE, we train you from ground up and train you to think, work and approach problems as a software developer. In the last 6 years, SheCanCODE has delivered more than 800 women to the Job market in Tech related fields.",
         button: {
-            label: "Enroll now",
+            label: "Explore Courses",
             location: "/courses"
         },
     },
@@ -44,7 +44,7 @@ const HomePageData = {
     },
     partnersAndHiringCompaniesSectionData: {
         title: "Partners and Hiring Companies",
-        description: "Our career day events and recruitment drives have helped over 85% of our core graduates find meaningfull employment within 6-months post-graduation",
+        description: "With our partners and hiring companies we provide you with the best training and career opportunities. We have collaborated with them through many areas such as sponsorships, trainings, apprenticeships and more.",
         companies: [
             { src: '/IRO.png', alt: 'IRO logo' },
             { src: '/mastercard-logo.png', alt: 'Mastercard foundation logo' },
@@ -54,28 +54,28 @@ const HomePageData = {
             { src: '/UN-Women-logo-blue-en.svg', alt: 'UN Women' },
             { src: '/cropped-Muraho_Logo.webp', alt: 'Muraho Tech' },
             { src: '/umurava2.png', alt: 'Umurava logo' },
-            // { src: '/Hence-Logo.svg', alt: 'Hence Technologies' },
-            { src: '/iremboGov.PNG', alt: 'Irembo logo' },
-            { src: '/Progate.png', alt: 'Progate' },
+            { src: '/Harambee-logo.png', alt: 'Harambee' },
             { src: '/TG.jpeg', alt: 'TG' },
             { src: '/Angle-dimensions.png', alt: 'Angle Dimension' },
+            { src: '/iremboGov.PNG', alt: 'Irembo logo' },
+            { src: '/Progate.png', alt: 'Progate' },
         ]
     },
     statistics: [
         {
-            icon: "/student.svg",
+            icon: "/graduation-cap.svg",
             title: "Learners since 2018",
-            number: 700,
+            number: 800,
             sign: "+"
         },
         {
-            icon: "/success.svg",
+            icon: "/employee.svg",
             title: "Employment Rate",
-            number: 80,
+            number: 84,
             sign: "%"
         },
         {
-            icon: "/experience.svg",
+            icon: "/star.svg",
             title: "Graduate Satisfaction Score",
             number: 92,
             sign: "%"
@@ -83,7 +83,7 @@ const HomePageData = {
     ],
     statisticsSectionData: {
         title: "Market-aligned Courses Curated for Your Career Success",
-        description: "The quality of our programs and their impact on learners is a direct reflection of who we are and our ability to consistently meet the objectives we set for our students.",
+        description: "We have developed programs and courses that align with the changing needs of the software development industry.",
     },
     servicesSectionData: {
         sectionTitle: "Benefit from Out Experience In Empowering Young Women",
@@ -91,44 +91,44 @@ const HomePageData = {
         imageTwo: "/education-2.png",
         items: [
             {
-                icon: "/archive.svg",
-                text: "Online Courses"
+                icon: "/community.svg",
+                text: "A big community of successful women ready to support and empower you."
             },
             {
-                icon: "/Book--Streamline-Bootstrap.svg",
-                text: "Learn at your own pace"
+                icon: "/chalkboard.svg",
+                text: "Learning from high-end software developers and industry experts."
             },
             {
-                icon: "/Book--Streamline-Bootstrap.svg",
-                text: "Collaborate with different learners around the globe"
+                icon: "/chat.svg",
+                text: "Gain soft-skills such as communication, public speaking, and more that make you job ready."
             },
             {
-                icon: "/Book--Streamline-Bootstrap.svg",
-                text: "Top instructors around the globe"
+                icon: "/calendar-event.svg",
+                text: "We get you out of your comfort zone through organizing and connecting you to events where you meet your future employers and workmates."
             }
         ],
     },
     reviewsSectionData: {
         title: 'Reviews',
-        subTitle: 'What our students say',
+        subTitle: 'What our alumni say about us.',
         reviews: [
             {
-                name: 'Mohh Jumah',
-                title: 'Senior Developer',
-                description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Consectetur ac blandit nam massa massa elementum mollis lectus. Sit ultricies nisl amet non, quis enim velit tempus. Interdum duis imperdiet venenatis.',
-                userAvatar: '/4.png'
+                name: 'Doreen Uwase',
+                title: 'Software Developer',
+                description: 'I joined the bootcamp to unlock my true potential and turn my project ideas into reality. with a burning passion for making a difference. My jouney at shecancode is paying the way for a future where innovation meets social impact.',
+                userAvatar: '/doreen.jpg'
             },
             {
-                name: 'John Mark',
-                title: 'Data Analyst',
-                description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Consectetur ac blandit nam massa massa elementum mollis lectus. Sit ultricies nisl amet non, quis enim velit tempus. Interdum duis imperdiet venenatis.',
-                userAvatar: '/4.png'
+                name: 'Elyse Umugabe',
+                title: 'Software Tester',
+                description: 'SheCanCODE equiped me with industry level experience that allowed me to secure a job opportunity even before graduating. I am many more of my colleagues at SheCanCODE were able to do so thanks to their ability to simplify even the most complex software development concepts.',
+                userAvatar: '/elyse-umugabe.jpeg'
             },
             {
-                name: 'Doe',
-                title: 'Data Analyst',
-                description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Consectetur ac blandit nam massa massa elementum mollis lectus. Sit ultricies nisl amet non, quis enim velit tempus. Interdum duis imperdiet venenatis.',
-                userAvatar: '/4.png'
+                name: 'Liliane Uwase',
+                title: 'Operations Manager',
+                description: 'I can testify that SheCanCODE has been my bridge to accessing job opportunities and intering in the IT industry. Today, I work at SheCanCODE to keep on re-enforcing the good results they have been achieving for many year now.',
+                userAvatar: '/lili.jpg'
             }
         ]
     },

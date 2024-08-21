@@ -46,10 +46,10 @@ const HomeBanner = (props) => {
                     </div>
                     <div className="m-auto px-4 max-w-screen-xl">
                         <p className="flex gap-4 pt-4 pb-16 md:pb-8 flex-wrap">
-                            <span className="font-extrabold">{courseAdvertTitle}</span>
+                            <span className="font-extrabold text-orange-300">{courseAdvertTitle}</span>
                             <span className=" md:text-base">
                                 {openCourse.description}
-                                <Link href={`${openCourse.link}`} className="text-[#6AACE8] inline"> Learn more</Link>
+                                <Link href={`/courses/${openCourse.slug}`} className="text-[#6AACE8] inline"> Learn more</Link>
                             </span>
                         </p>
                     </div>

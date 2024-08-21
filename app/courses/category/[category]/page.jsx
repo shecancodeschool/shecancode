@@ -6,12 +6,12 @@ import ReusableSection from "@/components/ReusableSection";
 import coursesFakes from "@/utils/coursesFakes";
 import Link from "next/link";
 
-const page = () => {
-  let category = 'all';
+const page = ({ params }) => {
+  const { category } = params;
   const { CoursesData, CourseCategories } = coursesFakes;
   var Courses = [];
 
-  if (category === 'all' || category === '') {
+  if (category === 'all') {
     Courses = CoursesData;
   } else {
     Courses = CoursesData.filter(course => course.category === category);
