@@ -1,0 +1,71 @@
+const ourTeamData = {
+    backgroundImage: "cfb.jpg",
+    title: "Meet The Team",
+    titleDescription: "An organization is only as strong as the people who are working toward the same purpose. Our clear mission unifies us, and their dedication and passion are wha make our organization thrive.",
+    subTitle: "Who We Are",
+    teamMembers: [
+        {
+            name: "Innocent Mbanda",
+            position: "Founder & CEO",
+            picture: "https://media.licdn.com/dms/image/C5603AQFgfnu2ukzMOw/profile-displayphoto-shrink_200_200/0/1635430646520?e=2147483647&v=beta&t=uZ2XAS-woHmm39MBUs8XX_JVh7qkSO3KI0M_aBjBbjU",
+            linkedIn: "https://www.linkedin.com/in/mbanda-innocent-a91737aa/",
+            github: "",
+            x: "",
+            dribble: "",
+            instagram: "",
+        },
+        {
+            name: "Josiane Tuyisenge",
+            position: "HR & Finance Officer",
+            picture: "https://media.licdn.com/dms/image/D4E03AQFB_I98h-5TZA/profile-displayphoto-shrink_200_200/0/1717584552692?e=2147483647&v=beta&t=aPdeNE2PyXUu1apMgn70kJfGK-Fx3CMuHGUpe3bN97U",
+            linkedIn: "https://www.linkedin.com/in/josiane-tuyisenge-490a08311",
+            github: "",
+            x: "",
+            dribble: "",
+            instagram: "",
+        },
+        {
+            name: "Liliane Uwase",
+            position: "Operations Officer",
+            picture: "https://media.licdn.com/dms/image/D4E03AQEOWYWX-_WX_Q/profile-displayphoto-shrink_200_200/0/1686306845073?e=2147483647&v=beta&t=dEGAWexroP3JXk8w8h0d4GG3Hv5dkBYp0_ueFFA2HxY",
+            linkedIn: "https://www.linkedin.com/in/liliane-uwase-28b138182/",
+            github: "",
+            x: "",
+            dribble: "",
+            instagram: "",
+        },
+        {
+            name: "John Doe",
+            position: "Founder & CEO",
+            picture: "https://avatars.githubusercontent.com/u/59798231?v=4",
+            linkedIn: "https://www.linkedin.com/in/jean-eric-hirwa/",
+            github: "https://github.com/hirwajeaneric",
+            x: "",
+            dribble: "",
+            instagram: "https://www.instagram.com/hirwa_jean_eric/",
+        },
+        {
+            name: "John Doe",
+            position: "Founder & CEO",
+            picture: "https://avatars.githubusercontent.com/u/59798231?v=4",
+            linkedIn: "https://www.linkedin.com/in/jean-eric-hirwa/",
+            github: "https://github.com/hirwajeaneric",
+            x: "",
+            dribble: "",
+            instagram: "https://www.instagram.com/hirwa_jean_eric/",
+        },
+        {
+            name: "John Doe",
+            position: "Founder & CEO",
+            picture: "https://avatars.githubusercontent.com/u/59798231?v=4",
+            linkedIn: "https://www.linkedin.com/in/jean-eric-hirwa/",
+            github: "https://github.com/hirwajeaneric",
+            x: "",
+            dribble: "",
+            instagram: "https://www.instagram.com/hirwa_jean_eric/",
+        },
+        
+    ]
+}
+
+export default ourTeamData;
