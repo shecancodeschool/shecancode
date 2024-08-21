@@ -95,7 +95,7 @@ export default function Apply({ params}) {
                   <option value="Attending Year 3 in University">Attending Year 3 in University</option>
                   <option value="In the final year at University">In the final year at University</option>
                   <option value="University Graduate">University Graduate</option>
-                  <option value="Didn't join university">Didn't join university</option>
+                  <option value="Did not join university">Did not join university</option>
                   <option value="Not joining university soon">Not joining university soon</option>
                 </select>
                 {/* <span className="text-red-400 text-sm">{"Your response is required"}</span> */}

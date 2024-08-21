@@ -18,9 +18,6 @@ import coursesFakes from "@/utils/coursesFakes";
 
 export default function Home() {
   const { CoursesData, ...rest } = coursesFakes;
-  // States 
-  const [homePageData, setHomePageData] = useState({});
-  const [courses, setCourses] = useState([]);
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
@@ -34,38 +31,6 @@ export default function Home() {
   const closeModal = () => {
     setShowModal(false);
   };
-
-  useEffect(() => {
-    const fetchHomePageData = async () => {
-      // This will be replaced by real data fetch 
-      const data = await HomePageData;
-      return data;
-    };
-
-    const fetchCoursesData = async () => {
-      // This will be replaced by real api calls in integration 
-      const data = await CoursesData;
-      return data;
-    };
-
-    // Fetch Home page data
-    fetchHomePageData()
-      .then((response) => {
-        setHomePageData(response);
-      })
-      .catch(error => {
-        console.error(error);
-      })
-
-    // Fetch courses data
-    fetchCoursesData()
-      .then((response) => {
-        setCourses(response);
-      })
-      .catch(error => {
-        console.error(error);
-      })
-  }, []);
 
   return (
     <div className='relative'>

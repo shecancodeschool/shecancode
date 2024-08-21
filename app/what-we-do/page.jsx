@@ -2,6 +2,7 @@ import DefaultPageBanner from "../../components/DefaultPageBanner";
 import WhatWeDoPageFakes from "../../utils/whatWeDoFakes";
 import PageTitle from "../../components/PageTitle";
 import ReusableSection from "../../components/ReusableSection";
+import Image from "next/image";
 
 export default function page() {
   return (
@@ -43,6 +44,7 @@ export default function page() {
 
 const Activity = ({ orientation, activity }) => {
   const { title, description, items, photo } = activity;
+  
   if (orientation === "left-right") {
     return (
       <ReusableSection isTopSection>
@@ -64,7 +66,7 @@ const Activity = ({ orientation, activity }) => {
 
           {/* Photo  */}
           <div className={`flex flex-col w-full md:w-[48%]`}>
-            <img src={photo} alt={title} />
+            <Image src={photo} alt={title} height={500} width={1000} />
           </div>
         </div>
       </ReusableSection>
@@ -76,7 +78,7 @@ const Activity = ({ orientation, activity }) => {
       <div className="flex justify-between flex-wrap">
         {/* Photo  */}
         <div className={`flex flex-col w-full md:w-[48%]`}>
-          <img src={photo} alt={title} />
+          <Image src={photo} alt={title} height={500} width={1000} />
         </div>
 
         {/* Content  */}

@@ -3,9 +3,8 @@
 import JobDescriptionPageBanner from "../../../../components/sections/careers/JobDescriptionPageBanner";
 import { usePathname } from 'next/navigation';
 import Jobs from '../../../../utils/jobsFakes';
-import ReusableSection from '../../../../components/ReusableSection';
 
-const page = () => {
+export default function AppJob() {
   const pathname = usePathname();
   const jobId = pathname.split('/')[2];
 
@@ -108,5 +107,3 @@ const page = () => {
     </>
   )
 }
-
-export default page

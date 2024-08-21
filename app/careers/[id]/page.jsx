@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 import Jobs from '../../../utils/jobsFakes';
 import JobDescriptionContainter from '../../../components/sections/careers/JobDescriptionContainter';
 
-const page = () => {
+const JobDetails = () => {
   const pathname = usePathname();
   const jobId = pathname.split('/')[2];
 
@@ -27,4 +27,4 @@ const page = () => {
   )
 }
 
-export default page
+export default JobDetails;
