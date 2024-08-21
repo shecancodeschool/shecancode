@@ -1,10 +1,10 @@
 const CoursesData = [
     {
         id: "1",
-        title: "Advanced Web Development",
-        slug: "advanced-web-developmet",
-        subTitle: "Learn the basics of web development through projects using the most used JavaScript frameworks", 
-        description: "A New Full-stack Software Development Course by SheCanCODE Bootcamp is open for applicants",
+        title: "Hybrid Full-stack Course for Starters",
+        slug: "hybrid-full-stack-development",
+        subTitle: "Create a good fundation in software development through project based learning", 
+        description: "Kick of and upscale your web development skills throught real world projects with the most popular JavaScript frameworks",
         detailedDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget aliquet sem. Etiam fringilla augue quam, eget ullamcorper elit porta ac. Aliquam et metus nec neque consequat pulvinar. Aliquam cursus magna vitae mi sollicitudin placerat. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Praesent sit amet metus neque. Pellentesque quis nunc sit amet lorem facilisis consequat in et orci. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc et accumsan lacus, id aliquam ligula. Aliquam venenatis malesuada magna, sit amet bibendum eros luctus auctor. Vestibulum ut molestie justo. Aliquam erat volutpat. Duis enim odio, vulputate nec blandit eget, pulvinar a urna.",
         duration: "3 months",
         startDate: "2024-10-18T17:24:04.585Z",
@@ -208,6 +208,9 @@ const CourseCategories = [
     "UX/UI Design"
 ];
 
-export default {
-    CoursesData, CourseCategories
+const data = {
+    CoursesData, 
+    CourseCategories
 };
+
+export default data;

@@ -65,7 +65,7 @@ const HomePageData = {
         {
             icon: "/student.svg",
             title: "Learners since 2018",
-            number: 700,
+            number: 800,
             sign: "+"
         },
         {
