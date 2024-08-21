@@ -2,7 +2,6 @@ import React from 'react';
 import Link from 'next/link';
 import { ArrowRightIcon } from '@radix-ui/react-icons';
 import Image from 'next/image';
-import { IoClose } from 'react-icons/io5';
 import { IoIosCloseCircle } from "react-icons/io";
 
 const ModalContent = {
@@ -38,7 +37,7 @@ export default function PopupModel({ closeModal }) {
                 </button>
                 <div className='flex flex-col gap-4 text-white w-full'>
                     <div className='flex justify-end'>
-                        <Image src={'/logoscc.png'} className='bg-white p-2' height={100} width={100} />
+                        <Image src={'/logoscc.png'} alt='logo' className='bg-white p-2' height={100} width={100} />
                     </div>
                     <div className='flex gap-4 justify-start'>
                         <div className='flex flex-col gap-2 justify-start'>
@@ -54,26 +53,6 @@ export default function PopupModel({ closeModal }) {
                 </div>
                 <Link className='text-start w-full flex items-center text-xl justify-center gap-2 mt-4 text-white hover:text-green-400 cursor-pointer' href={ModalContent.address} >
                     <span>More details</span>
-                    <ArrowRightIcon width={20} />
-                </Link>
-            </div>
-        </div>
-    );
-};
-
-
-function PopupContent({ closeModal }) {
-    return (
-        <div className={'flex fixed left-0 top-0 w-full h-full z-50 overflow-auto bg-black bg-opacity-60 justify-center items-center'}>
-            <div className='bg-[#fefefe] p-2 md:p-5 border border-gray-500 w-full md:w-4/5 max-w-screen-md text-center'>
-                <span className={'text-slate-500 float-right text-3xl font-bold hover:text-black focus:text-black hover:cursor-pointer focus:cursor-pointer'} onClick={closeModal}>&times;</span>
-                {/* <h2 className="font-bold text-2xl">Apply for 5 week Summer Code Camp</h2> */}
-                <img src="/Summer-camp-banner.jpg" className='w-full' alt="" srcset="" />
-                <Link
-                    className='text-start w-full text-sm flex justify-center gap-4 mt-4 hover:text-blue-600 cursor-pointer'
-                    href="/"
-                >
-                    More details
                     <ArrowRightIcon width={20} />
                 </Link>
             </div>

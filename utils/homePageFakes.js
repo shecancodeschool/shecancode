@@ -16,15 +16,15 @@ const HomePageData = {
     slogansData: [
         {
             title: "Community",
-            icon: "/community.png",
+            icon: "/network.svg",
         },
         {
             title: "Train",
-            icon: "/train.png",
+            icon: "/pencil.svg",
         },
         {
             title: "Employ",
-            icon: "/employ.png",
+            icon: "/hard-hat.svg",
         },
     ],
     sloganDescriptionData: {
@@ -116,19 +116,19 @@ const HomePageData = {
                 name: 'Mohh Jumah',
                 title: 'Senior Developer',
                 description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Consectetur ac blandit nam massa massa elementum mollis lectus. Sit ultricies nisl amet non, quis enim velit tempus. Interdum duis imperdiet venenatis.',
-                image: '/4.png'
+                userAvatar: '/4.png'
             },
             {
                 name: 'John Mark',
                 title: 'Data Analyst',
                 description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Consectetur ac blandit nam massa massa elementum mollis lectus. Sit ultricies nisl amet non, quis enim velit tempus. Interdum duis imperdiet venenatis.',
-                image: '/4.png'
+                userAvatar: '/4.png'
             },
             {
                 name: 'Doe',
                 title: 'Data Analyst',
                 description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Consectetur ac blandit nam massa massa elementum mollis lectus. Sit ultricies nisl amet non, quis enim velit tempus. Interdum duis imperdiet venenatis.',
-                image: '/4.png'
+                userAvatar: '/4.png'
             }
         ]
     },

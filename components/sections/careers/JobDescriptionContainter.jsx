@@ -11,7 +11,7 @@ const JobDescriptionContainter = ({ job }) => {
                         About the Company
                     </h1>
                     <p className="font-medium text-base md:text-xl text-[#000000]/65">
-                        ShecanCode Limited is a Front-end that helps media companies to promote their films, web series, documentaries, digital products, etc. on YouTube. Our focus is on YouTube video production and growth hacking to increase the visibility and engagement of our client's channels.
+                        ShecanCode Limited is a Front-end that helps media companies to promote their films, web series, documentaries, digital products, etc. on YouTube. Our focus is on YouTube video production and growth hacking to increase the visibility and engagement of our client channels.
                     </p>
                 </div>
                 <div className=" flex flex-col gap-4">
@@ -19,7 +19,7 @@ const JobDescriptionContainter = ({ job }) => {
                         About the Role
                     </h1>
                     <p className="font-medium text-base md:text-xl text-[#000000]/65 ">
-                        We are seeking a highly motivated and detail-oriented YouTube Executive to join our team. The successful candidate will be responsible for managing our clients' YouTube channels, developing and executing growth strategies, and creating engaging content.
+                        We are seeking a highly motivated and detail-oriented YouTube Executive to join our team. The successful candidate will be responsible for managing our clients YouTube channels, developing and executing growth strategies, and creating engaging content.
                     </p>
                 </div>
 

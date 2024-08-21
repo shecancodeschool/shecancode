@@ -21,22 +21,22 @@ const AboutPageData = {
         description: "These are the values that drive our operations and help to keep us on track to our core mandate to stakeholders. They speak to how we do what we do",
         listOfValues: [
             {
-                icon: "Icon-Exemplary.png",
+                icon: "/Icon-Exemplary.png",
                 title: "Diversity and Inclusion",
                 description: "We are committed to creating a diverse learning environment and encouraging applications from underrepresented groups in tech."
             },
             {
-                icon: "Icon-collaboration.svg",
+                icon: "/Icon-collaboration.svg",
                 title: "Commitment",
                 description: "We are committed to delivering high-quality, engaging, and personalized learning experiences."
             },
             {
-                icon: "Icon_Transparency-1.svg",
+                icon: "/Icon_Transparency-1.svg",
                 title: "Respect",
                 description: "We are committed to fostering a sense of respect for all individuals, regardless of their gender, race, or ability."
             },
             {
-                icon: "Icon_Transparency-1.svg",
+                icon: "/Icon_Transparency-1.svg",
                 title: "Success",
                 description: "We are committed to providing students with the resources and support they need to achieve their goals and success in the tech industry."
             }

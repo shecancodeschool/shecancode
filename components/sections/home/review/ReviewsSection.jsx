@@ -49,7 +49,7 @@ const ReviewsSection = ({ reviewsSectionContent }) => {
                     <div className="md:w-3/4 carousel rounded-md flex items-center justify-start overflow-x-auto scroll-smooth no-scrollbar" >
                         {reviews.map((review, index) => (
                             <div key={index} className="px-2">
-                                <ReviewComp imgSrc={review.image} name={review.name} title={review.title} text={review.description} />
+                                <ReviewComp userAvatar={review.userAvatar} name={review.name} title={review.title} text={review.description} />
                             </div>
                         ))}
                     </div>

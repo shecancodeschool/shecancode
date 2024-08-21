@@ -19,7 +19,7 @@ const CourseDetails = ({ course }) => {
                             {detailedDescription}
                         </p>
                         <ul className="list-disc list-inside text-base md:text-xl text-black">
-                            <li>Apply UX strategies to a site's content & design</li>
+                            <li>Apply UX strategies to a site content & design</li>
                             <li>Know what dictates how your website should look</li>
                             <li>Design and code a B2B website, a B2C blog</li>
                             <li>Understand information architecture to enhance usability</li>
@@ -47,7 +47,7 @@ const CourseDetails = ({ course }) => {
                             <li>All applicants must be 18 years and above and provide proof of ID/Passport.</li>
                             <li>Have a working laptop that meets the following baseline specifications: Core i5 7th Gen and upwards, 4GB RAM, and at least 256GB of storage.</li>
                             <li>Be available to take a part-time course for at least 20 to 25 hours on weekdays and attend 1 live lecture.</li>
-                            <li>Have post-secondary experience i.e. diploma+/bachelor's.</li>
+                            <li>Have post-secondary experience i.e. diploma+/bachelors.</li>
                             <li>Suited for working professionals (Not those who are enrolled in another full-time academic program).</li>
                         </ol>
                     </div>
