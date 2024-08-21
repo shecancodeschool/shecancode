@@ -37,7 +37,7 @@ export default function Home() {
 
   useEffect(() => {
     const fetchHomePageData = async () => {
-      // This will be replaced by real api calls in integration 
+      // This will be replaced by real data fetch 
       const data = await HomePageData;
       return data;
     };
