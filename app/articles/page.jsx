@@ -8,7 +8,7 @@ import ReusableSection from "../../components/ReusableSection";
 import BlogPostContainer from "../../components/sections/articles/BlogPostContainer";
 import { IoIosArrowDown } from "react-icons/io";
 
-export default function page() {
+export default function Articles() {
   const [blogPosts, setBlogPosts] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [categories, setCategories] = useState([]);
