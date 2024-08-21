@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import ReusableSection from '../../components/ReusableSection';
 
-const page = () => {
+export default function AdmissionPolicy() {
   const pathname = usePathname();
 
   return (
@@ -298,5 +298,3 @@ const page = () => {
     </>
   )
 }
-
-export default page
