@@ -107,7 +107,7 @@ const CoursesData = [
         price: 200,
         coverImage: "https://shecancode-website-dev.vercel.app/education-2.png",
         secondImage: "https://shecancode-website-dev.vercel.app/education-2.png",
-        isOpen: true,
+        isOpen: false,
         keyInfo: [
             { title: "Authentic Certificate", desc: "Earn a Certificate upon completion" },
             { title: "On-site Classes", desc: "Start instantly and learn at your own pace" },

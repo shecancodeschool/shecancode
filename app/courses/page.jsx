@@ -18,22 +18,24 @@ const page = () => {
         description={CoursesPageData.titleDescription}
         hasButton={false}
       />
-      <PageTitle orientation={"center"} title={CoursesPageData.subTitle} />
-      <ReusableSection isTopSection={"true"} >
-        <div className="w-full flex flex-col">
-          <div className="flex justify-center items-center gap-2 md:gap-4 flex-wrap mb-8">
-            <CoursesFilter text="All Programme" bgText="bg-sky-300" Text="text-[#FFFF]" />
-            {CourseCategories && CourseCategories.map((category, index) => (
-              <CoursesFilter text={category} key={index} Text="text-[#C4C4C4]" />
-            ))}
+      <div className="bg-[#e6f2ff]">
+        <PageTitle orientation={"center"} title={CoursesPageData.subTitle} />
+        <ReusableSection isTopSection={"true"} background={'#e6f2ff'}>
+          <div className="w-full flex flex-col">
+            <div className="flex justify-center items-center gap-2 md:gap-4 flex-wrap mb-8">
+              <CoursesFilter text="All Programme" bgText="bg-sky-300" Text="text-[#FFFF]" />
+              {CourseCategories && CourseCategories.map((category, index) => (
+                <CoursesFilter text={category} key={index} Text="text-[#C4C4C4]" />
+              ))}
+            </div>
+            <div className="w-full flex justify-evenly flex-wrap md:flex-row rounded-md mt-12">
+              {CoursesData && CoursesData.map((course, index) => (
+                <CourseCard key={index} course={course} />
+              ))}
+            </div>
           </div>
-          <div className="w-full flex justify-evenly flex-wrap md:flex-row bg-[#FEFEFE] rounded-md mt-12">
-            {CoursesData && CoursesData.map((course, index) => (
-              <CourseCard key={index} course={course} />
-            ))}
-          </div>
-        </div>
-      </ReusableSection>
+        </ReusableSection>
+      </div>
     </>
   );
 };
