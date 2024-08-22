@@ -7,6 +7,10 @@ const page = ({ params }) => {
 
   const course = coursesFakes.CoursesData.find((course) => course.slug === slug);
 
+  if (!course) {
+    return <div>Course not found</div>
+  }
+
   return (
     <>
       <CourseBanner

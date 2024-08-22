@@ -4,7 +4,7 @@ import { FiDribbble, FiGithub, FiInstagram, FiTwitter } from "react-icons/fi";
 import { SlSocialLinkedin } from "react-icons/sl";
 
 const TeamCard = ({ teamMember }) => {
-  const { name, position, picture, linkedIn, gitHub, x, instagram, dribbble } = teamMember;
+  const { name, position, picture, linkedIn, github, x, instagram, dribbble } = teamMember;
   return (
     <div className="w-full sm:w-[48%] md:w-1/5 md:min-w-[23%] flex flex-col bg-white mb-10 rounded-md border">
       <div className="h-60 w-full" style={{
@@ -35,9 +35,9 @@ const TeamCard = ({ teamMember }) => {
               </Link>
             </span>
           }
-          {gitHub &&
+          {github &&
             <span className="p-2 rounded-full bg-gray-100 hover:bg-red-400 hover:text-white">
-              <Link href={gitHub} target="_blank">
+              <Link href={github} target="_blank">
                 <FiGithub />
               </Link>
             </span>

@@ -61,8 +61,8 @@ export default function CoreValues({ values }) {
 const ValueContainer = ({ icon, title, description }) => {
   return (
     <div className='w-full sm:w-[48%] md:w-2/5 flex flex-col gap-3'>
-      <div className='flex gap-3 items-center flex-wrap'>
-        <Image src={icon} alt={title} width={100} height={100} className='h-14' />
+      <div className='flex gap-3 items-center flex-wrap md:flex-nowrap'>
+        <Image src={icon} alt={title} width={50} height={50} />
         <h4 className="font-bold text-xl md:text-2xl text-sky-700">{title}</h4>
       </div>
       <p className="font-light text-base font lg:text-xl text-justify text-sky-950">
