@@ -1,5 +1,5 @@
 const AboutPageData = {
-    backgroundImage: "/F5.jpg",
+    backgroundImage: "/scc24.jpeg",
     title: "Get to Know more about us",
     titleDescription: "Discover the best courses for your skills, industry, and goals.",
     subTitle: "Who We Are",
@@ -7,6 +7,7 @@ const AboutPageData = {
         title: "Historical Background",
         description: "SheCanCODE Bootcamp is a program implemented by IGIRE RWANDA ORGANIZATION, a non-profit organization whose primary goal is to foster digital inclusion and economic empowerment among Rwandan women. From 2028, SheCanCODE has been working with numerous partners to provide a platform for women to learn coding and computer science skills. With that partnership, SheCanCODE has managed to train more than 800 young women between 18 and 35. Today, SheCanCODE is the leading training program that raises and returns to the market a big number of young women in IT and Tech related fields in general.",
         videoAddress: "https://www.youtube.com/embed/aoiI6p1XxW0",
+        // videoAddress: "https://www.youtube.com/watch?v=MHZTscUaPpQ",
     },
     vision: {
         title: "Our Vision",

@@ -1,5 +1,5 @@
 const ourTeamData = {
-    backgroundImage: "cfb.jpg",
+    backgroundImage: "/scc18.jpg",
     title: "Meet The Team",
     titleDescription: "An organization is only as strong as the people who are working toward the same purpose. Our clear mission unifies us, and their dedication and passion are wha make our organization thrive.",
     subTitle: "Who We Are",

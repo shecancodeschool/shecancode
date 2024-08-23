@@ -1,5 +1,5 @@
 const BlogsPageData = {
-    backgroundImage: "/cfb.jpg",
+    backgroundImage: "/scc34.jpeg",
     title: "Updates about SheCanCODE",
     titleDescription: "",
     subTitle: "Our blogs"

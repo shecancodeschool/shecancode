@@ -87,8 +87,8 @@ const HomePageData = {
     },
     servicesSectionData: {
         sectionTitle: "Benefit from Out Experience In Empowering Young Women",
-        imageOne: "/F9.jpeg",
-        imageTwo: "/education-1.jpg",
+        imageOne: "/scc15.jpg",
+        imageTwo: "/F9.jpeg",
         items: [
             {
                 icon: "/community.svg",
