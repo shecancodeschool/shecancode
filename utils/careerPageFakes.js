@@ -1,5 +1,5 @@
 const CareerPageData = {
-    backgroundImage: "/cfb.jpg",
+    backgroundImage: "/scc5.jpeg",
     title: "Make an impact at front",
     titleDescription: "Ready to take role where you can make a lasting impact? We're looking for talented people to join our team.",
     subTitle: "The process to join the team",

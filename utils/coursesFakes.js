@@ -77,8 +77,8 @@ const CoursesData = [
         durationType: "Weeks",
         startDate: "2025-01-06T17:24:04.585Z",
         price: 100000,
-        coverImage: "/F5.jpg",
-        secondImage: "/F5.jpg",
+        coverImage: "/F2.jpg",
+        secondImage: "/F2.jpg",
         isOpen: true,
         keyInfo: [
             { title: "Level", desc: "Intermediate" },
@@ -133,8 +133,8 @@ const CoursesData = [
         durationType: "Months",
         startDate: "2025-01-20T17:24:04.585Z",
         price: 150000,
-        coverImage: "https://shecancode-website-dev.vercel.app/education-2.png",
-        secondImage: "https://shecancode-website-dev.vercel.app/education-2.png",
+        coverImage: "/scc28.jpeg",
+        secondImage: "/scc28.jpeg",
         isOpen: false,
         keyInfo: [
             { title: "Authentic Certificate", desc: "Earn a Certificate upon completion" },
@@ -168,8 +168,8 @@ const CoursesData = [
         durationType: "Months",
         startDate: "",
         price: 100000,
-        coverImage: "https://shecancode-website-dev.vercel.app/education-2.png",
-        secondImage: "https://shecancode-website-dev.vercel.app/education-2.png",
+        coverImage: "/scc29.jpeg",
+        secondImage: "/scc29.jpeg",
         isOpen: false,
         keyInfo: [
             { title: "Authentic Certificate", desc: "Earn a Certificate upon completion" },

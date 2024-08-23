@@ -7,7 +7,7 @@ const blogs = [
         categories: ["Career Readiness"],
         description: "Efficiently empower seamless meta-services with impactful opportunities. Distinctively transition virtual outsourcing with focused e-tailers.",
         content: "SheCanCode has trained more than 100 students in 2024, making it the largest tech training provider in the country.",
-        coverImage: "https://shecancode-website-dev.vercel.app/banner_img.png",
+        coverImage: "/scc18.jpg",
     },
     {
         title: "Top Tips to Master Networking Events",
@@ -17,7 +17,7 @@ const blogs = [
         description: "SheCanCode has trained more than 100 students in 2024, making it the largest tech training provider in the country",
         categories: ["Networking", "Career Readiness"],
         content: "Learn valuable strategies to make meaningful connections and impress potential employers at networking events.",
-        coverImage: "https://shecancode-website-dev.vercel.app/banner_img.png",
+        coverImage: "/scc32.jpeg",
     },
     {
         title: "Essential Time Management Techniques for Busy Professionals",

@@ -1,6 +1,6 @@
 const LearnerExpeactionsPageData = {
     
-    backgroundImage: "cfb.jpg",
+    backgroundImage: "scc34.jpeg",
     updatedAt: "",
     title: "SheCanCODE Learn Expectations and Conduct Policy",
     subTitle: "",
