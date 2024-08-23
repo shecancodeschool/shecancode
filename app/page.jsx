@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react';
 
 import HomeBanner from "../components/sections/home/HomeBanner";
 import HomeSloganSection from "../components/sections/home/HomeSloganSection";
@@ -34,7 +34,7 @@ export default function Home() {
 
   return (
     <div className='relative'>
-      {showModal && <PopupModel closeModal={closeModal} />}
+      {showModal && <PopupModel course={CoursesData[0]} closeModal={closeModal} />}
       <HomeBanner
         bannerData={HomePageData.bannerData}
         statistics={HomePageData.statistics}

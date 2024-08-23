@@ -3,8 +3,7 @@ import Image from 'next/image';
 import LogoImage from "../public/logo/logo1.png";
 import Link from "next/link"
 import { FaLinkedinIn } from 'react-icons/fa';
-import { AiFillInstagram } from "react-icons/ai";
-import { AiFillFacebook } from "react-icons/ai";
+import { AiFillInstagram, AiFillTwitterSquare } from "react-icons/ai";
 import { FaLocationDot } from "react-icons/fa6";
 import { MdOutlineEmail } from "react-icons/md";
 import { FaPhoneAlt } from "react-icons/fa";
@@ -29,18 +28,18 @@ const Footer = () => {
           <div className="flex flex-col mb-1 md:mb-0">
             <p className="text-sky-500 font-semibold my-4">Follow us</p>
             <div className="flex flex-col gap-2">
-              <a href="https://www.linkedin.com/company/shecancodeschool" className="flex items-center space-x-2 hover:text-sky-500">
+              <Link href="https://www.linkedin.com/company/shecancodeschool" className="flex items-center space-x-2 hover:text-sky-500">
                 <FaLinkedinIn className='text-sky-600' />
                 <span className='font text-[#CFD3D7]'>LinkedIn</span>
-              </a>
-              <a href="#" className="flex items-center space-x-2 hover:text-sky-500">
+              </Link>
+              <Link href="https://www.instagram.com/igire_rwanda/" className="flex items-center space-x-2 hover:text-sky-500">
                 <AiFillInstagram className='text-sky-600' />
                 <span className='font text-[#CFD3D7]'>Instagram</span>
-              </a>
-              <a href="#" className="flex items-center space-x-2 hover:text-sky-500">
-                <AiFillFacebook className='text-sky-600' />
-                <span className='font text-[#CFD3D7]'>Facebook</span>
-              </a>
+              </Link>
+              <Link href="https://x.com/ShecancodeRW" className="flex items-center space-x-2 hover:text-sky-500">
+                <AiFillTwitterSquare className='text-sky-600' />
+                <span className='font text-[#CFD3D7]'>Tweeter/X</span>
+              </Link>
             </div>
           </div>
 
@@ -75,8 +74,14 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-start mb-9 space-y-5 flex-wrap-reverse md:space-y-0 mt-4">
           <ul className="flex space-x-1 md:space-x-2 items-start text-start justify-start list-none">
             <li>
+              <Link href="/courses" className="md:text-sm text-base text-[#CFD3D7] hover:text-white font cursor-pointer">
+                Courses
+              </Link>
+            </li>
+            <span>|</span>
+            <li>
               <Link href="/careers" className="md:text-sm text-base text-[#CFD3D7] hover:text-white font cursor-pointer">
-                Career
+                Careers
               </Link>
             </li>
             <span>|</span>

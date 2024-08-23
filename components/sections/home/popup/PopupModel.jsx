@@ -4,23 +4,9 @@ import { ArrowRightIcon } from '@radix-ui/react-icons';
 import Image from 'next/image';
 import { IoIosCloseCircle } from "react-icons/io";
 
-const ModalContent = {
-    backgroundImage: "/cfb.jpg",
-    title: "Hybrid Full-stack Course for Starters",
-    duration: {
-        value: 15,
-        type: "Weeks"
-    },
-    subTitle: "Create a good fundation in software development through project based learning",
-    description: "Kick of and upscale your web development skills throught real world projects with the most popular JavaScript frameworks",
-    address: "/courses/hybrid-full-stack-development"
-}
-
-export default function PopupModel({ closeModal }) {
-    // console.log(ModalContent.backgroundImage);
-
+export default function PopupModel({ course, closeModal }) {
     const jssStyles = {
-        backgroundImage: `linear-gradient(to bottom, rgb(0, 61, 102, 1), rgb(0, 138, 230, 0.6)), url(${ModalContent.backgroundImage})`,
+        backgroundImage: `linear-gradient(to bottom, rgb(0, 61, 102, 1), rgb(0, 138, 230, 0.6)), url(${course.coverImage})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         transition: 'background-image 0.3s ease-in-out',
@@ -41,18 +27,18 @@ export default function PopupModel({ closeModal }) {
                     </div>
                     <div className='flex gap-4 justify-start'>
                         <div className='flex flex-col gap-2 justify-start'>
-                            <h2 className="font-bold text-7xl md:text-9xl text-orange-200">{ModalContent.duration.value}</h2>
-                            <span className='text-orange-200 text-xl'>{ModalContent.duration.type}</span>
+                            <h2 className="font-bold text-7xl md:text-9xl text-orange-200">{course.duration}</h2>
+                            <span className='text-orange-200 text-xl'>{course.durationType}</span>
                         </div>
                         <div className='flex flex-col justify-start gap-2 mb-8 items-start'>
-                            <h3 className='font-extrabold text-4xl text-start'>{ModalContent.title}</h3>
-                            <h4 className='text-orange-300 text-left text-2xl font-extrabold'>{ModalContent.subTitle}</h4>
-                            <p className='text-start text-base'>{ModalContent.description}</p>
+                            <h3 className='font-extrabold text-4xl text-start'>{course.title}</h3>
+                            <h4 className='text-orange-300 text-left text-2xl font-extrabold'>{course.subTitle}</h4>
+                            <p className='text-start text-base'>{course.description}</p>
                         </div>
                     </div>
                 </div>
                 <div className='flex justify-end'>
-                    <Link className='text-start px-3 py-1 bg-white hover:bg-black rounded-md w-fit flex items-center text-base justify-center gap-2 mt-4 text-black font-extrabold hover:text-white cursor-pointer' href={ModalContent.address} >
+                    <Link className='text-start px-3 py-1 bg-white hover:bg-black rounded-md w-fit flex items-center text-base justify-center gap-2 mt-4 text-black font-extrabold hover:text-white cursor-pointer' href={`/courses/${course.slug}`} >
                         <span>More details</span>
                         <ArrowRightIcon width={20} />
                     </Link>

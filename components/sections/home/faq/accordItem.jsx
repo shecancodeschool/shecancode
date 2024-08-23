@@ -1,14 +1,15 @@
 "use client"
+
 import { useState } from 'react';
-import { Transition } from '@headlessui/react';
+import Link from 'next/link';
 
 const AccordionItem = ({ question, answer, isOpen, onClick }) => (
     <div className="border-b border-[#D9D9D9]/75 mt-6">
         <button
-            className="w-full flex justify-between items-center text-left text-[#FAFAFA]/90 focus:outline-none py-4"
+            className="w-full flex font-bold justify-between items-center text-left text-[#FAFAFA]/90 focus:outline-none py-4"
             onClick={onClick}
         >
-            <span className='md:text-[20px] text-sm font'>{question}</span>
+            <span className='text-lg md:text-xl font'>{question}</span>
             <span className="ml-2">
                 {isOpen ? (
                     <svg
@@ -42,7 +43,7 @@ const AccordionItem = ({ question, answer, isOpen, onClick }) => (
                     </svg>
                 )}
             </span>
-        </button>{isOpen && <p className="overflow-hidden transition-all duration-500 ease-in-out px-1 pb-4 text-xs md:text-[16px] font text-[#FAFAFA]/90">{answer}</p>}
+        </button>{isOpen && <p className="overflow-hidden transition-all duration-500 ease-in-out px-1 pb-4 text-base text-[#FAFAFA]/90">{answer}</p>}
     </div>
 );
 
@@ -66,9 +67,9 @@ const Accordion = ({ items }) => {
                 />
             ))}
 
-            <div className=' flex my-9 justify-center gap-3 items-center'>
-                <p className='font md:text-[16px] text-sm '>My question is not here.</p>
-                <button className='p-2 uppercase md:text-[16px] text-xs font rounded bg-[#0B2B4E]' >Connect Us</button>
+            <div className=' flex my-9 justify-center gap-3 text-white items-center'>
+                <p className='font md:text-base text-sm '>My question is not here.</p>
+                <Link href={'/contact-us'} className='p-2 uppercase md:text-[16px] text-xs font rounded bg-[#0B2B4E]' >Contact Us</Link>
             </div>
         </div>
     );

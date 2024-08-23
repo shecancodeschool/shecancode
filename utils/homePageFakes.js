@@ -1,7 +1,7 @@
 const HomePageData = {
     bannerData: {
         title: "The leading channel to get more women in tech",
-        backgroundImage: "/banner_img.png",
+        backgroundImage: "/F8.jpeg",
         description: "Join our community of more than 800 successful women in tech today.",
         buttonOne: {
             label: "Explore courses",
@@ -29,7 +29,7 @@ const HomePageData = {
     ],
     sloganDescriptionData: {
         image: {
-            source: "/blog-sm.jpg",
+            source: "/F9.jpeg",
             alt: "Graduate"
         },
         title: "We're the leading program in empowering women in tech.",
@@ -87,8 +87,8 @@ const HomePageData = {
     },
     servicesSectionData: {
         sectionTitle: "Benefit from Out Experience In Empowering Young Women",
-        imageOne: "/education-1.jpg",
-        imageTwo: "/education-2.png",
+        imageOne: "/F9.jpeg",
+        imageTwo: "/education-1.jpg",
         items: [
             {
                 icon: "/community.svg",
@@ -134,28 +134,40 @@ const HomePageData = {
     },
     faqsSectionData: {
         title: "Do you have questions?",
-        background: "/3.png",
+        background: "/F4.jpg",
         faqs: [
             {
-                question: "What is your return policy?",
-                answer: "We offer a 15-day return window for a full refund or exchange on unused items. Returns must include original packaging and proof of purchase for processing."
+                question: "Who can be admitted to SheCanCODE?",
+                answer: "If you are a young woman or man with or with no prior coding experience, if you find a passion for coding and want to make a career change, and if there is a course available that will help you achieve your goals, then SheCanCODE is the right place for you."
             },
             {
-                question: "Do you offer international shipping?",
-                answer: "Yes, we offer international shipping to many countries. Shipping costs and delivery times vary by destination."
+                question: "Can I join SheCanCODE if I do not have prior knowledge and experience in Coding?",
+                answer: "Yes, however, you will need to apply to a course that fits the coding experience you have to make it easy for you to learn, and benefit to the fullest from the experience. We have designed courses in which all categories of trainees can be comfortable in."
             },
             {
-                question: "What if I receive a damaged or defective product?",
-                answer: "If you receive a damaged or defective product, please contact our customer support immediately for assistance."
+                question: "Are boys or men allowed to join SheCanCODE?",
+                answer: "While SheCanCODE's primary goal is to empower and uplift women through facilitating their career growth especially in tech-related domains, we also have various programs that are mixed."
             },
             {
-                question: "Are the product colors on the website accurate?",
-                answer: "While we strive to display product colors accurately, there may be slight variations due to monitor settings and lighting conditions."
+                question: "How long does training at SheCanCODE take?",
+                answer: "Trainings at SheCanCODE can take between 3 to 6 months depending on the course. We have designed our courses to be flexible and adaptable to your needs and experience."
             },
             {
-                question: "How do I contact customer support?",
-                answer: "You can contact our customer support via email at support@example.com or by calling 1-800-123-4567."
-            }
+                question: "How much does it cost to join trainings at SheCanCODE?",
+                answer: "Training costs range from $50 to $400 according to the course. However, with our partnerships, we are able to offer programs on discounts to ensure that you can benefit from our programs regardless of you economic situation."
+            },
+            {
+                question: "Can I pay for a course in installments?",
+                answer: "Yes, according to the price of the course you have chosen. We offer flexibility in the payment process. However, to start a course you must pay 50% percent of the total course fee or bellow according to the course cost."
+            },
+            {
+                question: "What can I do if a course I want to join has not yet started?",
+                answer: "On upcoming courses or courses that are not available but listed to our website, we allow you to apply so that we can have you on our pending list and start by you once the application process starts. However, whenever we open new applications, it is publicly advertised on our social accounts and displayed on the home page of our website."
+            },
+            {
+                question: "How can I get in touch with SheCanCODE Bootcamp to get answers of other questions I have?",
+                answer: "If you have questions or need more clarifications, you can contact us via email at education@igirerwanda.org or via our contact form. You can also call us at: +20787819193"
+            },
         ]
     },
 };
