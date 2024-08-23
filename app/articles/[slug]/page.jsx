@@ -50,7 +50,7 @@ const page = async ({ params }) => {
             <FaCircleUser className="text-4xl" />
             <div className="text-base">
               <p>By {blog.author}</p>
-              <p>Published on {new Date(blog.publicationDate).toDateString()}</p>
+              <p>Published on {new Date(blog.publishedOn).toDateString()}</p>
             </div>
           </div>
           <Link href={`/articles/${blog.slug}/#content`} className="bg-[#317ACC] py-3 px-6 text-white rounded-md hover:bg-[#296494]">
