@@ -12,9 +12,11 @@ import StatisticsSection from "../components/sections/home/StatisticsSection";
 import ServicesSection from "../components/sections/home/ServicesSection";
 import ReviewsSection from "../components/sections/home/review/ReviewsSection";
 import PopupModel from "../components/sections/home/popup/PopupModel";
+import ArticlesSection from '@/components/sections/home/ArticlesSection';
 
 import HomePageData from "@/utils/homePageFakes";
 import coursesFakes from "@/utils/coursesFakes";
+import ArticlesFakes from "@/utils/blogsAndCategoriesFakes";
 
 export default function Home() {
   const { CoursesData, ...rest } = coursesFakes;
@@ -50,8 +52,9 @@ export default function Home() {
         homePageCoursesSectionData={HomePageData.homePageCoursesSectionData}
         courses={CoursesData}
       />
-      <PartnersSection
-        partnersAndHiringCompaniesSectionData={HomePageData.partnersAndHiringCompaniesSectionData}
+      <ArticlesSection articles={ArticlesFakes.blogs}/>
+      <ReviewsSection
+        reviewsSectionContent={HomePageData.reviewsSectionData}
       />
       <StatisticsSection
         statisticsSectionData={HomePageData.statisticsSectionData}
@@ -60,8 +63,8 @@ export default function Home() {
       <ServicesSection
         servicesSectionData={HomePageData.servicesSectionData}
       />
-      <ReviewsSection
-        reviewsSectionContent={HomePageData.reviewsSectionData}
+      <PartnersSection
+        partnersAndHiringCompaniesSectionData={HomePageData.partnersAndHiringCompaniesSectionData}
       />
       <FaqSection
         faqSectionData={HomePageData.faqsSectionData}

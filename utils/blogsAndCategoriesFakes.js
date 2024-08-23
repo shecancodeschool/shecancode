@@ -13,7 +13,7 @@ const blogs = [
         title: "Top Tips to Master Networking Events",
         slug: "top-tips-to-master-networking-events",
         author: "Jane Smith",
-        publishedOn: "2024-08-11",  // Assuming today's publishedOn
+        publishedOn: "2024-08-10T16:00:59.526Z",
         description: "SheCanCode has trained more than 100 students in 2024, making it the largest tech training provider in the country",
         categories: ["Networking", "Career Readiness"],
         content: "Learn valuable strategies to make meaningful connections and impress potential employers at networking events.",
@@ -23,7 +23,7 @@ const blogs = [
         title: "Essential Time Management Techniques for Busy Professionals",
         slug: "essential-time-management-techniques-for-busy-professionals",
         author: "Michael Lee",
-        publishedOn: "2024-08-08",  // Assuming a recent publishedOn
+        publishedOn: "2024-08-10T16:00:59.526Z",
         categories: ["Productivity"],
         description: "SheCanCode has trained more than 100 students in 2024, making it the largest tech training provider in the country",
         content: "Discover effective time management methods to boost your efficiency and achieve your goals.",

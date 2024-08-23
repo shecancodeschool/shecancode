@@ -242,10 +242,6 @@ const CourseCategories = [
         slug: "web-development",
     },
     {
-        name: "Cloud computing",
-        slug: "cloud-computing",
-    },
-    {
         name: "Mobile Application Development",
         slug: "mobile-application-development",
     },
