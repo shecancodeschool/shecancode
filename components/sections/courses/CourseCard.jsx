@@ -1,8 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
+import { numberToMonth } from '@/utils/NumberFunctions';
 
 const CourseCard = ({ course }) => {
-  const { title, description, duration, durationType, price, coverImage, slug, isOpen } = course;
+  const { title, description, duration, durationType, startDate, price, coverImage, slug, isOpen } = course;
 
   return (
     <div className='flex flex-col sm:w-[48%] md:w-[22%] shadow-md mb-10 rounded-md bg-white'>
@@ -15,7 +16,7 @@ const CourseCard = ({ course }) => {
           willChange: 'background-image',
         }}
       >
-        {isOpen && <div className='z-50 bg-orange-500 w-fit px-3 py-1 rounded-tl-md'>Now Open</div>}
+        {isOpen && <div className='z-50 bg-orange-500 w-fit px-3 py-1 text-sm rounded-tl-md'>{numberToMonth(new Date(startDate).getMonth())} Intake Now Open</div>}
         {!isOpen && <div className='z-50 bg-blue-500 w-fit px-3 py-1 rounded-tl-md'>Coming soon</div>}
       </div>
       <div className='flex flex-col py-6 px-4 text-black justify-between min-h-72 gap-2 flex-wrap'>
