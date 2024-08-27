@@ -3,7 +3,7 @@ import ReusableSection from '../../ReusableSection';
 
 const VisionMission = ({ mission, vision }) => {
   return (
-    <ReusableSection flexDirection={"row"} isTopSection>
+    <ReusableSection flexDirection={"row"} background={"white"}>
       <div className='flex justify-between flex-wrap'>
           {/* Vision Section */}
           <div className="mb-8 w-full md:w-[48%]">

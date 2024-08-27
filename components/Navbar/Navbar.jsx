@@ -29,7 +29,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className={`${scrolled && 'bg-white bg-opacity-100'} ${!scrolled && 'bg-white bg-opacity-0 border-none text-white'} w-full z-40 fixed border-b`}>
+    <nav className={`${scrolled && 'bg-white bg-opacity-100'} ${!scrolled && 'bg-white bg-opacity-0 border-none text-white'} w-full z-40 md:px-4 fixed border-b`}>
       <div className="flex items-center font-medium justify-between mx-auto max-w-screen-xl">
         <div className="z-50 p-4 md:p-0 md:w-auto w-full flex justify-between">
           <Link href={'/'} onClick={() => setOpen(false)}>

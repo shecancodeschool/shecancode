@@ -1,3 +1,5 @@
+import AnimatedNumbers from "@/components/AnimatedNumbers";
+import { textLimiter } from "@/utils/textLimiter";
 import Link from "next/link";
 
 const HomeBanner = (props) => {
@@ -13,7 +15,7 @@ const HomeBanner = (props) => {
     };
 
     return (
-        <div className='flex flex-col min-h-screen items-center justify-between mx-auto w-full pt-36 md:pt-48 overflow-hidden' style={jssStyles}>
+        <div className='flex flex-col items-center justify-between mx-auto w-full pt-36 md:pt-48 overflow-hidden' style={jssStyles}>
             <div className={`flex place-items-center`}>
                 <div className={`flex flex-col gap-6 items-center px-4 md:px-12 justify-center text-white w-full max-w-screen-xl`}>
                     <h1 className="text-3xl mb-8 md:text-5xl font-extrabold text-center">{title}</h1>
@@ -36,21 +38,23 @@ const HomeBanner = (props) => {
                     </div>
                 </div>
             </div>
-            <div className="flex flex-col bg-black bg-opacity-50 w-full">
+            <div className="flex flex-col bg-black mt-24 bg-opacity-50 w-full">
                 <div className={`flex flex-col text-white w-full`}>
-                    <div className="hidden md:flex justify-center items-center border-b">
+                    {statistics && <div className="hidden md:flex justify-center items-center border-b">
                         {statistics.map((stat, index) => (
                             <div className="px-12 py-8 flex flex-col text-center gap-2" key={index}>
-                                <span className="font-extrabold text-3xl text-cyan-400">{stat.number} {stat.sign}</span>
+                                <span className="font-extrabold text-3xl text-sky-500 flex gap-2 items-center mx-auto">
+                                    <AnimatedNumbers n={stat.number} />
+                                    <span>{stat.sign}</span></span>
                                 <span className="text-lg">{stat.title}</span>
                             </div>
                         ))}
-                    </div>
+                    </div>}
                     <div className="m-auto px-4 max-w-screen-xl">
                         <p className="flex gap-4 pt-4 pb-16 md:pb-8 flex-wrap">
-                            <span className="font-extrabold text-orange-300">{courseAdvertTitle}</span>
+                            <span className="font-extrabold text-orange-500">{courseAdvertTitle}</span>
                             <span className=" md:text-base">
-                                {openCourse.description}
+                                {textLimiter(openCourse.description, 99)}
                                 <Link href={`/courses/${openCourse.slug}`} className="text-[#6AACE8] inline"> Learn more</Link>
                             </span>
                         </p>

@@ -64,7 +64,7 @@ export default function page() {
           ))}
         </div>
       </ReusableSection>
-      <div className={`flex items-center justify-center mx-auto w-full px-4 md:px-12 py-4 overflow-hidden`}>
+      <div className={`flex items-center justify-center mx-auto w-full px-4 md:px-12 py-16 overflow-hidden bg-white`}>
         <div className={`flex flex-col gap-6 items-center justify-center text-white w-full max-w-screen-xl`}>
           <div className="flex flex-col gap-6 items-center justify-center w-full">
             <h3 className="text-2xl mt-6 md:mt-0 md:text-3xl font-bold text-[#317ACC]">{reasonsToJoinOurTeam.title}</h3>
@@ -81,7 +81,7 @@ export default function page() {
           </div>
         </div>
       </div>
-      <ReusableSection isTopSection background={"#e6f2ff"}>
+      <ReusableSection isTopSection>
         <div id="jobs" className="flex pt-10 md:pt-24 flex-col gap-6 items-center mb-6 md:mb-12 justify-center w-full">
           <h3 className="text-2xl md:text-3xl text-left w-full font-bold text-[#317ACC]">Open Positions</h3>
           {(Jobs && Jobs.length > 0) && <div className="grid grid-cols-1 mt-3 md:grid-cols-2 gap-3 md:gap-4 w-full">

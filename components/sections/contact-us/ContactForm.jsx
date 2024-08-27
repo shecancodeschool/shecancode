@@ -68,8 +68,8 @@ const ContactForm = () => {
   };
 
   return (
-    <ReusableSection isTopSection>
-      <div className='flex justify-between flex-wrap bg-slate-50 w-full border p-8 md:p-20 shadow-lg rounded-md'>
+    <ReusableSection isTopSection background="">
+      <div className='flex justify-between flex-wrap bg-white w-full border p-8 md:p-20 shadow-lg rounded-md'>
         {/* Left side  */}
         <div className="flex flex-col justify-between items-start w-full md:w-[48%] mb-10">
           {successMessage && <strong className="font-bold">{successMessage}</strong>}

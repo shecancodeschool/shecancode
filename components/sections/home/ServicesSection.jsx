@@ -5,7 +5,7 @@ import ReusableSection from '../../ReusableSection';
 
 const ServicesSection = ({ servicesSectionData }) => {
     return (
-        <ReusableSection background={'slate-100'}>
+        <ReusableSection background={'white'}>
             <div className="max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24">
                 {/* Image grid */}
                 <div className=" h-[474px]  md:flex hidden gap-4 flex-col rounded bg-[#6AACE8]/10 items-center relative">
