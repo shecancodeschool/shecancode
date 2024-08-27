@@ -18,6 +18,14 @@ import HomePageData from "@/utils/homePageFakes";
 import coursesFakes from "@/utils/coursesFakes";
 import ArticlesFakes from "@/utils/blogsAndCategoriesFakes";
 
+const jsonLd = {
+  '@context': 'https://shecancode.vercel.app',
+  '@type': 'Training Program',
+  name: 'Welcome to SheCanCODE Bootcamp',
+  image: 'https://shecancode.vercel.app/F8.jpeg',
+  description: 'Welcome to the best and the most intense coding training program for women in Rwanda.',
+}
+
 export default function Home() {
   const { CoursesData, ...rest } = coursesFakes;
   const [showModal, setShowModal] = useState(false);
@@ -36,6 +44,10 @@ export default function Home() {
 
   return (
     <div className='relative'>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {showModal && <PopupModel course={CoursesData[0]} closeModal={closeModal} />}
       <HomeBanner
         bannerData={HomePageData.bannerData}

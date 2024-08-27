@@ -33,7 +33,7 @@ const HomePageData = {
             alt: "Graduate"
         },
         title: "We're the leading program in empowering women in tech.",
-        description: "In SheCanCODE, we train you from ground up and train you to think, work and approach problems as a software developer. In the last 6 years, SheCanCODE has delivered more than 800 women to the Job market in Tech related fields.",
+        description: "In SheCanCODE, we train you from ground up and train you to think, work and approach problems as a software developer. Since 2028, SheCanCODE has delivered more than 800 women to the Job market in Tech related fields.",
         button: {
             label: "Explore Courses",
             location: "/courses"
