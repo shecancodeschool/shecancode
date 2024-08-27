@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { numberToMonth } from '@/utils/NumberFunctions';
+import { textLimiter } from '@/utils/textLimiter';
 
 const CourseCard = ({ course }) => {
   const { title, description, duration, durationType, startDate, price, coverImage, slug, isOpen } = course;
@@ -22,11 +23,11 @@ const CourseCard = ({ course }) => {
       <div className='flex flex-col py-6 px-4 text-black justify-between min-h-72 gap-2 flex-wrap'>
         <div className='flex flex-col gap-2'>
           <h3 className='text-xl text-sky-700 font-bold'>{title}</h3>
-          <p className='text-sm'>{description}</p>
+          <p className='text-sm'>{textLimiter(description, 100)}</p>
         </div>
         <div className='flex justify-between items-center'>
           <span>{duration} {durationType}</span>
-          <span className='ml-4'>{price === 0 ? "Free" : price} {price !== 0 && "Rwf"}</span>
+          <span className='ml-4 font-extrabold text-sky-600'>{price === 0 ? "Free" : price} {price !== 0 && "Rwf"}</span>
         </div>
         <div className='flex flex-col gap-2'>
           <Link href={`/courses/${slug}/apply`} className='w-full text-center bg-sky-600 hover:bg-sky-700 text-white text-sm rounded-2xl p-1'>Enroll Now</Link>

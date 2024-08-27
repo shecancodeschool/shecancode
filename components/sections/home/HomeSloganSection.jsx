@@ -1,11 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 
 const HomeSloganSection = ({ sloganDescriptionData }) => {
     const { image, title, description, button } = sloganDescriptionData;
     return (
-        <section className="bg-gradient-to-b from-sky-600 to-sky-200 h-auto mx-auto md:h-full overflow-hidden flex flex-col items-center justify-center">
+        <section className="h-auto mx-auto md:h-full overflow-hidden flex flex-col items-center justify-center">
             <div className='max-w-screen-xl mx-auto flex flex-wrap-reverse w-full items-center justify-between place-content-center px-4 py-16 md:py-24'>
                 <div className="flex justify-center items-center w-full md:w-[48%] mt-8 md:mt-0">
                     {/* <Image
@@ -19,7 +18,7 @@ const HomeSloganSection = ({ sloganDescriptionData }) => {
                 </div>
 
                 <div className="flex flex-col gap-4 justify-start items-start text-left w-full md:w-[48%]">
-                    <h2 className="section-header" style={{ textAlign: "left", color: "white" }}>{title}</h2>
+                    <h2 className="section-header" style={{ textAlign: "left" }}>{title}</h2>
                     <p className="text-base md:text-xl w-full">{description}</p>
                     <div className="flex justify-start mt-2">
                         <Link href={button.location} className="bg-[#317ACC] py-3 px-6 w-full md:w-fit text-white rounded-md hover:bg-[#296494]">

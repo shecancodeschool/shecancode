@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { ArrowRightIcon } from '@radix-ui/react-icons';
 import Image from 'next/image';
 import { IoIosCloseCircle } from "react-icons/io";
+import { textLimiter } from '@/utils/textLimiter';
 
 export default function PopupModel({ course, closeModal }) {
     const jssStyles = {
@@ -23,7 +24,7 @@ export default function PopupModel({ course, closeModal }) {
                 </button>
                 <div className='flex flex-col gap-4 text-white w-full'>
                     <div className='flex justify-end'>
-                        <Image src={'/logoscc.png'} alt='logo' className='bg-white p-2' height={100} width={100} />
+                        <Image src={'/logoscc.png'} alt='logo' className='bg-white p-2' height={80} width={80} />
                     </div>
                     <div className='flex gap-4 justify-start'>
                         <div className='flex flex-col gap-2 justify-start'>
@@ -33,7 +34,7 @@ export default function PopupModel({ course, closeModal }) {
                         <div className='flex flex-col justify-start gap-2 mb-8 items-start'>
                             <h3 className='font-extrabold text-4xl text-start'>{course.title}</h3>
                             <h4 className='text-orange-300 text-left text-2xl font-extrabold'>{course.subTitle}</h4>
-                            <p className='text-start text-base'>{course.description}</p>
+                            {/* <p className='text-start text-base'>{textLimiter(course.description, 120)}</p> */}
                         </div>
                     </div>
                 </div>

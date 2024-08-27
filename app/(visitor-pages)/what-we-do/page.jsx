@@ -46,6 +46,7 @@ export default function page() {
           return (
             <Activity
               key={index + 2}
+              isTopSection={index === 0}
               orientation={"left-right"}
               activity={WhatWeDoPageFakes.activities[index]}
             />
@@ -55,6 +56,7 @@ export default function page() {
         return (
           <Activity
             key={index + 2}
+            isTopSection={index === 0}
             orientation={"right-left"}
             activity={WhatWeDoPageFakes.activities[index]}
           />
@@ -66,12 +68,12 @@ export default function page() {
 }
 
 
-const Activity = ({ orientation, activity }) => {
+const Activity = ({ isTopSection, orientation, activity }) => {
   const { title, description, items, photo } = activity;
 
   if (orientation === "left-right") {
     return (
-      <ReusableSection isTopSection>
+      <ReusableSection isTopSection={isTopSection}>
         <div className="flex justify-between flex-wrap-reverse">
           {/* Content  */}
           <div className="flex flex-col w-full md:w-[48%] mb-8 md:mb-0 mt-5 md:mt-0">
@@ -98,7 +100,7 @@ const Activity = ({ orientation, activity }) => {
   }
 
   return (
-    <ReusableSection isTopSection>
+    <ReusableSection background="white" isTopSection={isTopSection} >
       <div className="flex justify-between flex-wrap">
         {/* Photo  */}
         <div className={`flex flex-col w-full md:w-[48%]`}>

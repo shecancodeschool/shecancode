@@ -8,7 +8,7 @@ const HomePageData = {
             location: "/courses"
         },
         buttonTwo: {
-            label: "Hire Talent",
+            label: "Hire Talents",
             location: "/contact-us"
         },
         courseAdvertTitle: "New Application Open"

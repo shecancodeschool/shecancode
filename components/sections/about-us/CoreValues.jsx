@@ -5,7 +5,7 @@ import Image from 'next/image';
 export default function CoreValues({ values }) {
   const { title, description, listOfValues } = values;
   return (
-    <ReusableSection flexDirection={"row"} isTopSection>
+    <ReusableSection flexDirection={"row"}>
       {/* Our Values Section */}
       <div className="flex justify-center md:mb-8">
         <div className="text-center">

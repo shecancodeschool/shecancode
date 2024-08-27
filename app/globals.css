@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 body {
-  background: #ffffff;
+  background: rgb(240, 249, 255);
   color: black;
   font-family: 'K2D', sans-serif;
 }

@@ -33,7 +33,7 @@ export default function Home() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowModal(true);
-    }, 3000); // Show modal after 3 seconds
+    }, 500); // Show modal after 3 seconds
 
     return () => clearTimeout(timer); // Cleanup the timer
   }, []);
@@ -54,19 +54,21 @@ export default function Home() {
         statistics={HomePageData.statistics}
         openCourse={CoursesData[0]}
       />
-      <SloganSection
+      {/* <SloganSection
         slogansData={HomePageData.slogansData}
-      />
+      /> */}
       <HomeSloganSection
         sloganDescriptionData={HomePageData.sloganDescriptionData}
+      />
+      <ReviewsSection
+        reviewsSectionContent={HomePageData.reviewsSectionData}
       />
       <CoursesSection
         homePageCoursesSectionData={HomePageData.homePageCoursesSectionData}
         courses={CoursesData}
       />
-      <ArticlesSection articles={ArticlesFakes.blogs}/>
-      <ReviewsSection
-        reviewsSectionContent={HomePageData.reviewsSectionData}
+      <ArticlesSection
+        articles={ArticlesFakes.blogs}
       />
       <StatisticsSection
         statisticsSectionData={HomePageData.statisticsSectionData}

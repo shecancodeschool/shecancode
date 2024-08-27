@@ -51,9 +51,9 @@ const page = () => {
         description={CoursesPageData.titleDescription}
         hasButton={false}
       />
-      <div className="bg-[#e6f2ff]" id="content">
+      <div id="content">
         <PageTitle orientation={"center"} title={CoursesPageData.subTitle} />
-        <ReusableSection isTopSection={"true"} background={'#e6f2ff'}>
+        <ReusableSection isTopSection={"true"}>
           <div className="w-full flex flex-col">
             <div className="flex justify-center items-center gap-2 md:gap-4 flex-wrap mb-8">
               {CourseCategories && CourseCategories.map((item, index) => (
