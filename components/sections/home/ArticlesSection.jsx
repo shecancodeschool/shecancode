@@ -3,13 +3,12 @@ import ReusableSection from '@/components/ReusableSection'
 import Image from 'next/image';
 import Link from 'next/link';
 
-
 export default function ArticlesSection({ articles }) {
-    console.log(articles);
+    // console.log(articles);
 
     return (
         <ReusableSection isTopSection>
-            <div className='flex flex-col w-full mx-auto text-black bg-white gap-8 md:gap-0'>
+            <div className='flex flex-col w-full mx-auto text-black bg-white gap-8 md:gap-0 pb-16'>
                 <PageTitle orientation={'center'} title={'Trending Stories'} />
                 <div className='flex w-full flex-wrap justify-between'>
                     <div className='flex flex-col w-full md:w-[48%] mb-8 md:mb-0'>

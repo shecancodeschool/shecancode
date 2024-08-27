@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image";
-import LogoImage from "../../public/logo/logo1.png";
+import LogoImage from "../../public/logo/logo3.png";
 import Link from "next/link";
 import NavLinks from "./NavLinks";
 import { IoMenuSharp } from "react-icons/io5";
@@ -30,7 +30,7 @@ const Navbar = () => {
 
   return (
     <nav className={`${scrolled && 'bg-white bg-opacity-100'} ${!scrolled && 'bg-white bg-opacity-0 border-none text-white'} w-full z-40 fixed border-b`}>
-      <div className="flex items-center font-medium justify-around mx-auto max-w-screen-2xl">
+      <div className="flex items-center font-medium justify-between mx-auto max-w-screen-xl">
         <div className="z-50 p-4 md:p-0 md:w-auto w-full flex justify-between">
           <Link href={'/'} onClick={() => setOpen(false)}>
             <Image src={LogoImage} alt="" className="h-9 w-auto md:cursor-pointer" />
