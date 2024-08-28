@@ -29,7 +29,7 @@ export default function RootLayout({ children }) {
         <meta property="og:image" content="/F9.jpeg" />
       </head>
       <body className={cn("flex flex-col justify-start", fontSans.variable)}>
-        <Toaster />
+        <Toaster position="top-right"/>
         <Navbar />
         {children}
         <Footer />

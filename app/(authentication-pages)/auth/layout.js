@@ -19,8 +19,10 @@ export default function RootLayout({ children }) {
         <meta property="og:image" content="/F9.jpeg" />
       </head>
       <body className="flex flex-col justify-start">
-        <Toaster />
-        {children}
+        <Toaster position="top-right"/>
+        <div className="flex justify-center items-center h-screen w-screen">
+          {children}
+        </div>
       </body>
     </html>
   );
