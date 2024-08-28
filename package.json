@@ -15,6 +15,7 @@
   "dependencies": {
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@headlessui/react": "^2.1.2",
+    "@hookform/resolvers": "^3.9.0",
     "@material-tailwind/react": "^2.1.9",
     "@mui/material": "^5.16.7",
     "@nextui-org/accordion": "^2.0.38",
@@ -46,6 +47,7 @@
     "otp-generator": "^4.0.1",
     "react": "^18",
     "react-dom": "^18",
+    "react-hook-form": "^7.53.0",
     "react-icons": "^5.3.0",
     "react-slugify": "^4.0.1",
     "recharts": "^2.12.7",

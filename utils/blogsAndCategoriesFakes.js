@@ -27,7 +27,7 @@ const blogs = [
         categories: ["Productivity"],
         description: "SheCanCode has trained more than 100 students in 2024, making it the largest tech training provider in the country",
         content: "Discover effective time management methods to boost your efficiency and achieve your goals.",
-        coverImage: "https://shecancode-website-dev.vercel.app/banner_img.png",
+        coverImage: "/scc32.jpeg",
     }
 ];
 
