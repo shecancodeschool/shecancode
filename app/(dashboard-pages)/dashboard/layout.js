@@ -1,9 +1,7 @@
 import "@/styles/globals.css";
 import Link from "next/link";
 import {
-    Bell,
     CircleUser,
-    Package2,
     Search,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -20,6 +18,7 @@ import SideNavigation from "./_components/SideNavigation";
 import MobileMenuBar from "./_components/MobileMenuBar";
 import Image from "next/image";
 import { Toaster } from "sonner";
+import LougoutButton from "./_components/LougoutButton";
 
 export const metadata = {
     title: "SheCanCODE Dashboard",
@@ -73,7 +72,9 @@ export default function RootLayout({ children }) {
                                     <DropdownMenuItem>Settings</DropdownMenuItem>
                                     <DropdownMenuItem>Support</DropdownMenuItem>
                                     <DropdownMenuSeparator />
-                                    <DropdownMenuItem>Logout</DropdownMenuItem>
+                                    <DropdownMenuItem>
+                                        <LougoutButton />
+                                    </DropdownMenuItem>
                                 </DropdownMenuContent>
                             </DropdownMenu>
                         </header>
