@@ -3,7 +3,7 @@ import { numberToMonth } from '../../../../../utils/NumberFunctions';
 import { textLimiter } from '../../../../../utils/textLimiter';
 
 const CourseCardTwo = ({ course }) => {
-  const { title, description, duration, durationType, startDate, price, coverImage, slug, isOpen } = course;
+  const { title, subTitle, duration, durationType, startDate, price, coverImage, slug, isOpen } = course;
 
   return (
     <div className='flex flex-col w-full md:w-2/3 lg:w-1/2 shadow-md rounded-md bg-white border-white border-2'>
@@ -22,7 +22,7 @@ const CourseCardTwo = ({ course }) => {
       <div className='flex flex-col py-6 px-4 text-black justify-between gap-2 flex-wrap'>
         <div className='flex flex-col gap-2'>
           <h3 className='text-xl text-sky-700 font-bold'>{title}</h3>
-          <p className='text-sm'>{textLimiter(description, 100)}</p>
+          <p className='text-sm'>{textLimiter(subTitle, 100)}</p>
         </div>
         <div className='flex justify-between items-center'>
           <span>{duration} {durationType}</span>

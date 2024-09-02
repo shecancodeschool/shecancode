@@ -1,62 +1,12 @@
 "use client"
 
-import { useEffect, useState } from "react";
-import { IoIosArrowDown } from "react-icons/io";
 import ReusableSection from "../../ReusableSection";
 import BlogPostContainer from "./BlogPostContainer";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-export default function ArticlesContainer({ blogsAndCategoriesFakes }) {
-    const [blogPosts, setBlogPosts] = useState([]);
-    const [selectedCategory, setSelectedCategory] = useState("All");
-    const [categories, setCategories] = useState([]);
-
-    useEffect(() => {
-        setCategories(blogsAndCategoriesFakes.blogCategories);
-
-        let blogs = [];
-        for (let index = 0; index < blogsAndCategoriesFakes.blogs.length; index++) {
-            if (index < 9) {
-                blogs.push(blogsAndCategoriesFakes.blogs[index]);
-            }
-        }
-        setBlogPosts(blogs);
-    }, [blogsAndCategoriesFakes.blogCategories, blogsAndCategoriesFakes.blogs])
-
-    // Function to fetch more articles 
-    const handleAddMoreArticles = (limit) => {
-        let blogs = [];
-        for (let index = 0; index < blogsAndCategoriesFakes.blogs.length; index++) {
-            if (index < limit) {
-                blogs.push(blogsAndCategoriesFakes.blogs[index]);
-            }
-        }
-        setBlogPosts(blogs);
-    };
-
-    // Function to filter blog posts based on selected category
-    const handleCategoryChange = (category) => {
-        setSelectedCategory(category);
-        let blogs = [];
-        if (category !== "All") {
-            for (let index = 0; index < blogsAndCategoriesFakes.blogs.length; index++) {
-                if (index < 6 && blogsAndCategoriesFakes.blogs[index].categories[0] === category) {
-                    blogs.push(blogsAndCategoriesFakes.blogs[index]);
-                } else if (index < 6 && blogsAndCategoriesFakes.blogs[index].categories[1] === category) {
-                    blogs.push(blogsAndCategoriesFakes.blogs[index]);
-                } else if (index < 6 && blogsAndCategoriesFakes.blogs[index].categories[2] === category) {
-                    blogs.push(blogsAndCategoriesFakes.blogs[index]);
-                }
-                setBlogPosts(blogs);
-            }
-        } else {
-            for (let index = 0; index < blogsAndCategoriesFakes.blogs.length; index++) {
-                if (index < 9) {
-                    blogs.push(blogsAndCategoriesFakes.blogs[index]);
-                }
-                setBlogPosts(blogs);
-            }
-        }
-    };
+export default function ArticlesContainer({ categories: blogCategories,blogs: articles }) {
+    const pathName = usePathname();
 
     return (
         <>
@@ -66,21 +16,21 @@ export default function ArticlesContainer({ blogsAndCategoriesFakes }) {
                     <div className="flex w-full pt-0 md:pt-10 flex-col gap-2">
                         <h3 className="section-sub-title">Categories</h3>
                         <div className="flex justify-start items-center flex-wrap gap-2">
-                            <button
-                                onClick={() => handleCategoryChange("All")}
-                                className={`${selectedCategory === "All" ? "bg-sky-700" : "bg-sky-500"} hover:bg-sky-700 px-[20px] py-[7px] font-bold text-base text-white`}
+                            <Link
+                                href={"/articles"}
+                                className={`${pathName === "/articles" ? "bg-sky-700" : "bg-sky-500"} hover:bg-sky-700 px-[20px] py-[7px] font-bold text-base text-white`}
                             >
                                 All
-                            </button>
-                            {categories &&
-                                categories.map((blogCategory, index) => (
-                                    <button
+                            </Link>
+                            {
+                                blogCategories?.map((blogCategory, index) => (
+                                    <Link
                                         key={index}
-                                        onClick={() => handleCategoryChange(blogCategory)}
-                                        className={`${selectedCategory === blogCategory ? "bg-sky-700" : "bg-sky-500"} hover:bg-sky-700 px-[20px] py-[7px] font-bold text-base text-white`}
+                                        href={`/articles/category/${blogCategory.slug}`}
+                                        className={`${pathName === `/articles/category/${blogCategory.slug}` ? "bg-sky-700" : "bg-sky-500"} hover:bg-sky-700 px-[20px] py-[7px] font-bold text-base text-white`}
                                     >
-                                        {blogCategory}
-                                    </button>
+                                        {blogCategory.name}
+                                    </Link>
                                 ))
                             }
                         </div>
@@ -91,14 +41,10 @@ export default function ArticlesContainer({ blogsAndCategoriesFakes }) {
             {/* Blog Posts */}
             <ReusableSection background={"#e6f2ff"}>
                 <div className="grid grid-cols-1 gap-4 md:gap-8 w-full sm:grid-cols-2 md:grid-cols-3 items-center justify-center md:flex-row md:justify-start">
-                    {blogPosts && blogPosts.map((blog, index) => (
+                    {articles?.map((blog, index) => (
                         <BlogPostContainer key={index} blog={blog} />
                     ))}
                 </div>
-                <button onClick={() => handleAddMoreArticles(blogPosts.length + 6)} className="text-black flex gap-2 items-center justify-center hover:bg-sky-200 hover:text-sky-600 py-1 px-2 rounded-md">
-                    <span>Show More</span>
-                    <IoIosArrowDown />
-                </button>
             </ReusableSection>
         </>
     )

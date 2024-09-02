@@ -3,7 +3,7 @@ import { FaArrowLeft } from "react-icons/fa"
 
 export default function JobDescriptionPageBanner({ job }) {
     const jssStyles = {
-        backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)), url("/scc34.jpeg")`,
+        backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)), url(${job.image})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         transition: 'background-image 0.3s ease-in-out',

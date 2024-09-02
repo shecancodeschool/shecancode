@@ -4,9 +4,11 @@ import ReusableSection from '../../../ReusableSection';
 import { toast } from "sonner";
 import { useFormState, useFormStatus } from "react-dom";
 import { applyForCourse } from '@/app/(visitor-pages)/_actions/courses';
+import { useRouter } from 'next/navigation';
 
 export default function ApplyForCourseForm({ courseId }) {
     const [response, action] = useFormState(applyForCourse, {});
+    const router = useRouter();
     
     if (response.error) {
         toast.error(response.error);
