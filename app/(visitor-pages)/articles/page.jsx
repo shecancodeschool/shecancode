@@ -1,8 +1,9 @@
 import BlogsPageData from "../../../utils/blogsPageFakes";
-import blogsAndCategoriesFakes from "@/utils/blogsAndCategoriesFakes";
 import { openGraphImage } from '../../shared-metadata';
 import ArticlesContainer from "../_components/sections/articles/ArticlesContainer";
 import DefaultPageBanner from "../_components/DefaultPageBanner";
+import { getCategories } from "@/app/(dashboard-pages)/dashboard/_actions/blogCategoryActions";
+import { getOnlyPublishedArticlesForBlog } from "@/app/(dashboard-pages)/dashboard/_actions/articlesActions";
 
 export const metadata = {
   title: 'Blog',
@@ -23,7 +24,14 @@ const jsonLd = {
   description: 'What is new in SheCanCode? Updates and news from SheCanCode.',
 }
 
-export default function Articles() {
+export default async function page() {
+  const allCategories = await getCategories();
+  const categories = JSON.parse(allCategories);
+  const categoriesExcludingPolicies = categories.filter(category => category.name !== "Policies");
+
+  const response = await getOnlyPublishedArticlesForBlog(false);
+  const data = JSON.parse(response);
+
   return (
     <>
       <script
@@ -36,7 +44,10 @@ export default function Articles() {
         description={BlogsPageData.titleDescription}
         hasButton={false}
       />
-      <ArticlesContainer blogsAndCategoriesFakes={blogsAndCategoriesFakes} />
+      <ArticlesContainer 
+        categories={categoriesExcludingPolicies}
+        blogs={data.articles}
+      />
     </>
   );
 };

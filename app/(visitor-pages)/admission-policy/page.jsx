@@ -1,4 +1,4 @@
-import AdmissionPolicyPageData from '../../../utils/admissionPolicyFakes';
+import { getAdmissionPolicy } from '@/app/(dashboard-pages)/dashboard/_actions/articlesActions';
 import { openGraphImage } from "../../shared-metadata";
 import DefaultPageBanner from '../_components/DefaultPageBanner';
 import AdmissionPolicyInformationSection from '../_components/sections/admission-policy/AdmissionPolicyInformationSection';
@@ -22,7 +22,10 @@ const jsonLd = {
   description: 'How we select and onboard new trainees at SheCanCODE.',
 }
 
-export default function page() {
+export default async function page() {
+  const response = await getAdmissionPolicy();
+  const admissionPolicy = JSON.parse(response);
+
   return (
     <>
       <script
@@ -30,11 +33,11 @@ export default function page() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <DefaultPageBanner
-        backgroundImage={AdmissionPolicyPageData.backgroundImage}
-        title={AdmissionPolicyPageData.title}
-        description={`Last updated: ${new Date(AdmissionPolicyPageData.updatedAt).toDateString()}`}
+        backgroundImage={admissionPolicy.image}
+        title={admissionPolicy.title}
+        description={`Last updated: ${new Date(admissionPolicy.updatedAt).toDateString()}`}
       />
-      <AdmissionPolicyInformationSection AdmissionPolicyPageData={AdmissionPolicyPageData} />
+      <AdmissionPolicyInformationSection AdmissionPolicyPageData={admissionPolicy} />
     </>
   )
 }

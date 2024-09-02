@@ -1,4 +1,4 @@
-import PrivacyPolicyPageData from '../../../utils/privacyPolicyFakes';
+import { getPrivacyPolicy } from '@/app/(dashboard-pages)/dashboard/_actions/articlesActions';
 import { openGraphImage } from "../../shared-metadata";
 import DefaultPageBanner from '../_components/DefaultPageBanner';
 import PrivacyPolicyInformationSection from '../_components/sections/privacyPolicy/PrivacyPolicyInformationSection';
@@ -14,15 +14,18 @@ export const metadata = {
   },
 }
 
-export default function PrivacyPolicy() {
+export default async function PrivacyPolicy() {
+  const response = await getPrivacyPolicy();
+  const privacyPolicy = JSON.parse(response);
+
   return (
     <>
       <DefaultPageBanner
-        backgroundImage={PrivacyPolicyPageData.backgroundImage}
-        title={PrivacyPolicyPageData.title}
-        description={`Last updated: ${new Date(PrivacyPolicyPageData.updatedAt).toDateString()}`}
+        backgroundImage={privacyPolicy.image}
+        title={privacyPolicy.title}
+        description={`Last updated: ${new Date(privacyPolicy.updatedAt).toDateString()}`}
       />
-      <PrivacyPolicyInformationSection PrivacyPolicyPageData={PrivacyPolicyPageData}/>
+      <PrivacyPolicyInformationSection PrivacyPolicyPageData={privacyPolicy}/>
     </>
   )
 }

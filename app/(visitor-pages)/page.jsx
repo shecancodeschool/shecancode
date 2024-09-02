@@ -6,11 +6,11 @@ import ServicesSection from "./_components/sections/home/ServicesSection";
 import PartnersSection from "./_components/sections/home/PartnersSection";
 
 import HomePageData from "/utils/homePageFakes";
-import ArticlesFakes from "/utils/blogsAndCategoriesFakes";
 import { getHomePageCourses } from "./_actions/courses";
 import HomeBannerTwo from "./_components/sections/home/HomeBannerTwo";
 import ReviewsSection from "./_components/sections/home/review/ReviewsSection";
 import StatisticsSection from "./_components/sections/home/StatisticsSection";
+import { getFeaturedArticle, getOnlyPublishedArticlesForBlog } from "../(dashboard-pages)/dashboard/_actions/articlesActions";
 
 const jsonLd = {
   '@context': 'https://shecancode.vercel.app',
@@ -22,8 +22,19 @@ const jsonLd = {
 
 const page = async () => {
   var courses = [];
+  var featuredArticle = {};
+  var articles = [];
+  var featuredCourse = {};
+  
   try {
     courses = await getHomePageCourses();
+    featuredCourse = courses.find(course => course.isFeatured === "Yes");
+    
+    let response = await getOnlyPublishedArticlesForBlog(true, 5); 
+    const data = JSON.parse(response);
+
+    featuredArticle = data.featuredArticle;
+    articles = data.articles;
   } catch (error) {
     console.log(error);
   }
@@ -37,7 +48,7 @@ const page = async () => {
       <HomeBannerTwo
         bannerData={HomePageData.bannerData}
         statistics={HomePageData.statistics}
-        course={courses[0]}
+        course={featuredCourse}
       />
       <HomeSloganSection
         sloganDescriptionData={HomePageData.sloganDescriptionData}
@@ -50,7 +61,8 @@ const page = async () => {
         courses={courses}
       />}
       <ArticlesSection
-        articles={ArticlesFakes.blogs}
+        featuredArticle={featuredArticle}
+        articles={articles}
       />
       <StatisticsSection
         statisticsSectionData={HomePageData.statisticsSectionData}

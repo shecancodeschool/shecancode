@@ -1,14 +1,14 @@
-const page = () => {
+import PageTitle from "./_components/PageTitle"
+import { Separator } from "@/components/ui/separator"
+
+export default function page() {
   return (
-    <div>
-      <div className="flex items-center">
-        <h1 className="text-lg font-semibold md:text-2xl">Dashboard Home</h1>
+    <section>
+      <PageTitle title="Welcome to SheCanCODE Web Manager" />
+      <Separator className="my-4 border-b-[1px] border-gray-300" />
+      <div>
+
       </div>
-      <div className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm" x-chunk="dashboard-02-chunk-1">
-        
-      </div>
-    </div>
+    </section>
   )
 }
-
-export default page

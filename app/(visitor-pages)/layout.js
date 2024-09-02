@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils"
 import { Toaster } from 'sonner'
 import Navbar from "./_components/Navbar/Navbar";
 import Footer from "./_components/Footer";
+import ProgressBarProvider from "../ProgressBarProvider";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -29,10 +30,12 @@ export default function RootLayout({ children }) {
         <meta property="og:image" content="/F9.jpeg" />
       </head>
       <body className={cn("flex flex-col justify-start", fontSans.variable)}>
-        <Toaster position="top-right"/>
-        <Navbar />
-        {children}
-        <Footer />
+        <ProgressBarProvider>
+          <Toaster position="top-right" />
+          <Navbar />
+          {children}
+          <Footer />
+        </ProgressBarProvider>
       </body>
     </html>
   );

@@ -2,11 +2,11 @@ import Image from "next/image";
 import CareerPageFakes from "../../../utils/careerPageFakes";
 import { FaArrowRight } from "react-icons/fa";
 import Link from "next/link";
-import Jobs from "../../../utils/jobsFakes";
 import { openGraphImage } from '../../shared-metadata';
 import DefaultPageBanner from "../_components/DefaultPageBanner";
 import PageTitle from "../_components/PageTitle";
 import ReusableSection from "../_components/ReusableSection";
+import { getArticlesByCategory } from "@/app/(dashboard-pages)/dashboard/_actions/articlesActions";
 
 const cardColors = [
   "bg-sky-100",
@@ -34,7 +34,9 @@ const jsonLd = {
   description: 'Careers and Open positions at SheCanCODE. How to Join our team and More.',
 }
 
-export default function page() {
+export default async function page() {
+  const response = await getArticlesByCategory("Careers");
+  const jobs = JSON.parse(response);
   const { backgroundImage, title, titleDescription, subTitle, processOfJoiningTeam, reasonsToJoinOurTeam } = CareerPageFakes;
   return (
     <>
@@ -84,8 +86,8 @@ export default function page() {
       <ReusableSection isTopSection>
         <div id="jobs" className="flex pt-10 md:pt-24 flex-col gap-6 items-center mb-6 md:mb-12 justify-center w-full">
           <h3 className="text-2xl md:text-3xl text-left w-full font-bold text-[#317ACC]">Open Positions</h3>
-          {(Jobs && Jobs.length > 0) && <div className="grid grid-cols-1 mt-3 md:grid-cols-2 gap-3 md:gap-4 w-full">
-            {Jobs.map((job, index) => (
+          {(jobs && jobs.length > 0) && <div className="grid grid-cols-1 mt-3 md:grid-cols-2 gap-3 md:gap-4 w-full">
+            {jobs?.map((job, index) => (
               <Link key={index} href={`/careers/${job._id}`} className="bg-sky-950 p-6 cursor-pointer rounded-md flex items-center justify-between gap-2">
                 <p className="text-xl md:text-xl">{job.title}</p>
                 <div className="bg-white p-2 md:p-4 rounded-full w-fit">
@@ -94,7 +96,7 @@ export default function page() {
               </Link>
             ))}
           </div>}
-          {(Jobs && Jobs.length === 0) &&
+          {(jobs && jobs.length === 0) &&
             <div className="w-full flex justify-start">
               <p className="text-black text-left">No open positions available at the moment.</p>
             </div>

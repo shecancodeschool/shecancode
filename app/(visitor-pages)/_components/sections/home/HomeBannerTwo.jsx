@@ -37,7 +37,7 @@ const HomeBannerTwo = (props) => {
                     </div>
                 </div>
                 <div className={`flex flex-col gap-6 items-center justify-center text-white w-full md:w-[48%]`}>
-                        <CourseCardTwo course={course} />
+                    {(course && course.title) && <CourseCardTwo course={course} />}
                 </div>
             </div>
             <div className="flex flex-col bg-black mt-12 bg-opacity-50 w-full">

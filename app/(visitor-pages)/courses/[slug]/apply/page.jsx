@@ -4,7 +4,9 @@ import ApplyForCourseForm from '@/app/(visitor-pages)/_components/sections/cours
 
 export default async function Apply({ params }) {
   const { slug } = params;
-  const course = await findCourseBySlug(slug);
+  const response = await findCourseBySlug(slug);
+  const data = JSON.parse(response);
+  const { course, ...rest } = data;
 
   if (!course) {
     return <div>Course not found</div>
@@ -15,12 +17,12 @@ export default async function Apply({ params }) {
       <CourseBanner
         coverImage={course.coverImage}
         title={course.title}
-        description={course.description}
+        subTitle={course.subTitle}
         slug={course.slug}
         startDate={course.startDate}
         isOpen={course.isOpen}
       />
-      <ApplyForCourseForm courseId={course._id.toString()}/>
+      <ApplyForCourseForm courseId={course._id}/>
     </>
   )
 }

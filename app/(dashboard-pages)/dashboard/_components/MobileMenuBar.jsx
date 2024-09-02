@@ -3,14 +3,19 @@
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { cn } from "@/lib/utils"
-import { Home, Menu, Newspaper, Paperclip, ShoppingCart, Users } from "lucide-react"
+import { ChevronDown, Home, Menu, Newspaper, Paperclip, ShoppingCart, User, Users } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { MdWorkOutline } from "react-icons/md"
+import { Links } from "./Links"
+import { useState } from "react"
 
 const MobileMenuBar = () => {
+    const [isClicked, setIsClicked] = useState(false);
+    const [clickedLink, setClickedLink] = useState("");
     const pathName = usePathname();
+
     return (
         <Sheet>
             <SheetTrigger asChild>
@@ -23,54 +28,44 @@ const MobileMenuBar = () => {
                     <span className="sr-only">Toggle navigation menu</span>
                 </Button>
             </SheetTrigger>
-            <SheetContent side="left" className="flex flex-col">
+            <SheetContent side="left" className="flex flex-col bg-sky-950">
                 <nav className="grid gap-2 text-lg font-medium">
                     <Link href="/dashboard" className="flex items-center gap-4 font-semibold">
-                        <Image src="/logo/logo3.png" alt="SheCanCODE Logo" width={60} height={60} />
-                        <span className="text-sky-700">Web Manager</span>
+                        <Image src="/logo/logo1.png" alt="SheCanCODE Logo" className="p-1 bg-white" width={60} height={60} />
+                        <span className="text-white font-extrabold uppercase">Web Manager</span>
                     </Link>
-                    <Link
-                        href="/dashboard"
-                        className={cn(pathName === "/dashboard" ? "bg-sky-100" : "", "flex items-center gap-3 rounded-lg px-3 py-2 text-sky-800 transition-all hover:text-sky-800")}
-                    >
-                        <Home className="h-4 w-4" />
-                        Dashboard
-                    </Link>
-                    <Link
-                        href="/dashboard/users"
-                        className={cn(pathName === "/dashboard/users" ? "bg-sky-100" : "", "flex items-center gap-3 rounded-lg px-3 py-2 text-sky-800 transition-all hover:text-sky-800")}
-                    >
-                        <Users className="h-4 w-4" />
-                        Users{" "}
-                    </Link>
-                    <Link
-                        href="/dashboard/courses"
-                        className={cn(pathName === "/dashboard/courses" ? "bg-sky-100" : "", "flex items-center gap-3 rounded-lg px-3 py-2 text-sky-800 transition-all hover:text-sky-800")}
-                    >
-                        <ShoppingCart className="h-4 w-4" />
-                        Courses{" "}
-                    </Link>
-                    <Link
-                        href="/dashboard/jobs"
-                        className={cn(pathName === "/dashboard/jobs" ? "bg-sky-100" : "", "flex items-center gap-3 rounded-lg px-3 py-2 text-sky-800 transition-all hover:text-sky-800")}
-                    >
-                        <MdWorkOutline className="h-4 w-4" />
-                        Jobs
-                    </Link>
-                    <Link
-                        href="/dashboard/blog"
-                        className={cn(pathName === "/dashboard/blog" ? "bg-sky-100" : "", "flex items-center gap-3 rounded-lg px-3 py-2 text-sky-800 transition-all hover:text-sky-800")}
-                    >
-                        <Newspaper className="h-4 w-4" />
-                        Blog
-                    </Link>
-                    <Link
-                        href="/dashboard/pages"
-                        className={cn(pathName === "/dashboard/pages" ? "bg-sky-100" : "", "flex items-center gap-3 rounded-lg px-3 py-2 text-sky-800 transition-all hover:text-sky-800")}
-                    >
-                        <Paperclip className="h-4 w-4" />
-                        Pages
-                    </Link>
+                    {Links?.map((link, index) => (
+                        <div key={index}>
+                            <Link
+                                href={link.pathName}
+                                onClick={() => {
+                                    setClickedLink(link.label);
+                                    setIsClicked(!isClicked)
+                                }}
+                                className={cn(pathName === link.pathName ? "bg-sky-600" : "", "flex items-center justify-between rounded-lg px-3 py-2 text-sky-200 transition-all hover:text-sky-200")}
+                            >
+                                <div className="flex items-center gap-3">
+                                    {link.icon}
+                                    <span>{link.label}</span>
+                                </div>
+                                {link.hasSubLinks && <span><ChevronDown className={cn((isClicked && clickedLink === link.label) ? "rotate-180 ease-in-out duration-700" : "")} /></span>}
+                            </Link>
+                            <div className={cn((isClicked && clickedLink === link.label) ? "flex flex-col gap-1 pl-5 bg-sky-900 duration-1000 ease-in-out" : "hidden")}>
+                                {link.subLinks?.map((subLink, index) => (
+                                    <Link
+                                        key={index}
+                                        href={subLink.pathName}
+                                        className={cn(pathName === subLink.pathName ? "bg-sky-700" : "", "flex items-center justify-between rounded-lg px-3 py-2 text-sky-200 transition-all hover:text-sky-200")}
+                                    >
+                                        <div className="flex items-center gap-3">
+                                            {subLink.icon}
+                                            <span>{subLink.label}</span>
+                                        </div>
+                                    </Link>
+                                ))}
+                            </div>
+                        </div>
+                    ))}
                 </nav>
             </SheetContent>
         </Sheet>

@@ -4,7 +4,9 @@ import { findCourseBySlug } from '../../_actions/courses';
 
 const page = async ({ params }) => {
   const { slug } = params;
-  const course = await findCourseBySlug(slug); 
+  const response = await findCourseBySlug(slug); 
+  const data = JSON.parse(response);
+  const { course, courseModules } = data;
 
   if (!course) {
     return <div>Course not found</div>
@@ -15,13 +17,14 @@ const page = async ({ params }) => {
       <CourseBanner
         coverImage={course.coverImage}
         title={course.title}
-        description={course.description}
+        subTitle={course.subTitle}
         slug={course.slug}
         startDate={course.startDate}
         isOpen={course.isOpen}
       />
       <CourseDetails
         course={course}
+        modules={courseModules}
       />
     </>
   )
