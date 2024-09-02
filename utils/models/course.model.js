@@ -6,9 +6,31 @@ const CourseSchema = new Schema({
         type: String,
         required: true
     },
+    level: {
+        type: String,
+        enum: ['Beginner', 'Intermediate', 'Advanced']
+    },
+    location: {
+        type: String,
+        required: true,
+        enum: {
+            values: ['Online', 'In-Person', 'Hybrid'],
+            message: '{VALUE} is not supported'
+        }
+    },
+    schedule: {
+        type: String,
+        required: true,
+    },
     slug: {
         type: String,
         unique: true
+    },
+    status: {
+        type: String,
+        required: true,
+        enum: ['Published', 'Draft'],
+        default: 'Draft'
     },
     category: {
         type: String,
@@ -42,35 +64,28 @@ const CourseSchema = new Schema({
         type: String,
         required: true
     },
-    secondImage: {
+    isFeatured: {
         type: String,
-        required: true
+        required: true,
+        enum: {
+            values: ['Yes', 'No'],
+            message: '{VALUE} is not supported'
+        },
+        default: "No",
     },
     isOpen: {
-        type: Boolean,
-        default: false
+        type: String,
+        required: true,
+        enum: {
+            values: ['Yes', 'No'],
+            message: '{VALUE} is not supported'
+        },
+        default: "No",
     },
-    // Additional fields based on the provided data structure
-    detailedDescription: {
-        paragraphOne: String,
-        paragraphTwo: String,
-        paragraphThree: String,
-        paragraphFour: String
-    },
-    keyInfo: [
-        {
-            title: String,
-            desc: String
-        }
-    ],
-    prerequisites: [String],
-    modules: [
-        {
-            id: Number,
-            question: String,
-            answer: String
-        }
-    ]
+    prerequisites: {
+        type: String,
+        required: true
+    }
 }, {
     timestamps: true
 });

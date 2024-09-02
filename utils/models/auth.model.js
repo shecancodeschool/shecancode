@@ -1,11 +1,7 @@
 import mongoose, { Schema, models } from "mongoose";
 
 const userSchema = new Schema({
-    firstName: {
-        type: String,
-        required: true
-    },
-    lastName: {
+    name: {
         type: String,
         required: true
     },
@@ -22,6 +18,11 @@ const userSchema = new Schema({
         required: true,
         enum: ["admin", "user"],
         default: "user"
+    },
+    isActive: {
+        type: String,
+        required: Boolean,
+        default: false
     },
     password: {
         type: String,
