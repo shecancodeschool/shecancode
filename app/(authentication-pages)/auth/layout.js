@@ -9,6 +9,14 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  const jssStyles = {
+    backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)), url(/F9.jpeg)`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    transition: 'background-image 0.3s ease-in-out',
+    willChange: 'background-image',
+  };
+
   return (
     <html lang="en">
       <head>
@@ -19,8 +27,8 @@ export default function RootLayout({ children }) {
         <meta property="og:image" content="/F9.jpeg" />
       </head>
       <body className="flex flex-col justify-start">
-        <Toaster position="top-right"/>
-        <div className="flex justify-center items-center h-screen w-screen">
+        <Toaster position="top-right" />
+        <div className="flex justify-center items-center h-screen w-screen" style={jssStyles}>
           {children}
         </div>
       </body>

@@ -12,13 +12,11 @@ import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useState } from "react";
 import { registerUser } from "../../_actions/auth";
+import { signIn } from "next-auth/react";
 
 const formSchema = z.object({
-    firstName: z.string().min(3, {
-        message: "First name must be at least 3 characters",
-    }),
-    lastName: z.string().min(3, {
-        message: "Last name must be at least 3 characters",
+    name: z.string().min(3, {
+        message: "Your name must be at least 3 characters",
     }),
     email: z.string().email().min(6, {
         message: "Email is required",
@@ -35,14 +33,15 @@ export default function SignUpForm() {
     const form = useForm({
         resolver: zodResolver(formSchema),
         defaultValues: {
+            name: "",
             email: "",
             password: "",
         },
     });
 
     async function onSubmit(data) {
-        const { firstName, lastName, email, password } = data;
-        const formData = { firstName, lastName, email, password };
+        const { name, email, password } = data;
+        const formData = { name, email, password };
         const response = await registerUser(formData);
         if (response?.error) {
             console.log(response.error);
@@ -59,41 +58,22 @@ export default function SignUpForm() {
         <div>
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="grid gap-4">
-                    <div className="grid grid-cols-2 gap-4">
-                        <div className="grid gap-2">
-                            <FormField
-                                control={form.control}
-                                name="firstName"
-                                render={({ field }) => (
-                                    <FormItem>
-                                        <FormLabel>
-                                            First name
-                                        </FormLabel>
-                                        <FormControl>
-                                            <Input type="text" placeholder="Your first name" {...field} />
-                                        </FormControl>
-                                        <FormMessage />
-                                    </FormItem>
-                                )}
-                            />
-                        </div>
-                        <div className="grid gap-2">
-                            <FormField
-                                control={form.control}
-                                name="lastName"
-                                render={({ field }) => (
-                                    <FormItem>
-                                        <FormLabel>
-                                            Last name
-                                        </FormLabel>
-                                        <FormControl>
-                                            <Input type="text" placeholder="Your last name" {...field} />
-                                        </FormControl>
-                                        <FormMessage />
-                                    </FormItem>
-                                )}
-                            />
-                        </div>
+                    <div className="grid gap-2">
+                        <FormField
+                            control={form.control}
+                            name="name"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>
+                                        Full name
+                                    </FormLabel>
+                                    <FormControl>
+                                        <Input type="text" placeholder="Your full name" {...field} />
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
                     </div>
                     <div className="grid gap-2">
                         <FormField
@@ -121,7 +101,7 @@ export default function SignUpForm() {
                                     <FormLabel className="flex w-full justify-between items-center">
                                         Password
                                         <div className="flex gap-2 items-center">
-                                            <Checkbox id="Show password" name={"isPasswordVisible"} onClick={() => { setIsPasswordVisible(!isPasswordVisible) }}/>
+                                            <Checkbox id="Show password" name={"isPasswordVisible"} onClick={() => { setIsPasswordVisible(!isPasswordVisible) }} />
                                             <label htmlFor="Show password">View password</label>
                                         </div>
                                     </FormLabel>
@@ -136,7 +116,7 @@ export default function SignUpForm() {
                     <Button type="submit" className="w-full">
                         Create an account
                     </Button>
-                    <Button variant="outline" className="w-full">
+                    <Button variant="outline" className="w-full" onClick={() => signIn("github")}>
                         Sign up with GitHub
                     </Button>
                 </form>

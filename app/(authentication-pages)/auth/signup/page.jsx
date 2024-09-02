@@ -7,10 +7,18 @@ import {
 } from "@/components/ui/card"
 import Image from "next/image"
 import SignUpForm from "../_components/SignUpForm"
+import { getServerSession } from "next-auth";
+import authOptions from "@/app/api/auth/[...nextauth]/options";
+import { redirect } from "next/navigation";
 
-export default function page() {
+export default async function page() {
+  const session = await getServerSession(authOptions);
+  if (session) {
+    return redirect("/dashboard");
+  }
+  
   return (
-    <Card className="mx-auto max-w-sm">
+    <Card className="mx-auto w-10/12 sm:w-5/12 lg:w-4/12">
       <CardHeader>
         <div className="flex w-full items-center justify-center">
           <Image src="/logo/logo1.png" alt="Logo" width={100} height={100} />

@@ -4,11 +4,12 @@ import connectMongo from "@/utils/database/ConnectToDB";
 import { getErrorMessage } from "@/utils/errorHandler";
 import User from "@/utils/models/auth.model";
 import bcrypt from "bcryptjs";
+import { revalidatePath } from "next/cache";
 
 export const registerUser = async (formData) => {
     try {
-        const { firstName, lastName, email, password } = formData;
-        if (!firstName || !lastName || !email || !password) {
+        const { name, email, password } = formData;
+        if (!name || !email || !password) {
             return { error: "All fields are required" };
         }
         await connectMongo();
@@ -18,7 +19,7 @@ export const registerUser = async (formData) => {
         }
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(password, salt);
-        await User.create({ firstName, lastName, email, password: hashedPassword })
+        await User.create({ name, email, password: hashedPassword })
         return { message: "Registration successful, please login!" }
     } catch (e) {
         console.log("Error registering user", e);
@@ -47,11 +48,75 @@ export const loginUser = async (formData) => {
             message: "Login successful",
             user: {
                 email: userExist.email,
-                firstName: userExist.name,
-                lastName: userExist.lastName,
+                name: userExist.name,
                 role: userExist.role,
             }
         };
+    } catch (e) {
+        console.log("Error registering user", e);
+        return {
+            error: getErrorMessage(e)
+        }
+    }
+}
+
+export const getAllUsers = async () => {
+    try {
+        const users = await User.find({});
+        return JSON.stringify(users);
+    } catch (e) {
+        console.log("Error fetching users", e);
+        return {
+            error: getErrorMessage(e)
+        }
+    }
+}
+
+export const updateUser = async (formData) => {
+    const { isActive, role, id } = formData;
+    
+    try {
+        await connectMongo();
+        const userExist = await User.findById(id);
+        userExist.isActive = isActive;
+        userExist.role = role;
+
+        await userExist.save();
+        revalidatePath("/dashboard/users");
+        return { message: "User account updated successfully" };
+    } catch (e) {
+        console.log("Error registering user", e);
+        return {
+            error: getErrorMessage(e)
+        }
+    }
+}
+
+export const deleteUser = async (id) => {
+    try {
+        await connectMongo();
+        const user = await User.findByIdAndDelete(id);
+        if (!user) {
+            return { error: "User not found" };
+        }
+        revalidatePath("/dashboard/users");
+        return { message: "User deleted successfully" };
+    } catch (e) {
+        console.log("Error registering user", e);
+        return {
+            error: getErrorMessage(e)
+        }
+    }
+}
+
+export const findUserById = async (id) => {
+    try {
+        await connectMongo();
+        const user = await User.findById(id);
+        if (!user) {
+            return { error: "User not found" };
+        }
+        return JSON.stringify(user);
     } catch (e) {
         console.log("Error registering user", e);
         return {

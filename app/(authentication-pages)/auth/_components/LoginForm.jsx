@@ -11,7 +11,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useState } from "react";
-import {signIn} from "next-auth/react";
+import { signIn } from "next-auth/react";
 import Image from "next/image";
 
 const formSchema = z.object({
@@ -37,7 +37,6 @@ export default function LoginForm() {
 
   async function onSubmit(data) {
     const { email, password } = data;
-    const formData = { email, password };
     const response = await signIn("credentials", {
       email,
       password,
@@ -50,7 +49,7 @@ export default function LoginForm() {
       }
     }
     console.log(response);
-    
+
     if (response.ok) {
       toast.success("Logged in successfully!");
       router.push('/dashboard');
@@ -99,6 +98,11 @@ export default function LoginForm() {
                 </FormItem>
               )}
             />
+            <div className="mt-2 text-start text-sm">
+              <Link href="/auth/forgot" className="underline">
+                Forgot password?
+              </Link>
+            </div>
           </div>
           <Button type="submit" className="w-full" >
             Sign in

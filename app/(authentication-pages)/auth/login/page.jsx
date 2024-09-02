@@ -17,7 +17,7 @@ export default async function page() {
   }
 
   return (
-    <Card className="mx-auto max-w-sm">
+    <Card className="mx-auto w-10/12 sm:w-5/12 lg:w-4/12">
       <CardHeader>
         <div className="flex w-full items-center justify-center">
           <Image src="/logo/logo1.png" alt="Logo" width={100} height={100} />
