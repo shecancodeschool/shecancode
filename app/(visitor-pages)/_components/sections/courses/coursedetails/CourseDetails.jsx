@@ -22,10 +22,10 @@ const CourseDetails = ({ course, modules }) => {
         <ReusableSection>
             <div className='flex flex-col mx-auto w-full'>
                 {/* First Section */}
-                <div className="flex flex-wrap justify-between md:flex-nowrap w-full">
+                <div className="flex flex-wrap-reverse gap-8 items-start justify-between md:flex-nowrap w-full md:gap-0">
                     <div className="blog-container text-black w-full md:w-[70%] lg:w-[65%]">
-                        <section className='section mb-0'>
-                            <h1>{subTitle}</h1>
+                        <section className='section flex flex-col gap-4'>
+                            <h2>{subTitle}</h2>
                             {parse(description)}
                         </section>
                     </div>
