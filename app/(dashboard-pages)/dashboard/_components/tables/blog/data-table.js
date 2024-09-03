@@ -126,7 +126,7 @@ export const columns = [
         cell: ({ row }) => {
             const data = row.original
             return (
-                <Link href={`/dashboard/blog/${data.slug}`}>
+                <Link href={`/dashboard/blog/article/${data.slug}`}>
                     <Settings2 size={15}/>
                 </Link>
             )
