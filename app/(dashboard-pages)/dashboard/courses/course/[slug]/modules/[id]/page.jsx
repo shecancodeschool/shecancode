@@ -26,14 +26,14 @@ export default async function page({ params }) {
                                 {course.title}
                             </p>
                         </div>
-                        <Link href={`/dashboard/courses/course/${course.slug}`}>
+                        <Link href={`/dashboard/courses/course/${course?.slug}`}>
                             <Button className="text-black" variant="secondary">Go back to course</Button>
                         </Link>
                     </div>
                     <Separator className="my-4 border-b-[2px] border-sky-600" />
                     <div className="flex justify-between items-center mb-4">
                         <h2 className="text-lg font-semibold md:text-xl">Edit Module</h2>
-                        <Link href={`/dashboard/courses/course/${course.slug}/modules`}>
+                        <Link href={`/dashboard/courses/course/${course?.slug}/modules`}>
                             <Button className="text-white">View Modules</Button>
                         </Link>
                     </div>
