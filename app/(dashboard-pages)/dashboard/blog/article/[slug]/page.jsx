@@ -4,10 +4,26 @@ import Link from "next/link";
 import CreatePost from "../../../_components/blog/CreatePost";
 import PageTitle from "../../../_components/PageTitle";
 import DeleteButton from "../../../_components/blog/DeleteButton";
+import { getCategories } from "../../../_actions/blogCategoryActions";
+import { getStoredImages } from "../../../_actions/storedImageActions";
+import { getArticleBySlug } from "../../../_actions/articlesActions";
 
 export default async function page({ params }) {
     const { slug } = params;
-    
+    var post = {};
+    let allCategories = await getCategories();
+    const categories = JSON.parse(allCategories);
+    let rawStoredImages = await getStoredImages();
+    const storedImages = JSON.parse(rawStoredImages);
+    if (slug) {
+        let fetchedPost = await getArticleBySlug(slug);
+        if (fetchedPost) {
+            post = JSON.parse(fetchedPost);
+        } else {
+            return { notFound: true };
+        }
+    }
+
     return (
         <div className="bg-color-grey">
             <div className="flex justify-between items-center">
@@ -20,7 +36,12 @@ export default async function page({ params }) {
                 </div>
             </div>
             <Separator className="my-4 border-b-[2px] border-sky-600" />
-            <CreatePost slug={slug} />
+            <CreatePost
+                categories={categories}
+                post={post}
+                storedImages={storedImages}
+                slug={slug}
+            />
         </div>
     )
 }
