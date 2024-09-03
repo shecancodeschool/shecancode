@@ -28,7 +28,6 @@ import {
     TableRow,
 } from "@/components/ui/table"
 import Link from "next/link"
-import DeleteButton from "../../blog/DeleteButton"
 import { cn } from "@/lib/utils"
 
 export const columns = [

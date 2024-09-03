@@ -32,7 +32,7 @@ import { deleteCategory } from "../../../_actions/blogCategoryActions"
 import { toast } from "sonner"
 import { DeleteModal } from "../../widgets/DeleteModal"
 
-export function BlogCategoryTable({ categories: data }) {
+export function DataTable({ categories: data }) {
     const deleteThisCat = async (id) => {
         const res = await deleteCategory(id);
         if (res?.error) {
