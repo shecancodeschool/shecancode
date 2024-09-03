@@ -2,7 +2,7 @@ import { Separator } from "@/components/ui/separator";
 import PageTitle from "../../_components/PageTitle";
 import CreateCategory from "../../_components/blogCategory/CreateCategory";
 import { getCategories } from "../../_actions/blogCategoryActions";
-import { BlogCategoryTable } from "../../_components/tables/blog/blogCategoryTable";
+import { BlogCategoryTable } from "../../_components/tables/blog/BlogCategoryTable";
 import { Suspense } from "react";
 import Loading from "../../loading";
 
