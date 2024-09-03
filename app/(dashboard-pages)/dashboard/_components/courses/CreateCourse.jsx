@@ -9,7 +9,7 @@ export default async function CreateCourse({ categories, storedImages, course, s
       <CourseForm
         categories={categories}
         storedImages={storedImages}
-        id={slug && course._id}
+        id={slug && course?._id}
         course={course}
       />
     </div>
