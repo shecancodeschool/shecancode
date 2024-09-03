@@ -29,6 +29,7 @@ const jsonLd = {
 
 const page = async () => {
   let category = 'all';
+  
   const allCategories = await getCategories();
   const CourseCategories = JSON.parse(allCategories);
 
