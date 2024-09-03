@@ -8,12 +8,15 @@ import { z } from "zod";
 import { createCourseModule, updateCourseModule } from "../../_actions/courseModuleActions";
 import { useRef, useState } from "react";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import JoditEditor from "jodit-react";
+const JoditEditor = dynamic(() => import("jodit-react"), {
+    ssr: false,
+  });
 import { LoadingButton } from "../widgets/Loader";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import parse from "html-react-parser";
 import sanitize from "dompurify";
 import { toast } from "sonner";
+import dynamic from "next/dynamic";
 
 export default function ModuleManager(props) {
     const { id, modules } = props;
