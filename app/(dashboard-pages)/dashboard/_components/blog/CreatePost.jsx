@@ -9,7 +9,7 @@ export default function CreatePost({ categories, storedImages, slug, post }) {
       <PostForm
         categories={categories}
         storedImages={storedImages}
-        id={slug && post._id}
+        id={slug && post?._id}
         post={post}
       />
     </div>
