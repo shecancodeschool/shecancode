@@ -4,6 +4,8 @@ import Link from "next/link";
 import { getArticles } from "../_actions/articlesActions";
 import PageTitle from "../_components/PageTitle";
 import ListPost from "../_components/blog/ListPost";
+import { ErrorBoundary } from "next/dist/client/components/error-boundary";
+import { Suspense } from "react";
 
 export default async function page() {
   const allArticles = await getArticles();
@@ -18,7 +20,11 @@ export default async function page() {
         </Link>
       </div>
       <Separator className="my-4 border-b-[2px] border-sky-600" />
-      <ListPost posts={posts} />
+      <ErrorBoundary>
+        <Suspense>
+          <ListPost posts={posts} />
+        </Suspense>
+      </ErrorBoundary>
     </div>
   )
 }
