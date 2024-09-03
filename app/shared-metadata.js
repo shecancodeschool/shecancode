@@ -1,1 +1,0 @@
-export const openGraphImage = { images: ['/F9.jpeg'] }
