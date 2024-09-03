@@ -4,8 +4,9 @@ import { useRouter } from "next/navigation"
 import { deleteArticle } from "../../_actions/articlesActions"
 import { DeleteDialog } from "../widgets/DeleteDialog"
 import { deleteCourse } from "@/app/(visitor-pages)/_actions/courses";
+import { revalidatePath } from "next/cache";
 
-export default function DeleteButton({ item, id }) {
+export default function DeleteButton({ item, slug }) {
     const router = useRouter();
     return (
         <DeleteDialog 
@@ -13,11 +14,11 @@ export default function DeleteButton({ item, id }) {
             desc={`This action cannot be undone. This will permanently delete your ${item} and remove your data from our servers.`}
             onClick={() => {
                 if (item === "article") {
-                    deleteArticle(id);
+                    deleteArticle(slug);
                     router.push("/dashboard/blog");
                 } 
                 if (item === "course") {
-                    deleteCourse(id);
+                    deleteCourse(slug);
                     router.push("/dashboard/courses");
                 }
             }}

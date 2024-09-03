@@ -107,7 +107,7 @@ export const columns = [
         cell: ({ row }) => {
             const data = row.original
             return (
-                <Link href={`/dashboard/courses/${data._id}`}>
+                <Link href={`/dashboard/courses/${data.slug}`}>
                     <Settings2 size={15}/>
                 </Link>
             )

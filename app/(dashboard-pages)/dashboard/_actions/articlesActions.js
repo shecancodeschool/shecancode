@@ -164,11 +164,11 @@ export const getArticleBySlug = async (slug) => {
     }
 }
 
-export const deleteArticle = async (id) => {
+export const deleteArticle = async (slug) => {
     try {
         await connectMongo();
-        await Article.findByIdAndDelete(id);
-        revalidatePath("/dashboard/blog");
+        await Article.deleteOne({ slug })
+        // revalidatePath("/dashboard/blog");
         return { message: "Article deleted successfully!" }
     } catch (e) {
         return {

@@ -3,7 +3,6 @@
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { zodResolver } from "@hookform/resolvers/zod";
-import { revalidatePath } from "next/cache";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { createCourseModule, updateCourseModule } from "../../_actions/courseModuleActions";
@@ -13,7 +12,7 @@ import JoditEditor from "jodit-react";
 import { LoadingButton } from "../widgets/Loader";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import parse from "html-react-parser";
-import { sanitize } from "dompurify";
+import sanitize from "dompurify";
 import { toast } from "sonner";
 
 export default function ModuleManager(props) {

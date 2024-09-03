@@ -1,13 +1,13 @@
 import Image from "next/image";
-import { getArticleById } from "../../_actions/articlesActions";
+import { getArticleById, getArticleBySlug } from "../../_actions/articlesActions";
 import { getCategories } from "../../_actions/blogCategoryActions";
 import PostForm from "./PostForm";
 import { getStoredImages } from "../../_actions/storedImageActions";
 
-export default async function CreatePost({ id }) {
+export default async function CreatePost({ slug }) {
   const allCategories = await getCategories();
   const categories = JSON.parse(allCategories);
-  const fetchedPost = await getArticleById(id);
+  const fetchedPost = await getArticleBySlug(slug);
   const fetchedStoredImages = await getStoredImages();
   const storedImages = JSON.parse(fetchedStoredImages);
   var post = {};
@@ -22,7 +22,7 @@ export default async function CreatePost({ id }) {
       <PostForm 
         categories={categories} 
         storedImages={storedImages}
-        id={id}
+        id={slug && post._id}
         post={post}  
       />
     </div>
