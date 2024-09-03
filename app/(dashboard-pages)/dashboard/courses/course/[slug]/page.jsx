@@ -4,9 +4,23 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import CreateCourse from "../../../_components/courses/CreateCourse";
 import DeleteButton from "../../../_components/blog/DeleteButton";
+import { getCategories } from "../../../_actions/courseCategoryActions";
+import { getStoredImages } from "../../../_actions/storedImageActions";
+import { findCourseBySlug } from "@/app/(visitor-pages)/_actions/courses";
 
-export default function page({ params }) {
+export default async function page({ params }) {
   const { slug } = params;
+  const rawCategoriesData = await getCategories();
+  const categories = JSON.parse(rawCategoriesData);
+  const rawStoredImages = await getStoredImages();
+  const storedImages = JSON.parse(rawStoredImages);
+  
+  var course = {};
+  if (slug) {
+    let rawCourseData = await findCourseBySlug(slug);
+    let data = JSON.parse(rawCourseData);
+    course = data.course;
+  }
 
   return (
     <div className="bg-color-grey">
@@ -28,7 +42,12 @@ export default function page({ params }) {
         </div>
       </div>
       <Separator className="my-4 border-b-[2px] border-sky-600" />
-      <CreateCourse slug={slug} />
+      <CreateCourse
+        categories={categories}
+        storedImages={storedImages}
+        course={course}
+        slug={slug}
+      />
     </div>
   )
 }
