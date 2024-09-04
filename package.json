@@ -37,6 +37,7 @@
     "@radix-ui/react-toast": "^1.2.1",
     "@react-spring/web": "^9.7.4",
     "@tanstack/react-table": "^8.20.5",
+    "@vercel/speed-insights": "^1.0.12",
     "bcryptjs": "^2.4.3",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
