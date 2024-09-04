@@ -15,6 +15,16 @@ const ourTeamData = {
             instagram: "",
         },
         {
+            name: "Jean Jacque Iradukunda",
+            position: "Program Director & Co-Founder",
+            picture: "https://media.licdn.com/dms/image/v2/D4D03AQFmlYHbaYusaQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1707556858331?e=1730937600&v=beta&t=Ux0D7-XnALjG_J4JN_OWtdDpCF3gp6o7fxygqcx4qEU",
+            linkedIn: "https://www.linkedin.com/in/jean-jacques-iradukunda-mdp-867aa1103/",
+            github: "",
+            x: "",
+            dribble: "",
+            instagram: "",
+        },
+        {
             name: "Josiane Tuyisenge",
             position: "HR & Finance Officer",
             picture: "https://media.licdn.com/dms/image/D4E03AQFB_I98h-5TZA/profile-displayphoto-shrink_200_200/0/1717584552692?e=2147483647&v=beta&t=aPdeNE2PyXUu1apMgn70kJfGK-Fx3CMuHGUpe3bN97U",
@@ -37,7 +47,7 @@ const ourTeamData = {
         {
             name: "Jean Eric Hirwa",
             position: "Program Manager & Lead Software Developer",
-            picture: "https://avatars.githubusercontent.com/u/59798231?v=4",
+            picture: "https://media.licdn.com/dms/image/v2/D4D03AQE-_75SNk20yw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1718313379119?e=1730937600&v=beta&t=tHMMVqMOsgJI47bwP0HZ4phgUyoCEWXP9VQOOeNAvi8",
             linkedIn: "https://www.linkedin.com/in/jean-eric-hirwa/",
             github: "https://github.com/hirwajeaneric",
             x: "",
@@ -64,7 +74,6 @@ const ourTeamData = {
             dribble: "",
             instagram: "",
         },
-        
     ]
 }
 
