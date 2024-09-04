@@ -10,13 +10,19 @@ import Loading from "@/app/(dashboard-pages)/dashboard/loading";
 
 const page = async ({ params }) => {
   const { slug } = params;
+  var blog = null;
+  var data = null;
+  
   const fetchedBlog = await getArticleBySlug(slug);
-  const blog = JSON.parse(fetchedBlog);
-  const author = blog?.author;
-
   const response = await getOnlyPublishedArticlesForBlog(false, 10);
-  const data = JSON.parse(response);
 
+  if (typeof fetchedBlog === "string") {
+    blog = JSON.parse(fetchedBlog);
+  }
+  const author = blog?.author;
+  if (typeof response === "string") {
+    data = JSON.parse(response);
+  }
 
   const recentBlogs = [];
   for (let index = 0; index < data.articles.length; index++) {

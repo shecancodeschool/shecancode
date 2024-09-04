@@ -5,7 +5,10 @@ import { findCourseBySlug } from '../../_actions/courses';
 const page = async ({ params }) => {
   const { slug } = params;
   const response = await findCourseBySlug(slug); 
-  const data = JSON.parse(response);
+  var data = null;
+  if (typeof response === "string") {
+    data = JSON.parse(response);
+  }
   const { course, courseModules } = data;
 
   if (!course) {

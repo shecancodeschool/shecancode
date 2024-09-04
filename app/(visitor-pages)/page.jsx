@@ -30,10 +30,14 @@ const page = async () => {
 
   try {
     courses = await getHomePageCourses();
-    featuredCourse = courses.find(course => course.isFeatured === "Yes");
-
-    let response = await getOnlyPublishedArticlesForBlog(true, 5);
-    const data = JSON.parse(response);
+    if (courses.length > 0) {
+      featuredCourse = courses.find(course => course.isFeatured === "Yes");
+    }
+    var data = null;
+    var response = await getOnlyPublishedArticlesForBlog(true, 5);
+    if (typeof response === "string") {
+      data = JSON.parse(response);
+    }
 
     featuredArticle = data.featuredArticle;
     articles = data.articles;

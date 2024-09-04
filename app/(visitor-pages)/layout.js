@@ -5,7 +5,7 @@ import { Toaster } from 'sonner'
 import Navbar from "./_components/Navbar/Navbar";
 import Footer from "./_components/Footer";
 import ProgressBarProvider from "../ProgressBarProvider";
-import { SpeedInsights } from "@vercel/speed-insights/next";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const fontSans = FontSans({
   subsets: ["latin"],
