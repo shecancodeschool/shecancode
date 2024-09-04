@@ -379,16 +379,16 @@ export default function CourseForm({ categories, storedImages, id, course }) {
                 open={open}
                 setOpen={setOpen}
               >
-                <div className='flex w-full gap-2 flex-wrap overflow-y-scroll'>
+                <div className='flex w-full min-w-fit gap-2 flex-wrap'>
                   {storedImages?.map((item) => (
-                    <Image
-                      src={item.image}
-                      onClick={() => setImage(item.image)}
+                    <Image 
+                      src={item.image} 
+                      onClick={() => setImage(item.image)} 
                       key={item.image}
-                      alt={item.image}
-                      className={cn(image === item.image ? "border-2 border-green-500 rounded-md" : "", 'w-full md:w-[48%]')}
-                      width={200}
-                      height={50}
+                      alt={item.image} 
+                      className={cn(image === item.image ? "border-8 border-yellow-500 rounded-md w-[47%]" : "","w-[48%] md:w-[24%] h-auto")} 
+                      width={200} 
+                      height={50} 
                     />
                   ))}
                 </div>
