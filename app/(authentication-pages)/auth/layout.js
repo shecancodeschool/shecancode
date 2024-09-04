@@ -1,5 +1,6 @@
 import "@/styles/globals.css";
 import { Toaster } from "sonner";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata = {
   title: {
@@ -31,6 +32,7 @@ export default function RootLayout({ children }) {
         <div className="flex justify-center items-center h-screen w-screen" style={jssStyles}>
           {children}
         </div>
+        <SpeedInsights />
       </body>
     </html>
   );
