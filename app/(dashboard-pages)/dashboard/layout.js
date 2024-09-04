@@ -1,9 +1,6 @@
 import "@/styles/globals.css";
 import Link from "next/link";
 import {
-    Search,
-} from "lucide-react";
-import {
     DropdownMenu,
     DropdownMenuContent,
     DropdownMenuItem,
@@ -11,7 +8,6 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { Input } from "@/components/ui/input"
 import SideNavigation from "./_components/SideNavigation";
 import MobileMenuBar from "./_components/MobileMenuBar";
 import Image from "next/image";
@@ -21,6 +17,7 @@ import UserProfileIcon from "./_components/UserProfileIcon";
 import { AuthProvider } from "./AuthProvider";
 import { Button } from "@/components/ui/button";
 import ProgressBarProvider from "@/app/ProgressBarProvider";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata = {
     title: "SheCanCODE Dashboard",
@@ -53,16 +50,6 @@ export default function RootLayout({ children }) {
                                     <MobileMenuBar />
                                     <div className="w-full flex-1">
                                         <h3 className="text-lg font-semibold">Admin</h3>
-                                        {/* <form>
-                                            <div className="relative">
-                                                <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
-                                                <Input
-                                                    type="search"
-                                                    placeholder="Search products..."
-                                                    className="w-full appearance-none bg-background pl-8 shadow-none md:w-2/3 lg:w-1/3"
-                                                />
-                                            </div>
-                                        </form> */}
                                     </div>
                                     <DropdownMenu>
                                         <DropdownMenuTrigger asChild>
@@ -90,6 +77,7 @@ export default function RootLayout({ children }) {
                         </div>
                     </AuthProvider>
                 </ProgressBarProvider>
+                <SpeedInsights />
             </body>
         </html>
     );
