@@ -26,11 +26,19 @@ const jsonLd = {
 
 export default async function page() {
   const allCategories = await getCategories();
-  const categories = JSON.parse(allCategories);
-  const categoriesExcludingPolicies = categories.filter(category => category.name !== "Policies");
+  var categories = [] 
+  var categoriesExcludingPolicies = null;
+
+  if (typeof allCategories === "string") {
+    categories = JSON.parse(allCategories);
+    categories.filter(category => category.name !== "Policies");
+  }
 
   const response = await getOnlyPublishedArticlesForBlog(false);
-  const data = JSON.parse(response);
+  var data = null;
+  if (typeof response === "string") {
+    data = JSON.parse(response);
+  }
 
   return (
     <>
@@ -46,7 +54,7 @@ export default async function page() {
       />
       <ArticlesContainer 
         categories={categoriesExcludingPolicies}
-        blogs={data.articles}
+        blogs={data?.articles}
       />
     </>
   );

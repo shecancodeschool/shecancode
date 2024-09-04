@@ -29,6 +29,7 @@ export default async function page({ params }) {
     
     const allCategories = await getCategories();
     const categories = JSON.parse(allCategories);
+    const categoriesExcludingPolicies = categories.filter(category => category.name !== "Policies");
 
     const allBlogs = await getArticlesByCategory(slug);
     const blogs = JSON.parse(allBlogs);
@@ -46,7 +47,7 @@ export default async function page({ params }) {
                 hasButton={false}
             />
             <ArticlesContainer
-                categories={categories}
+                categories={categoriesExcludingPolicies}
                 blogs={blogs}
             />
         </>

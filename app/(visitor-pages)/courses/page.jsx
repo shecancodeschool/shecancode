@@ -29,15 +29,19 @@ const jsonLd = {
 
 const page = async () => {
   let category = 'all';
-  
+  var CourseCategories = null
   const allCategories = await getCategories();
-  const CourseCategories = JSON.parse(allCategories);
+  if (typeof allCategories === "string") {
+    CourseCategories = JSON.parse(allCategories);
+  }
 
   var Courses = [];
 
   if (category === 'all' || category === '') {
     let response = await getAllCourses(false);
-    Courses = JSON.parse(response);
+    if (typeof response === "string") {
+      Courses = JSON.parse(response);
+    }
   } else {
     let response = await findCoursesByCategory(category);
     Courses = JSON.parse(response);
@@ -83,6 +87,11 @@ const page = async () => {
               {Courses && Courses.map((course, index) => (
                 <CourseCard key={index} course={course} />
               ))}
+              {!Courses || Courses.length === 0 && (
+                <div className="w-full flex justify-center items-center">
+                  <p className="text-lg font-semibold text-gray-500">No courses available yet</p>
+                </div>
+              )}
             </div>
           </div>
         </ReusableSection>

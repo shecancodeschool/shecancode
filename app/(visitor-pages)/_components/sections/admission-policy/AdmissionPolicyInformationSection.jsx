@@ -11,14 +11,14 @@ export default function AdmissionPolicyInformationSection({ AdmissionPolicyPageD
         <ReusableSection>
             <div className='flex w-full flex-wrap justify-between'>
                 <div className="flex-1 w-full md:w-[65%] md:pr-8 text-black">
-                    {AdmissionPolicyPageData.description &&
+                    {AdmissionPolicyPageData?.description &&
                         <h2 className={"text-2xl md:text-4xl font-bold text-[#317ACC] text-left"}>
-                            {AdmissionPolicyPageData.description}
+                            {AdmissionPolicyPageData?.description}
                         </h2>
                     }
-                    <section class="section">
-                        {parse(AdmissionPolicyPageData.content)}
-                    </section>
+                    {AdmissionPolicyPageData?.content && <section class="section">
+                        {parse(AdmissionPolicyPageData?.content)}
+                    </section>}
                 </div>
 
                 {/* Side bar  */}

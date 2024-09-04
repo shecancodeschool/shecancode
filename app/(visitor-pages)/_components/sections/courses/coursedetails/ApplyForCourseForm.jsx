@@ -21,7 +21,7 @@ export default function ApplyForCourseForm({ courseId }) {
 
     return (
         <ReusableSection>
-            <form action={action} className='flex flex-col space-y-8 w-full md:w-3/4 items-center justify-center'>
+            <form action={action} className='flex flex-col space-y-8 w-full text-black md:w-3/4 items-center justify-center'>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div className='flex flex-col space-y-4 text-black'>
                         <label htmlFor='firstName' className='flex flex-col space-y-2'>

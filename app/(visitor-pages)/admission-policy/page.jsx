@@ -24,7 +24,10 @@ const jsonLd = {
 
 export default async function page() {
   const response = await getAdmissionPolicy();
-  const admissionPolicy = JSON.parse(response);
+  var admissionPolicy = null; 
+  if (typeof response === "string") {
+    admissionPolicy = JSON.parse(response);
+  }
 
   return (
     <>
@@ -33,9 +36,9 @@ export default async function page() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <DefaultPageBanner
-        backgroundImage={admissionPolicy.image}
-        title={admissionPolicy.title}
-        description={`Last updated: ${new Date(admissionPolicy.updatedAt).toDateString()}`}
+        backgroundImage={admissionPolicy?.image}
+        title={admissionPolicy?.title}
+        description={`Last updated: ${new Date(admissionPolicy?.updatedAt).toDateString()}`}
       />
       <AdmissionPolicyInformationSection AdmissionPolicyPageData={admissionPolicy} />
     </>

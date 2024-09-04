@@ -5,7 +5,7 @@ import BlogPostContainer from "./BlogPostContainer";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-export default function ArticlesContainer({ categories: blogCategories,blogs: articles }) {
+export default function ArticlesContainer({ categories: blogCategories, blogs: articles }) {
     const pathName = usePathname();
 
     return (
@@ -44,6 +44,11 @@ export default function ArticlesContainer({ categories: blogCategories,blogs: ar
                     {articles?.map((blog, index) => (
                         <BlogPostContainer key={index} blog={blog} />
                     ))}
+                    {(!articles || articles.length === 0) &&
+                        <div className="w-full flex justify-start items-start">
+                            <p className="text-lg text-start font-semibold text-gray-500">No courses available yet</p>
+                        </div>
+                    }
                 </div>
             </ReusableSection>
         </>

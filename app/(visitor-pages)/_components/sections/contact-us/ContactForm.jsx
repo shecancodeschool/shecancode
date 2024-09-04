@@ -74,7 +74,7 @@ const ContactForm = () => {
         {/* Left side  */}
         <div className="flex flex-col justify-between items-start w-full md:w-[48%] mb-10">
           {successMessage && <strong className="font-bold">{successMessage}</strong>}
-          <form className="space-y-6 w-full" onSubmit={handleSubmit}>
+          <form className="space-y-6 w-full text-black" onSubmit={handleSubmit}>
             <div className="flex gap-4 mb-4 flex-col">
               <label htmlFor='fullName' className='flex flex-col space-y-2'>
                 <input

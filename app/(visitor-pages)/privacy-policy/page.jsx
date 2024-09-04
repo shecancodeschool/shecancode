@@ -15,8 +15,11 @@ export const metadata = {
 }
 
 export default async function PrivacyPolicy() {
+  var privacyPolicy = {};
   const response = await getPrivacyPolicy();
-  const privacyPolicy = JSON.parse(response);
+  if (typeof response === "string") {
+    privacyPolicy = JSON.parse(response);
+  }
 
   return (
     <>

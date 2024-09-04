@@ -13,11 +13,11 @@ export default function PrivacyPolicyInformationSection({PrivacyPolicyPageData})
                 <div className='flex w-full flex-wrap justify-between'>
                     <div className="flex-1 w-full md:w-[65%] md:pr-8 text-black">
                         <h2 className={"text-2xl md:text-4xl font-bold text-[#317ACC] text-left"}>
-                            {PrivacyPolicyPageData.description}
+                            {PrivacyPolicyPageData?.description}
                         </h2>
-                        <section className='section'>
-                            {parse(PrivacyPolicyPageData.content)}
-                        </section>
+                        {PrivacyPolicyPageData?.content && <section className='section'>
+                            {parse(PrivacyPolicyPageData?.content)}
+                        </section>}
                     </div>
 
                     {/* Side bar  */}
