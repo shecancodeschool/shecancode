@@ -26,7 +26,7 @@ export function ActionModal({
             <AlertDialogTrigger asChild>
                 {trigger}
             </AlertDialogTrigger>
-            <AlertDialogContent>
+            <AlertDialogContent className={"max-w-screen-xl max-h-[80svh] overflow-y-scroll"}>
                 <AlertDialogHeader>
                     <AlertDialogTitle>{title}</AlertDialogTitle>
                     <AlertDialogDescription>
