@@ -2,6 +2,7 @@ import Image from "next/image";
 import PostForm from "./PostForm";
 
 export default function CreatePost({ categories, storedImages, slug, post }) {
+  
   return (
     <div className="mb-48">
       {post?.createdAt && <h4 className="text-lg font-bold">Created on: {new Date(post.createdAt).toUTCString()}</h4>}

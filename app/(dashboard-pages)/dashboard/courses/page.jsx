@@ -10,7 +10,10 @@ import Loading from "../loading";
 
 export default async function page() {
   const response = await getAllCourses(true);
-  const courses = JSON.parse(response);
+  var courses = [];
+  if (typeof response === "string") {
+    courses = JSON.parse(response);
+  }
 
   return (
     <div className="bg-color-grey">

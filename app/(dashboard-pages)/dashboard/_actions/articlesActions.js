@@ -120,7 +120,7 @@ export const getArticlesByCategory = async (slug) => {
             return [];
         }
         const articles = await Article.find({ category: category?.name, status: "Published", allowedForBlog: true }).sort({ createdAt: -1 });
-        return articles;
+        return JSON.stringify(articles);
     } catch (e) {
         return {
             error: getErrorMessage(e)
@@ -155,7 +155,11 @@ export const getArticleById = async (id) => {
 export const getArticleBySlug = async (slug) => {
     try {
         await connectMongo();
-        const article = await Article.findOne({ slug }).populate("author");
+        const article = await Article.findOne({ slug })
+            .populate(
+                "author",
+                "name image email"
+            );
         return JSON.stringify(article);
     } catch (e) {
         return {

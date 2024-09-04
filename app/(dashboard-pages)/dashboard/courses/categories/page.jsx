@@ -10,7 +10,10 @@ import { ErrorBoundary } from "next/dist/client/components/error-boundary";
 
 export default async function page() {
     const allCategories = await getCategories();
-    const categories = JSON.parse(allCategories);
+    var categories = [];
+    if (typeof allCategories === "string") {
+        categories = JSON.parse(allCategories);
+    }
 
     return (
         <ErrorBoundary>

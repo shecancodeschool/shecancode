@@ -72,12 +72,12 @@ export default function RootLayout({ children }) {
                                 </header>
                                 <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6 bg-gray-200 overflow-y-auto">
                                     {children}
+                                    <SpeedInsights />
                                 </main>
                             </div>
                         </div>
                     </AuthProvider>
                 </ProgressBarProvider>
-                <SpeedInsights />
             </body>
         </html>
     );

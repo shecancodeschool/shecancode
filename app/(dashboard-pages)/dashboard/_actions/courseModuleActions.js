@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import CourseModule from "@/utils/models/courseModule.model";
 import connectMongo from "@/utils/database/ConnectToDB";
 import { getErrorMessage } from "@/utils/errorHandler";
+import Course from "@/utils/models/course.model";
 
 export const createCourseModule = async (formData) => {
     const { title, description, course } = formData;
@@ -24,8 +25,6 @@ export const createCourseModule = async (formData) => {
             description,
             course
         });
-        revalidatePath(`/dashboard/courses/${course}/modules`);
-
         return { message: "Course Module created successful!" }
     } catch (e) {
         return {
@@ -49,7 +48,7 @@ export const getCourseModules = async () => {
 export const getCourseModuleById = async (id) => {
     try {
         await connectMongo();
-        const courseModule = await CourseModule.findById(id);
+        const courseModule = await CourseModule.findById(id).populate("course");
         return JSON.stringify(courseModule);
     } catch (e) {
         return {
@@ -84,12 +83,12 @@ export const deleteCourseModule = async (id) => {
 }
 
 export const updateCourseModule = async (formData) => {
-    const { id, title, description, course } = formData;
+    const { id, title, description, courseSlug } = formData;
 
     try {
         await connectMongo();
         const courseModule = await CourseModule.findById(id);
-
+        // const selectedCourse = await Course.findById(course);
         if (!courseModule) {
             return { error: "CourseModule not found" };
         }
@@ -97,7 +96,7 @@ export const updateCourseModule = async (formData) => {
         courseModule.description = description;
         
         await courseModule.save();
-        revalidatePath(`/dashboard/course/${course}/modules`);
+        revalidatePath(`/dashboard/course/${courseSlug}/modules`);
         return { message: "Course Module updated successfully!" }
     } catch (e) {
         return {

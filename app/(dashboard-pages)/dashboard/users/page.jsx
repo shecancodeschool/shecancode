@@ -6,7 +6,11 @@ import UpdateUser from "../_components/tables/users/UpdateUser";
 
 export default async function page() {
   const response = await getAllUsers();
-  const users = JSON.parse(response);
+  var users = [];
+  if (typeof response === "string") { 
+    users = JSON.parse(response); 
+  }
+
   return (
     <div className="bg-color-grey">
       <div className="flex justify-between items-center">

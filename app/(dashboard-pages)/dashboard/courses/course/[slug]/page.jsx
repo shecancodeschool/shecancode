@@ -14,11 +14,14 @@ export default async function page({ params }) {
   const categories = JSON.parse(rawCategoriesData);
   const rawStoredImages = await getStoredImages();
   const storedImages = JSON.parse(rawStoredImages);
-  
+
   var course = {};
   if (slug) {
+    var data = null;
     let rawCourseData = await findCourseBySlug(slug);
-    let data = JSON.parse(rawCourseData);
+    if (typeof rawCourseData === "string") {
+      data = JSON.parse(rawCourseData);
+    }
     course = data.course;
   }
 

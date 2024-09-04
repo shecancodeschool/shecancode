@@ -167,8 +167,8 @@ export default function PostForm({ categories, storedImages, id, post }) {
       if (res?.message) {
         toast.success(res?.message);
         router.push("/dashboard/blog")
+        form.reset();
       }
-      form.reset();
     } else {
       const res = await createArticle(formData);
       if (res?.error) {
@@ -177,12 +177,12 @@ export default function PostForm({ categories, storedImages, id, post }) {
       if (res?.message) {
         toast.success(res?.message);
         router.push("/dashboard/blog")
+        form.reset();
       }
-      form.reset();
     }
   }
   return (
-    <div className="text-color-text">
+    <div className="text-black">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
           <div className="w-full max-w-[500px]">
