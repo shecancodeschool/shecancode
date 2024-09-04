@@ -12,9 +12,9 @@ import ArticleCategory from "@/utils/models/articleCategory";
 
 export const createArticle = async (formData) => {
     const { title, content, category, description, image, status, allowedForBlog, isFeatured } = formData;
-    if (!title || !content || !category || !description || !image || !allowedForBlog || !isFeatured) {
-        return { error: "Please fill in all fields" };
-    }
+    // if (!title || !content || !category || !description || !image || !allowedForBlog || !isFeatured) {
+    //     return { error: "Please fill in all fields" };
+    // }
     try {
         await connectMongo();
         const session = await getServerSession(authOptions);
@@ -172,7 +172,7 @@ export const deleteArticle = async (slug) => {
     try {
         await connectMongo();
         await Article.deleteOne({ slug })
-        // revalidatePath("/dashboard/blog");
+        revalidatePath("/dashboard/blog");
         return { message: "Article deleted successfully!" }
     } catch (e) {
         return {
