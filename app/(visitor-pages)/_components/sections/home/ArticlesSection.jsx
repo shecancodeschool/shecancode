@@ -7,7 +7,7 @@ import PageTitle from '../../PageTitle';
 export default function ArticlesSection({ featuredArticle, articles }) {
     return (
         <ReusableSection isTopSection background={"white"}>
-            <div className='flex flex-col w-full mx-auto text-black gap-8 md:gap-0 pb-16'>
+            <div className='flex flex-col w-full mx-auto text-black gap-8 md:gap-0 pb-0'>
                 <PageTitle orientation={'center'} title={'Trending Stories'} />
                 <div className='flex w-full flex-wrap justify-between'>
                     <div className='flex flex-col w-full md:w-[48%] mb-8 md:mb-0'>
@@ -37,7 +37,7 @@ export default function ArticlesSection({ featuredArticle, articles }) {
                             return (
                                 <Link key={index} href={`/articles/${article.slug}`} className='flex w-full rounded-lg gap-4 justify-between items-start'>
                                     <div className='flex justify-between items-center w-[22%]'>
-                                        <Image src={article.image} alt={article.title} width={10} height={10} className='rounded-lg' layout='responsive' />
+                                        <Image src={article.image} alt={article.title} width={10} height={10} className='rounded-lg aspect-video w-auto' layout='responsive' />
                                     </div>
                                     <div className='flex flex-col gap-1 w-[75%] text-black justify-end'>
                                         <h4 className='text-lg font-bold'>{article.title}</h4>
@@ -48,6 +48,11 @@ export default function ArticlesSection({ featuredArticle, articles }) {
                             )
                         })}
                     </div>
+                </div>
+                <div className='w-full flex justify-center items-center'>
+                <Link href="/articles" className="bg-[#317ACC] items-center mt-8 py-3 px-6 w-fit text-center text-white rounded-md hover:bg-[#296494]">
+                    See More Articles
+                </Link>
                 </div>
             </div>
         </ReusableSection>

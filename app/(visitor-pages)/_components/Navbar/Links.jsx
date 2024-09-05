@@ -1,15 +1,15 @@
 export const Links = [
-    {
-        name: 'Courses',
-        submenu: true,
-        sublinks: [
-            {
-                Head: "Coding skills",
-                sublink: [
-                    {
-                        name: 'All courses',
-                        link: "/courses"
-                    },
+    // {
+    //     name: 'Courses',
+    //     submenu: false,
+    //     sublinks: [
+            // {
+            //     Head: "Coding skills",
+            //     sublink: [
+                    // {
+                    //     name: 'All courses',
+                    //     link: "/courses"
+                    // },
                     // {
                     //     name: 'Frontend developement',
                     //     link: "/courses"
@@ -30,8 +30,8 @@ export const Links = [
                     //     name: 'Mobile app development',
                     //     link: "/courses"
                     // },
-                ]
-            },
+            //     ]
+            // },
             // {
             //     Head: "Soft skills",
             //     sublink: [
@@ -49,8 +49,8 @@ export const Links = [
             //         }
             //     ]
             // },
-        ]
-    },
+    //     ]
+    // },
     {
         name: 'About us',
         link: "/",
@@ -75,20 +75,20 @@ export const Links = [
             },
         ]
     },
-    {
-        name: 'Blog',
-        link: "/blogs",
-        submenu: true,
-        sublinks: [
-            {
-                Head: "All blogs",
-                sublink: [
-                    {
-                        name: 'All',
-                        link: "/articles"
-                    }
-                ]
-            },
+    // {
+    //     name: 'Blog',
+    //     link: "/blogs",
+    //     submenu: true,
+    //     sublinks: [
+    //         {
+    //             Head: "All blogs",
+    //             sublink: [
+    //                 {
+    //                     name: 'All',
+    //                     link: "/articles"
+    //                 }
+    //             ]
+    //         },
             // {
             //     Head: "Events",
             //     sublink: [
@@ -115,8 +115,8 @@ export const Links = [
             //         }
             //     ]
             // },
-        ]
-    },
+    //     ]
+    // },
     {
         name: 'Careers',
         link: "/",

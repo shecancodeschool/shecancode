@@ -26,13 +26,18 @@ const jsonLd = {
 
 export default async function page({ params }) {
     const { slug } = params;
-    
+    var categories = [];
+    var blogs = [];
     const allCategories = await getCategories();
-    const categories = JSON.parse(allCategories);
+    if (typeof allCategories === "string") {
+        categories = JSON.parse(allCategories);
+    }
     const categoriesExcludingPolicies = categories.filter(category => category.name !== "Policies");
 
     const allBlogs = await getArticlesByCategory(slug);
-    const blogs = JSON.parse(allBlogs);
+    if (typeof allBlogs === "string") {
+        blogs = JSON.parse(allBlogs);
+    }
 
     return (
         <>

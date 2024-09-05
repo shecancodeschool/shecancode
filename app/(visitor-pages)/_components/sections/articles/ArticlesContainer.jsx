@@ -46,7 +46,7 @@ export default function ArticlesContainer({ categories: blogCategories, blogs: a
                     ))}
                     {(!articles || articles.length === 0) &&
                         <div className="w-full flex justify-start items-start">
-                            <p className="text-lg text-start font-semibold text-gray-500">No courses available yet</p>
+                            <p className="text-lg text-start font-semibold text-gray-500">No articles available yet.</p>
                         </div>
                     }
                 </div>

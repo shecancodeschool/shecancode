@@ -25,7 +25,7 @@ const CourseDetails = ({ course, modules }) => {
                 <div className="flex flex-wrap-reverse gap-8 items-start justify-between md:flex-nowrap w-full md:gap-0">
                     <div className="blog-container text-black w-full md:w-[70%] lg:w-[65%]">
                         <section className='section flex flex-col gap-4'>
-                            <h2>{subTitle}</h2>
+                            {/* <h2>{subTitle}</h2> */}
                             {parse(description)}
                         </section>
                     </div>
@@ -76,7 +76,7 @@ const CourseDetails = ({ course, modules }) => {
                 </div>
 
                 {/* Second Section */}
-                <div className="blog-container flex w-full flex-wrap justify-between items-start" style={{ marginTop: "2rem" }}>
+                <div className="blog-container flex w-full flex-wrap justify-between items-start" style={{ marginTop: '2rem' }}>
                     <Image src={coverImage} alt={"Prerequisites"} className="rounded-lg mb-4 w-full lg:w-[65%]" width={800} height={500} />
                     <div className='mt-0 w-full lg:w-[33%] gap-4 md:gap-0 text-black'>
                         <section className='section'>
@@ -87,14 +87,14 @@ const CourseDetails = ({ course, modules }) => {
                 </div>
 
                 {/* Course Modules  */}
-                {modules?.length !== 0 && <div className="blog-container flex flex-col mt-16 gap-4 md:gap-1">
+                {modules?.length !== 0 && <div className="blog-container flex flex-col mt-8 gap-4 md:gap-1">
                     <h2 className={"text-2xl md:text-3xl mb-4 mt-0 md:mt-16 font-bold text-[#317ACC] text-left w-full"}>Modules</h2>
-                    <Accordion type="single" collapsible className='bg-sky-200 text-black p-12 rounded-md'>
+                    <Accordion type="single" collapsible className='bg-sky-200 text-black p-4 md:p-12 rounded-md'>
                         {modules && modules.map((module, index) => (
                             <AccordionItem value={index + 1} key={index}>
-                                <AccordionTrigger className="text-lg md:text-xl font-semibold">{module.title}</AccordionTrigger>
+                                <AccordionTrigger className="text-lg md:text-xl font-bold text-left">{module.title}</AccordionTrigger>
                                 <AccordionContent className="text-base md:text-lg">
-                                    <section className="section">
+                                    <section className="section bg-sky-300 p-4 rounded-lg">
                                         {HTMLReactParser(module.description)}
                                     </section>
                                 </AccordionContent>

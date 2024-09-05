@@ -6,10 +6,14 @@ import NavLinks from "./NavLinks";
 import { IoMenuSharp } from "react-icons/io5";
 import { IoCloseSharp } from "react-icons/io5";
 import { useEffect, useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import { cn } from "@/lib/utils";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+  console.log(pathname);
 
   const toggleOpen = () => {
     setOpen(!open);
@@ -35,16 +39,22 @@ const Navbar = () => {
             <Image src={"/logo/logo3.png"} alt="" width={130} height={30} className="h-9 w-auto md:cursor-pointer" />
           </Link>
           <div className="text-3xl md:hidden" onClick={() => setOpen(!open)}>
-            {open ? <IoCloseSharp className="text-black"/> : <IoMenuSharp />}
+            {open ? <IoCloseSharp className="text-black" /> : <IoMenuSharp />}
           </div>
         </div>
         <ul className="md:flex hidden items-center gap-8">
           <li>
-            <Link href="/" className="py-7 font-bold px-3 inline-block">
+            <Link href="/" className={cn(pathname === "/" ? "underline" : "", "py-7 font-bold px-3 mr-6 hover:text-[#317ACC] inline-block")}>
               Home
+            </Link>
+            <Link href="/courses" className={(pathname === "/courses" ? "underline" : "", "py-7 font-bold px-3 hover:text-[#317ACC] inline-block")}>
+              Courses
             </Link>
           </li>
           <NavLinks toggleOpen={toggleOpen} />
+          <Link href="/articles" className={(pathname === "/articles" ? "underline" : "", "py-7 font-bold px-3 hover:text-[#317ACC] inline-block")}>
+            Blog
+          </Link>
         </ul>
         <div className="md:block hidden">
           <Link href={'/contact-us'} onClick={toggleOpen} className='bg-[#317ACC] hover:bg-[#296494] text-white font-bold py-2 px-6 rounded-md'>

@@ -10,9 +10,9 @@ export const metadata = {
   description: "What is new in SheCanCode? Updates and news from SheCanCode.",
   keywords: "SheCanCODE, Articles, Blogs, SheCanCode Articles, Bootcamp, Women in tech, Training bootcamp, IT, IT Bootcamp, Free bootcamp, Girls, Girls bootcamp in Rwanda, Igire Rwanda Organization",
   openGraph: {
-      title: 'Blog',
-      description: "What is new in SheCanCode? Updates and news from SheCanCode.",
-      ...openGraphImage,
+    title: 'Blog',
+    description: "What is new in SheCanCode? Updates and news from SheCanCode.",
+    ...openGraphImage,
   },
 };
 
@@ -26,12 +26,16 @@ const jsonLd = {
 
 export default async function page() {
   const allCategories = await getCategories();
-  var categories = [] 
-  var categoriesExcludingPolicies = null;
+  var categories = []
+  var categoriesExcludingPolicies = [];
 
   if (typeof allCategories === "string") {
     categories = JSON.parse(allCategories);
-    categories.filter(category => category.name !== "Policies");
+    categories.forEach(element => {
+      if (element.name !== "Policies") {
+        categoriesExcludingPolicies.push(element);
+      }
+    });
   }
 
   const response = await getOnlyPublishedArticlesForBlog(false);
@@ -52,7 +56,7 @@ export default async function page() {
         description={BlogsPageData.titleDescription}
         hasButton={false}
       />
-      <ArticlesContainer 
+      <ArticlesContainer
         categories={categoriesExcludingPolicies}
         blogs={data?.articles}
       />

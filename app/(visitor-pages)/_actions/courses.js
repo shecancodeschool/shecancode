@@ -7,7 +7,6 @@ import CourseApplication from "@/utils/models/courseApplication.model";
 import slugify from "react-slugify";
 import { getErrorMessage } from "@/utils/errorHandler";
 import { revalidatePath } from "next/cache";
-import CourseCategory from "@/utils/models/courseCategory.model";
 import CourseModule from "@/utils/models/courseModule.model";
 
 const CourseApplicationSchema = z.object({
@@ -69,21 +68,21 @@ export const updateCourse = async (formData) => {
         }
         course.title = title;
         course.level = level;
-        course.location = location;
-        course.schedule = schedule;
-        course.status = status;
-        course.category = category;
-        course.subTitle = subTitle,
-        course.description = description;
-        course.duration = duration;
-        course.durationType = durationType;
-        course.startDate = startDate;
-        course.price = price;
-        course.isOpen = isOpen;
-        course.isFeatured = isFeatured;
-        course.prerequisites = prerequisites;
+        course.location = location && location;
+        course.schedule = schedule && schedule;
+        course.status = status && status;
+        course.category = category && category;
+        course.subTitle = subTitle && subTitle,
+        course.description = description && description;
+        course.duration = duration && duration;
+        course.durationType = durationType && durationType;
+        course.startDate = startDate && startDate;
+        course.price = price && price;
+        course.isOpen = isOpen && isOpen;
+        course.isFeatured = isFeatured && isFeatured;
+        course.prerequisites = prerequisites && prerequisites;
         course.slug = slugify(title);
-        course.coverImage = coverImage;
+        course.coverImage = coverImage && coverImage;
 
         await course.save();
         revalidatePath("/dashboard/courses");

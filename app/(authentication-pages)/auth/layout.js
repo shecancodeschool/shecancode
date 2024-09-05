@@ -1,6 +1,6 @@
 import "@/styles/globals.css";
-import { Toaster } from "sonner";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Toaster } from "sonner";
 
 export const metadata = {
   title: {

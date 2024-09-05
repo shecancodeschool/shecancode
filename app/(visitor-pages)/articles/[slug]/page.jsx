@@ -72,7 +72,7 @@ const page = async ({ params }) => {
           <section id="content" className={`flex items-center justify-center mx-auto w-full px-4 md:px-12 py-20 md:pb-24 overflow-hidden`}>
             <div className={`flex flex-col gap-6 items-center justify-center text-white w-full max-w-screen-xl`}>
               <div className="flex justify-between flex-wrap w-full">
-                <div className="blog-container flex space-x-4 mb-8 flex-col w-full lg:w-[70%] text-black text-base md:text-xl">
+                <div className="blog-container flex space-x-4 mb-8 flex-col w-full lg:w-[69%] text-black text-base md:text-xl">
                   {blog?.image && <Image src={blog?.image} alt={blog?.title} width={900} height={500} className="mb-8" />}
                   <div className="section">
                     {parse(blog?.content)}
@@ -83,7 +83,7 @@ const page = async ({ params }) => {
                   <div className="flex flex-col">
                     {recentBlogs && recentBlogs?.map((item, index) => (
                       <Link href={`/articles/${item.slug}`} key={index} className="flex gap-4 py-4 hover:bg-slate-200 cursor-pointer">
-                        <Image src={item.image} alt={item.title} width={100} height={100} />
+                        <Image src={item.image} alt={item.title} width={100} height={50} className="rounded-lg aspect-video w-auto" />
                         <h4 className="w-[70%] font-bold">{item.title}</h4>
                       </Link>
                     ))}
