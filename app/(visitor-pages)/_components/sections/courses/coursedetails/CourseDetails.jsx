@@ -9,14 +9,17 @@ import {
 import Link from 'next/link';
 import parse from 'html-react-parser';
 import { PiStepsDuotone } from "react-icons/pi";
-import { IoLocationOutline, IoTimerOutline } from "react-icons/io5";
-import { IoPricetagsOutline } from "react-icons/io5";
 import { RiCalendarScheduleLine } from "react-icons/ri";
-import { LiaHourglassStartSolid } from "react-icons/lia";
 import HTMLReactParser from 'html-react-parser';
+import { LuCalendarClock } from "react-icons/lu";
+import { LuCalendarX2 } from "react-icons/lu";
+import { MdOutlineEditCalendar } from "react-icons/md";
+import { MdAvTimer } from "react-icons/md";
+import { MdOutlineLocationOn } from "react-icons/md";
+import { RiPriceTag3Line } from "react-icons/ri";
 
 const CourseDetails = ({ course, modules }) => {
-    const { title, subTitle, description, isOpen, slug, level, location, schedule, startDate, duration, durationType, price, prerequisites, coverImage, ...rest } = course;
+    const { title, subTitle, description, isOpen, slug, level, applicationDeadLine, endDate, feeDescription, location, schedule, startDate, duration, durationType, fee, prerequisites, coverImage, ...rest } = course;
 
     return (
         <ReusableSection>
@@ -25,51 +28,67 @@ const CourseDetails = ({ course, modules }) => {
                 <div className="flex flex-wrap-reverse gap-8 items-start justify-between md:flex-nowrap w-full md:gap-0">
                     <div className="blog-container text-black w-full md:w-[70%] lg:w-[65%]">
                         <section className='section flex flex-col gap-4'>
-                            {/* <h2>{subTitle}</h2> */}
                             {parse(description)}
                         </section>
                     </div>
-                    <div className="w-full md:w-[27%] lg:w-[33%] flex flex-col space-y-4 mt-4 md:mt-0">
-                        <div className="flex items-center gap-4 flex-nowrap md:flex-wrap">
-                            <PiStepsDuotone className='text-sky-600' size={30} />
+                    <div className="w-full md:w-[27%] lg:w-[32%] flex flex-col space-y-4 md:mt-0 bg-sky-200 px-4 py-6 rounded-md border border-sky-400">
+                        <div className="flex items-start gap-4 flex-nowrap">
+                            <PiStepsDuotone className='text-sky-600 min-w-[10%]' size={30} />
                             <div className="flex flex-col text-black">
                                 <p className='text-lg font-extrabold'>Level</p>
                                 <p className='text-base'>{level}</p>
                             </div>
                         </div>
-                        <div className="flex items-center gap-4 flex-nowrap md:flex-wrap">
-                            <LiaHourglassStartSolid className='text-sky-600' size={30} />
+                        {applicationDeadLine && <div className="flex items-start gap-4 flex-nowrap">
+                            <LuCalendarClock className='text-sky-600 min-w-[10%]' size={30} />
+                            <div className="flex flex-col text-black">
+                                <p className='text-lg font-extrabold'>Application Deadline</p>
+                                <p className='text-base'>{new Date(applicationDeadLine).toDateString()}</p>
+                            </div>
+                        </div>}
+                        {startDate && <div className="flex items-start gap-4 flex-nowrap">
+                            <MdOutlineEditCalendar className='text-sky-600 min-w-[10%]' size={30} />
                             <div className="flex flex-col text-black">
                                 <p className='text-lg font-extrabold'>Start Date</p>
                                 <p className='text-base'>{new Date(startDate).toDateString()}</p>
                             </div>
-                        </div>
-                        <div className="flex items-center gap-4 flex-nowrap md:flex-wrap">
-                            <IoTimerOutline className='text-sky-600' size={30} />
+                        </div>}
+                        {endDate && <div className="flex items-start gap-4 flex-nowrap">
+                            <LuCalendarX2 className='text-sky-600 min-w-[10%]' size={30} />
+                            <div className="flex flex-col text-black">
+                                <p className='text-lg font-extrabold'>End Date</p>
+                                <p className='text-base'>{new Date(endDate).toDateString()}</p>
+                            </div>
+                        </div>}
+                        <div className="flex items-start gap-4 flex-nowrap">
+                            <MdAvTimer className='text-sky-600 min-w-[10%]' size={30} />
                             <div className="flex flex-col text-black">
                                 <p className='text-lg font-extrabold'>Duration</p>
                                 <p className='text-base'>{duration} {durationType}</p>
                             </div>
                         </div>
-                        <div className="flex items-center gap-4 flex-nowrap md:flex-wrap">
-                            <IoLocationOutline className='text-sky-600' size={30} />
+                        <div className="flex items-start gap-4 flex-nowrap">
+                            <MdOutlineLocationOn className='text-sky-600 min-w-[10%]' size={30} />
                             <div className="flex flex-col text-black">
                                 <p className='text-lg font-extrabold'>Location</p>
                                 <p className='text-base'>{location}</p>
                             </div>
                         </div>
-                        {price && <div className="flex items-center gap-4 flex-nowrap md:flex-wrap">
-                            <IoPricetagsOutline className='text-sky-600' size={30} />
+                        {fee && <div className="flex items-start gap-4 flex-nowrap">
+                            <RiPriceTag3Line className='text-sky-600 min-w-[10%]' size={30} />
                             <div className="flex flex-col text-black">
-                                <p className='text-lg font-extrabold'>Price</p>
-                                {price === 0 ? <p className='text-base'>Free</p> : <p className='text-base'>{price} Rwf</p>}
+                                <p className='text-lg font-extrabold'>Fee</p>
+                                <p className='text-base flex flex-col'>
+                                    <span>{fee}</span> 
+                                    <span className='text-wrap text-sky-700'> {feeDescription}</span>
+                                </p>
                             </div>
                         </div>}
-                        {schedule && <div className="flex items-center gap-4 flex-nowrap md:flex-wrap">
-                            <RiCalendarScheduleLine className='text-sky-600' size={30} />
+                        {schedule && <div className="flex items-start gap-4 flex-nowrap">
+                            <RiCalendarScheduleLine className='text-sky-600 min-w-[10%]' size={30} />
                             <div className="flex flex-col text-black">
                                 <p className='text-lg font-extrabold'>Schedule</p>
-                                <p className='text-base'>{schedule}</p>
+                                <p className='text-base text-wrap'>{schedule}</p>
                             </div>
                         </div>}
                     </div>
@@ -89,12 +108,12 @@ const CourseDetails = ({ course, modules }) => {
                 {/* Course Modules  */}
                 {modules?.length !== 0 && <div className="blog-container flex flex-col mt-8 gap-4 md:gap-1">
                     <h2 className={"text-2xl md:text-3xl mb-4 mt-0 md:mt-16 font-bold text-[#317ACC] text-left w-full"}>Modules</h2>
-                    <Accordion type="single" collapsible className='bg-sky-200 text-black p-4 md:p-12 rounded-md'>
+                    <Accordion type="single" collapsible className='bg-sky-100 border border-sky-400 text-black p-4 md:p-12 rounded-md'>
                         {modules && modules.map((module, index) => (
                             <AccordionItem value={index + 1} key={index}>
-                                <AccordionTrigger className="text-lg md:text-xl font-bold text-left">{module.title}</AccordionTrigger>
+                                <AccordionTrigger className="text-lg md:text-xl font-bold text-left text-sky-800">{module.title}</AccordionTrigger>
                                 <AccordionContent className="text-base md:text-lg">
-                                    <section className="section bg-sky-300 p-4 rounded-lg">
+                                    <section className="section bg-sky-200 border border-sky-400 p-4 rounded-lg">
                                         {HTMLReactParser(module.description)}
                                     </section>
                                 </AccordionContent>

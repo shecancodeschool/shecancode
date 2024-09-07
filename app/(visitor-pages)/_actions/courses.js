@@ -37,12 +37,12 @@ export const addNewCourse = async (formData) => {
                 status: 400,
             };
         }
+        formData.title = formData.title.trim();
         formData.slug = slugify(formData.title);
-        formData.price = Number(formData.price);
         formData.duration = Number(formData.duration);
 
         const course = await Course.create(formData);
-        return { 
+        return {
             course,
             message: "Course created successfully",
             status: 200
@@ -56,7 +56,7 @@ export const addNewCourse = async (formData) => {
 }
 
 export const updateCourse = async (formData) => {
-    const { id, title, level, location, schedule, coverImage, status, category, subTitle, description, duration, durationType, startDate, price, isOpen, isFeatured, prerequisites } = formData; 
+    const { id, title, level, location, schedule, coverImage, status, category, subTitle, description, duration, durationType, startDate, endDate, applicationDeadLine, feeDescription, fee, isOpen, isFeatured, prerequisites } = formData;
     try {
         await connectMongo();
         const course = await Course.findById(id);
@@ -73,11 +73,14 @@ export const updateCourse = async (formData) => {
         course.status = status && status;
         course.category = category && category;
         course.subTitle = subTitle && subTitle,
-        course.description = description && description;
+            course.description = description && description;
         course.duration = duration && duration;
         course.durationType = durationType && durationType;
         course.startDate = startDate && startDate;
-        course.price = price && price;
+        course.fee = fee && fee;
+        course.feeDescription = feeDescription && feeDescription;
+        course.applicationDeadLine = applicationDeadLine && applicationDeadLine;
+        course.endDate = endDate && endDate;
         course.isOpen = isOpen && isOpen;
         course.isFeatured = isFeatured && isFeatured;
         course.prerequisites = prerequisites && prerequisites;
@@ -194,8 +197,15 @@ export const applyForCourse = async (prevState, formData) => {
 export const deleteCourse = async (slug) => {
     try {
         await connectMongo();
-        // await Course.findByIdAndDelete(id);
-        await Course.deleteOne({ slug });
+        const course = await Course.findOne({ slug });
+        if (!course) {
+            return {
+                error: "Course not found",
+                status: 404
+            };
+        }
+        const deleted = await Course.findByIdAndDelete(course._id);
+        revalidatePath("/dashboard/courses");
         return {
             message: "Course deleted successfully",
             status: 200

@@ -36,7 +36,7 @@ const Navbar = () => {
       <div className="flex items-center font-medium justify-between mx-auto max-w-screen-xl">
         <div className="z-50 p-4 md:p-0 md:w-auto w-full flex justify-between">
           <Link href={'/'} onClick={() => setOpen(false)}>
-            <Image src={"/logo/logo3.png"} alt="" width={130} height={30} className="h-9 w-auto md:cursor-pointer" />
+            <Image src={"/logo/logo3.png"} alt="" width={50} height={30} className="h-9 w-auto md:cursor-pointer" />
           </Link>
           <div className="text-3xl md:hidden" onClick={() => setOpen(!open)}>
             {open ? <IoCloseSharp className="text-black" /> : <IoMenuSharp />}
@@ -72,6 +72,12 @@ const Navbar = () => {
               Home
             </Link>
             <NavLinks toggleOpen={toggleOpen} />
+            <Link href="/courses" className="py-7 inline-block font-bold" onClick={toggleOpen}>
+              Courses
+            </Link>
+            <Link href="/articles" className="py-7 inline-block font-bold" onClick={toggleOpen}>
+              Blog
+            </Link>
             <div className="py-5">
               <Link href={'/contact-us'} onClick={toggleOpen} className='bg-[#317ACC] hover:bg-[#296494] text-white font-bold py-2 px-6 rounded-md'>
                 Contact Us

@@ -3,7 +3,7 @@ import { numberToMonth } from '../../../../../utils/NumberFunctions';
 import { textLimiter } from '../../../../../utils/textLimiter';
 
 const CourseCard = ({ course }) => {
-  const { title, subTitle, duration, durationType, startDate, price, coverImage, slug, isOpen } = course;
+  const { title, subTitle, duration, durationType, startDate, fee, coverImage, slug, isOpen } = course;
 
   return (
     <div className='flex flex-col sm:w-[48%] md:w-[22%] shadow-md mb-10 rounded-md bg-white'>
@@ -26,7 +26,7 @@ const CourseCard = ({ course }) => {
         </div>
         <div className='flex justify-between items-center'>
           <span>{duration} {durationType}</span>
-          <span className='ml-4 font-extrabold text-sky-600'>{price === 0 ? "Free" : price} {price !== 0 && "Rwf"}</span>
+          <span className='ml-4 font-extrabold text-sky-600'>{fee}</span>
         </div>
         <div className='flex flex-col gap-2'>
           {isOpen === "Yes" && <Link href={`/courses/${slug}/apply`} className='w-full text-center bg-sky-600 hover:bg-sky-700 text-white text-sm rounded-2xl p-1'>Enroll Now</Link>}
