@@ -1,9 +1,7 @@
 "use client"
 
 import React, { useState, useRef } from 'react';
-const JoditEditor = dynamic(() => import("jodit-react"), {
-  ssr: false,
-});
+import dynamic from 'next/dynamic';
 import { Button } from "@/components/ui/button";
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
@@ -31,7 +29,9 @@ import { Separator } from '@/components/ui/separator';
 import { createStoredImage } from '../../_actions/storedImageActions';
 import { cn } from '@/lib/utils';
 import { addNewCourse, updateCourse } from '@/app/(visitor-pages)/_actions/courses';
-import dynamic from 'next/dynamic';
+const JoditEditor = dynamic(() => import("jodit-react"), {
+  ssr: false,
+});
 
 const formSchema = z.object({
   title: z.string().min(3, { message: "Title must be at least 3 characters." }),
@@ -110,6 +110,8 @@ export default function CourseForm({ categories, storedImages, id, course }) {
 
   const courseDetails = course;
 
+  const defaultDate = new Date().toISOString();
+
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -128,9 +130,9 @@ export default function CourseForm({ categories, storedImages, id, course }) {
       fee: courseDetails?.fee || "0",
       duration: courseDetails?.duration || "0",
       durationType: courseDetails?.durationType || "",
-      startDate: new Date(courseDetails?.startDate) || new Date(),
-      endDate: new Date(courseDetails?.endDate) || new Date(),
-      applicationDeadLine: new Date(courseDetails?.applicationDeadLine) || new Date(),
+      startDate: new Date(courseDetails?.startDate) || new Date(defaultDate),
+      endDate: new Date(courseDetails?.endDate) || new Date(defaultDate),
+      applicationDeadLine: new Date(courseDetails?.applicationDeadLine) || new Date(defaultDate),
       feeDescription: courseDetails?.feeDescription || "",
       level: courseDetails?.level || "",
       location: courseDetails?.location || "",
@@ -607,8 +609,8 @@ export default function CourseForm({ categories, storedImages, id, course }) {
                               !field.value && "text-muted-foreground"
                             )}
                           >
-                            {field.value ? (
-                              format(field.value, "PPP")
+                            {(field.value) ? (
+                              field.value.toDateString()
                             ) : (
                               <span>Pick a date</span>
                             )}
@@ -651,7 +653,7 @@ export default function CourseForm({ categories, storedImages, id, course }) {
                             )}
                           >
                             {field.value ? (
-                              format(field.value, "PPP")
+                              field.value.toDateString()
                             ) : (
                               <span>Pick a date</span>
                             )}
@@ -694,7 +696,7 @@ export default function CourseForm({ categories, storedImages, id, course }) {
                             )}
                           >
                             {field.value ? (
-                              format(field.value, "PPP")
+                              field.value.toDateString()
                             ) : (
                               <span>Pick a date</span>
                             )}
