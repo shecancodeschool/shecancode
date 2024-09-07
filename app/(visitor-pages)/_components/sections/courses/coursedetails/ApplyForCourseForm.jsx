@@ -58,7 +58,6 @@ export default function ApplyForCourseForm({ courseId }) {
                                     <option value="Male">Male</option>
                                 </select>
                                 {response?.gender && <span className="text-red-400 text-sm">{response?.gender}</span>}
-                                {response?.gender && <span className="text-red-400 text-sm">{response?.gender}</span>}
                                 <label htmlFor='age' className='flex flex-col space-y-2'>
                                     <span className='text-lg font-semibold text-black'>Age</span>
                                     <input type='number' name='age' id='age' className='border-2 border-gray-300 rounded-md p-2 w-full' placeholder="Your age" />
