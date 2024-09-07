@@ -15,13 +15,13 @@ export default function CourseBanner({ coverImage, title, subTitle, slug, startD
             <div className={`flex flex-col items-start space-y-12 justify-center text-white w-full max-w-screen-xl`}>
                 <Link href={`/courses`} className="flex flex-row items-center justify-center gap-2">
                     <span className="bg-transparent rounded-full border-2 border-white p-1"><FaArrowLeft className="text-white" /></span>
-                    <span className="text-base">Go back</span>
+                    <span className="text-base">Go back to Courses</span>
                 </Link>
                 <h1 className="text-3xl md:text-5xl font-extrabold w-full text-start">{title}</h1>
                 <p className="text-lg md:text-xl text-start w-full sm:w-full md:w-2/3">
                     {subTitle}
                 </p>
-                {isOpen === "Yes" && <Link href={`/courses/${slug}/apply`} className="bg-[#317ACC] py-3 px-6 text-white rounded-md hover:bg-[#296494]">
+                {isOpen === "Yes" && <Link href={`/courses/${slug}/apply/#form`} className="bg-[#317ACC] py-3 px-6 text-white rounded-md hover:bg-[#296494]">
                     Apply Now
                 </Link>}
             </div>
