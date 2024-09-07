@@ -44,8 +44,29 @@ const CourseSchema = new Schema({
         type: String,
         required: true
     },
+    doYouHaveALaptop: {
+        type: String,
+        required: true,
+        enum: ['Yes', 'No'],
+        default: 'Yes'
+    },
+    doYouHaveAccessToInternet: {
+        type: String,
+        required: true,
+        enum: ['Yes', 'No'],
+        default: 'Yes'
+    },
+    availability: {
+        type: String,
+        required: true,
+        enum: {
+            values: ['Day', 'Evening', 'Flexible'],
+            message: '{VALUE} is not supported'
+        },
+        default: "Flexible",
+    },
     duration: {
-        type: Number,
+        type: String,
         required: true
     },
     durationType: {
@@ -56,8 +77,20 @@ const CourseSchema = new Schema({
         type: Date,
         required: true
     },
-    price: {
-        type: Number,
+    endDate: {
+        type: Date,
+        required: true
+    },
+    feeDescription: {
+        type: String,
+        required: false
+    },
+    applicationDeadLine: {
+        type: Date,
+        required: true,
+    },
+    fee: {
+        type: String,
         required: true
     },
     coverImage: {

@@ -40,7 +40,7 @@ const HomePageData = {
         },
     },
     homePageCoursesSectionData: {
-        title: "Market-aligned Courses Curated for Your Career Success"
+        title: "Courses Designed to Prepare Your Career in Tech."
     },
     partnersAndHiringCompaniesSectionData: {
         title: "Partners and Hiring Companies",
@@ -82,8 +82,8 @@ const HomePageData = {
         }
     ],
     statisticsSectionData: {
-        title: "Market-aligned Courses Curated for Your Career Success",
-        description: "We have developed programs and courses that align with the changing needs of the software development industry.",
+        title: "Our Goal is To Empower as Many Women As We Can",
+        description: "With a target to put more an 400 more women into the tech industry by 2028.",
     },
     servicesSectionData: {
         sectionTitle: "Benefit from Out Experience In Empowering Young Women",
@@ -158,7 +158,7 @@ const HomePageData = {
             },
             {
                 question: "Can I pay for a course in installments?",
-                answer: "Yes, according to the price of the course you have chosen. We offer flexibility in the payment process. However, to start a course you must pay 50% percent of the total course fee or bellow according to the course cost."
+                answer: "Yes, according to the fee of the course you have chosen. We offer flexibility in the payment process. However, to start a course you must pay 50% percent of the total course fee or bellow according to the course cost."
             },
             {
                 question: "What can I do if a course I want to join has not yet started?",
