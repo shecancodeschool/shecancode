@@ -38,7 +38,7 @@ export default async function page({ params }) {
           <Link href={`/dashboard/courses/course/${slug}/modules`}>
             <Button variant="outline" className="">Add/Manage Modules</Button>
           </Link>
-          <DeleteButton item="course" id={slug} />
+          <DeleteButton item="course" slug={slug} />
           <Link href={"/dashboard/courses"}>
             <Button className="text-white">View Courses</Button>
           </Link>

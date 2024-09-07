@@ -24,9 +24,6 @@ export default async function page({ slug }) {
         const fetchedCourse = await findCourseBySlug(slug);
         if (fetchedCourse) {
             data = JSON.parse(fetchedCourse);
-            data.course.price = data.course?.price?.toString();
-            data.course.duration = data.course?.duration?.toString();
-            data.course.startDate = new Date(data.course?.startDate);
         }
     }
 

@@ -20,7 +20,7 @@ export default function ModuleList({ modules, course }) {
             {(modules && modules.length > 0) && <Accordion type="single" collapsible className="bg-white rounded py-4 px-4 w-full">
                 {modules?.map((module) => (
                     <AccordionItem key={module._id} value={module._id}>
-                        <AccordionTrigger className="font-bold">{module.title}</AccordionTrigger>
+                        <AccordionTrigger className="font-bold text-sky-600">{module.title}</AccordionTrigger>
                         <AccordionContent>
                             <section className="section flex flex-col gap-2">
                                 {parse(module.description)}

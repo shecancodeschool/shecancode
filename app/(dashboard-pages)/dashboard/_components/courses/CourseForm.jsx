@@ -44,10 +44,13 @@ const formSchema = z.object({
   description: z.string().min(5, { message: "Description is required" }),
   prerequisites: z.string().min(5, { message: "Course pre-requisites are required" }),
   category: z.string().min(3, { message: "Category is required" }),
-  status: z.string().min(3, { message: "Status is required" }),
-  startDate: z.date({ required_error: "A start date is required." }),
-  price: z.string().min(1, { message: "Price is required" }),
-  duration: z.string().min(1, { message: "Duration is required" }),
+  status: z.string().min(3, { message: "Status is required" }), 
+  startDate: z.date().refine((val) => !isNaN(val.getTime()), { message: "Invalid date format" }),
+  endDate: z.date().refine((val) => !isNaN(val.getTime()), { message: "Invalid date format" }),
+  applicationDeadLine: z.date().refine((val) => !isNaN(val.getTime()), { message: "Invalid date format" }),
+  fee: z.string().optional(),
+  feeDescription: z.string().optional(),
+  duration: z.string().optional(),
   durationType: z.string().min(3, { message: "Duration type is required" }),
   isOpen: z.string().min(1, { message: "Is open is required" }),
   isFeatured: z.string().min(1, { message: "Is featured is required" }),
@@ -122,10 +125,13 @@ export default function CourseForm({ categories, storedImages, id, course }) {
       description: courseDetails?.description || "",
       status: courseDetails?.status || "Draft",
       isFeatured: courseDetails?.isFeatured || "No",
-      price: courseDetails?.price || 0,
-      duration: courseDetails?.duration || 0,
+      fee: courseDetails?.fee || "0",
+      duration: courseDetails?.duration || "0",
       durationType: courseDetails?.durationType || "",
-      startDate: courseDetails?.startDate || "",
+      startDate: new Date(courseDetails?.startDate) || new Date(),
+      endDate: new Date(courseDetails?.endDate) || new Date(),
+      applicationDeadLine: new Date(courseDetails?.applicationDeadLine) || new Date(),
+      feeDescription: courseDetails?.feeDescription || "",
       level: courseDetails?.level || "",
       location: courseDetails?.location || "",
       schedule: courseDetails?.schedule || ""
@@ -143,7 +149,7 @@ export default function CourseForm({ categories, storedImages, id, course }) {
   };
 
   async function onSubmit(values) {
-    const { title, description, category, content, status, isOpen, allowedForBlog, isFeatured, price, duration, durationType, startDate, level, location, schedule, subTitle, prerequisites } = values;
+    const { title, description, category, content, status, isOpen, allowedForBlog, isFeatured, fee, feeDescription, endDate, applicationDeadLine, duration, durationType, startDate, level, location, schedule, subTitle, prerequisites } = values;
 
     const formData = {
       id: id ? id : "",
@@ -162,10 +168,13 @@ export default function CourseForm({ categories, storedImages, id, course }) {
       allowedForBlog,
       isFeatured,
       isOpen,
-      price,
+      fee,
       duration,
       durationType,
-      startDate
+      startDate,
+      endDate,
+      applicationDeadLine,
+      feeDescription
     }
 
     if (id) {
@@ -502,15 +511,33 @@ export default function CourseForm({ categories, storedImages, id, course }) {
             <div className="w-full md:w-[23%]">
               <FormField
                 control={form.control}
-                name="price"
+                name="fee"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Price</FormLabel>
+                    <FormLabel>Fee</FormLabel>
                     <FormControl>
-                      <Input placeholder="Course price" {...field} />
+                      <Input placeholder="Course fee" {...field} />
                     </FormControl>
                     <FormDescription>
-                      Course price in RWF
+                      Course fee in RWF
+                    </FormDescription>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+            <div className="w-full md:w-[23%]">
+              <FormField
+                control={form.control}
+                name="feeDescription"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Fee Description (optional)</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Fee description" {...field} />
+                    </FormControl>
+                    <FormDescription>
+                      Provide information about discounts,...                      
                     </FormDescription>
                     <FormMessage />
                   </FormItem>
@@ -560,13 +587,102 @@ export default function CourseForm({ categories, storedImages, id, course }) {
                 )}
               />
             </div>
-            <div className="w-full md:w-[23%]">
+          </div>
+          <Separator className="my-4 border-b-[1px] border-gray-500" />
+          <div className="w-full flex justify-between flex-wrap ">
+          <div className="w-full md:w-[23%]">
               <FormField
                 control={form.control}
                 name="startDate"
                 render={({ field }) => (
                   <FormItem className="flex flex-col">
                     <FormLabel>Start Date</FormLabel>
+                    <Popover>
+                      <PopoverTrigger asChild>
+                        <FormControl>
+                          <Button
+                            variant={"outline"}
+                            className={cn(
+                              "w-[240px] pl-3 text-left font-normal",
+                              !field.value && "text-muted-foreground"
+                            )}
+                          >
+                            {field.value ? (
+                              format(field.value, "PPP")
+                            ) : (
+                              <span>Pick a date</span>
+                            )}
+                            <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
+                          </Button>
+                        </FormControl>
+                      </PopoverTrigger>
+                      <PopoverContent className="w-auto p-0" align="start">
+                        <Calendar
+                          mode="single"
+                          selected={field.value}
+                          onSelect={field.onChange}
+                          disabled={(date) =>
+                            date < new Date() || date < new Date("2024-01-01")
+                          }
+                          initialFocus
+                        />
+                      </PopoverContent>
+                    </Popover>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+            <div className="w-full md:w-[23%]">
+              <FormField
+                control={form.control}
+                name="endDate"
+                render={({ field }) => (
+                  <FormItem className="flex flex-col">
+                    <FormLabel>End Date</FormLabel>
+                    <Popover>
+                      <PopoverTrigger asChild>
+                        <FormControl>
+                          <Button
+                            variant={"outline"}
+                            className={cn(
+                              "w-[240px] pl-3 text-left font-normal",
+                              !field.value && "text-muted-foreground"
+                            )}
+                          >
+                            {field.value ? (
+                              format(field.value, "PPP")
+                            ) : (
+                              <span>Pick a date</span>
+                            )}
+                            <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
+                          </Button>
+                        </FormControl>
+                      </PopoverTrigger>
+                      <PopoverContent className="w-auto p-0" align="start">
+                        <Calendar
+                          mode="single"
+                          selected={field.value}
+                          onSelect={field.onChange}
+                          disabled={(date) =>
+                            date < new Date() || date < new Date("2024-01-01")
+                          }
+                          initialFocus
+                        />
+                      </PopoverContent>
+                    </Popover>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+            <div className="w-full md:w-[23%]">
+              <FormField
+                control={form.control}
+                name="applicationDeadLine"
+                render={({ field }) => (
+                  <FormItem className="flex flex-col">
+                    <FormLabel>Application Deadline</FormLabel>
                     <Popover>
                       <PopoverTrigger asChild>
                         <FormControl>
