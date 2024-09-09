@@ -45,6 +45,9 @@ export const addNewCourse = async (formData) => {
         formData.duration = Number(formData.duration);
 
         const course = await Course.create(formData);
+        revalidatePath("/");
+        revalidatePath("/courses");
+        revalidatePath("/dashboard/courses");
         return {
             course,
             message: "Course created successfully",
@@ -92,6 +95,8 @@ export const updateCourse = async (formData) => {
 
         await course.save();
         revalidatePath("/dashboard/courses");
+        revalidatePath("/");
+        revalidatePath("/courses");
 
         return {
             course,
@@ -209,6 +214,8 @@ export const deleteCourse = async (slug) => {
         }
         const deleted = await Course.findByIdAndDelete(course._id);
         revalidatePath("/dashboard/courses");
+        revalidatePath("/");
+        revalidatePath("/courses");
         return {
             message: "Course deleted successfully",
             status: 200
