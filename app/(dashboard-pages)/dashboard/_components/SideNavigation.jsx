@@ -6,11 +6,15 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
 import { Links } from "./Links";
+import { useSession } from "next-auth/react";
 
 const SideNavigation = () => {
   const [isClicked, setIsClicked] = useState(false);
   const [clickedLink, setClickedLink] = useState("");
   const pathName = usePathname();
+  const { data: session } = useSession();
+
+  console.log(session);
 
   return (
     <div className="flex-1 bg-sky-950">

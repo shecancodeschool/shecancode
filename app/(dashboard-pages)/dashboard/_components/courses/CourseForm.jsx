@@ -303,6 +303,7 @@ export default function CourseForm({ categories, storedImages, id, course }) {
                         <SelectItem value={"Beginner"}>Beginner</SelectItem>
                         <SelectItem value={"Intermediate"}>Intermediate</SelectItem>
                         <SelectItem value={"Advanced"}>Advanced</SelectItem>
+                        <SelectItem value={"All"}>All</SelectItem>
                       </SelectContent>
                     </Select>
                     <FormMessage />
