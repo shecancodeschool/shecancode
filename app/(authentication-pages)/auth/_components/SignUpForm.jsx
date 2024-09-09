@@ -13,6 +13,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { useState } from "react";
 import { registerUser } from "../../_actions/auth";
 import { signIn } from "next-auth/react";
+import { LoadingButton } from "@/app/(dashboard-pages)/dashboard/_components/widgets/Loader";
 
 const formSchema = z.object({
     name: z.string().min(3, {
@@ -53,6 +54,8 @@ export default function SignUpForm() {
         }
         form.reset();
     }
+
+    const isLoading = form.formState.isSubmitting;
 
     return (
         <div>
@@ -113,12 +116,16 @@ export default function SignUpForm() {
                             )}
                         />
                     </div>
-                    <Button type="submit" className="w-full">
-                        Create an account
-                    </Button>
-                    <Button variant="outline" className="w-full" onClick={() => signIn("github")}>
+                    {
+                        isLoading ? (
+                            <LoadingButton btnText={"Loading..."} btnClass={"w-full"} btnVariant={"default"} />
+                        ) : (<Button type="submit" className="w-full">
+                            Create an account
+                        </Button>)
+                    }
+                    {/* <Button variant="outline" className="w-full" onClick={() => signIn("github")}>
                         Sign up with GitHub
-                    </Button>
+                    </Button> */}
                 </form>
             </Form>
             <div className="mt-4 text-center text-sm">

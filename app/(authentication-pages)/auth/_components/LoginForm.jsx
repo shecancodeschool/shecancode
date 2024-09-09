@@ -13,6 +13,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { useState } from "react";
 import { signIn } from "next-auth/react";
 import Image from "next/image";
+import { LoadingButton } from "@/app/(dashboard-pages)/dashboard/_components/widgets/Loader";
 
 const formSchema = z.object({
   email: z.string().email().min(6, {
@@ -27,6 +28,7 @@ export default function LoginForm() {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
   const router = useRouter();
+
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -48,14 +50,15 @@ export default function LoginForm() {
         toast.error("Invalid email or password");
       }
     }
-    console.log(response);
 
     if (response.ok) {
       toast.success("Logged in successfully!");
+      form.reset();
       router.push('/dashboard');
     }
-    form.reset();
   }
+
+  const isLoading = form.formState.isSubmitting;
 
   return (
     <div>
@@ -104,13 +107,17 @@ export default function LoginForm() {
               </Link>
             </div>
           </div>
+          {isLoading ? (
+            <LoadingButton btnText={"Loading..."} btnClass={"w-full"} btnVariant={"default"} /> 
+          ) : (
           <Button type="submit" className="w-full" >
             Sign in
           </Button>
-          <Button variant="outline" className="w-full flex gap-2" onClick={() => signIn("github")}>
+          )}
+          {/* <Button type="button" variant="outline" className="w-full flex gap-2" onClick={() => signIn("github")}>
             Sign in with GitHub
             <Image src="/github-logo.png" alt="GitHub" width={20} height={20} />
-          </Button>
+          </Button> */}
         </form>
       </Form>
       <div className="mt-4 text-center text-sm">
