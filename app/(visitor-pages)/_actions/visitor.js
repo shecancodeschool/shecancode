@@ -5,6 +5,7 @@ import Subscriber from "@/utils/models/subscriber.model";
 import { z } from "zod";
 
 const SubscribeSchema = z.object({
+    fullName: z.string().min(2, "Your name is required"),
     email: z.string().email().min(8),
 });
 
@@ -29,11 +30,12 @@ export const submitSubscription = async (prevState, formData) => {
     }
 
     const data = result.data;
+    console.log(data);
 
     try {
-        const { email } = data;
-        if ( !email ) {
-            return { error: "Email is required" };
+        const { fullName, email } = data;
+        if ( !email || !fullName) {
+            return { error: "All fields are required" };
         }
         await connectMongo();
         

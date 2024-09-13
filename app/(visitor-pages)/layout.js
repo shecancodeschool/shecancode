@@ -32,7 +32,7 @@ export default function RootLayout({ children }) {
       </head>
       <body className={cn("flex flex-col justify-start", fontSans.variable)}>
         <ProgressBarProvider>
-          <Toaster position="top-right" />
+          <Toaster position="top-right" richColors />
           <Navbar />
           {children}
           <Footer />

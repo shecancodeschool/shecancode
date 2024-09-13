@@ -17,7 +17,10 @@ export default function SubscribeForm() {
 
     return (
         <form action={action} className='flex flex-col items-center justify-between gap-4 w-full md:w-2/5'>
-            <input type="email" name="email" required placeholder="Enter your email to sign up" className='px-3 py-2 rounded-sm w-full' />
+            <input type="text" name="fullName" required placeholder="Enter your full name" className='px-3 py-2 rounded-sm w-full' />
+            {response?.fullName && <p className="text-red-500">{response?.fullName}</p>}
+            
+            <input type="email" name="email" required placeholder="Enter your email address" className='px-3 py-2 rounded-sm w-full' />
             {response?.email && <p className="text-red-500">{response?.email}</p>}
             <SubmitButton />
         </form>
