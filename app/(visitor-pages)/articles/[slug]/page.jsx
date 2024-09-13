@@ -8,11 +8,13 @@ import { ErrorBoundary } from "next/dist/client/components/error-boundary";
 import { Suspense } from "react";
 import Loading from "@/app/(dashboard-pages)/dashboard/loading";
 
+var metadata = {};
+
 const page = async ({ params }) => {
   const { slug } = params;
   var blog = null;
   var data = null;
-  
+
   const fetchedBlog = await getArticleBySlug(slug);
   const response = await getOnlyPublishedArticlesForBlog(false, 10);
 
@@ -39,11 +41,33 @@ const page = async ({ params }) => {
     )
   }
 
+  metadata = {
+    title: `${blog.title}`,
+    description: `${blog.subTitle}`,
+    keywords: "SheCanCODE, Courses, Programs at SheCanCODE, SheCanCode Courses, Bootcamp, Women in tech, Training bootcamp, IT, IT Bootcamp, Free bootcamp, Girls, Girls bootcamp in Rwanda, Igire Rwanda Organization",
+    openGraph: {
+      title: `${blog.title}`,
+      description: `${blog.subTitle}`,
+      ...{ images: [blog.image] },
+    },
+  };
+
+  const jsonLd = {
+    '@context': `https://shecancodeschool.org/articles/${blog.slug}`,
+    '@type': 'Courses',
+    name: `${blog.title}`,
+    image: `${blog.image}`,
+    description: `${blog.subTitle}`,
+  }
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <ErrorBoundary>
         <Suspense fallback={<Loading />}>
-
           <div className='flex flex-col items-center justify-center mx-auto w-full px-4 md:px-12 pt-36 pb-16 md:pb-32 overflow-hidden' style={{ backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.6)), url(${blog?.image})`, backgroundSize: 'cover', backgroundPosition: 'center', transition: 'background-image 0.3s ease-in-out', willChange: 'background-image' }}>
             <div className={`flex flex-col items-start space-y-8 justify-center text-white w-full max-w-screen-xl`}>
               <Link href={`/articles`} className="flex flex-row items-center justify-center gap-2">
@@ -97,5 +121,7 @@ const page = async ({ params }) => {
     </>
   );
 };
+
+export var metadata = metadata;
 
 export default page;

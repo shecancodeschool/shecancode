@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { FaArrowLeft } from "react-icons/fa6";
 
-export default function CourseBanner({ coverImage, title, subTitle, slug, startDate, isOpen }) {
+export default function CourseBanner({ coverImage, title, subTitle, slug, isOpen }) {
     const jssStyles = {
         backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.6)), url(${coverImage})`,
         backgroundSize: 'cover',
