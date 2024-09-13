@@ -2,6 +2,7 @@
 
 import connectMongo from "@/utils/database/ConnectToDB";
 import Subscriber from "@/utils/models/subscriber.model";
+import sendEmail from "@/utils/sendEmail";
 import { z } from "zod";
 
 const SubscribeSchema = z.object({
@@ -30,7 +31,6 @@ export const submitSubscription = async (prevState, formData) => {
     }
 
     const data = result.data;
-    console.log(data);
 
     try {
         const { fullName, email } = data;
@@ -44,6 +44,7 @@ export const submitSubscription = async (prevState, formData) => {
             return { error: "You are already subscribed to our newsletter" };
         }
         await Subscriber.create(data);
+        await sendEmail(email, "Thank You For Subscribing to Our Newsletter", `Hello ${fullName}, \n\nyou have successfully subscribed to our newsletter. \n\nThank you for joining us! \nYou will receive updates on our latest news and events.\n\nBest regards,\nSheCanCODE Bootcamp Team`);
         return { message: "Successfully Subscribed to our news letter" }
     } catch (e) {
         console.log("Error while subscribing", e);

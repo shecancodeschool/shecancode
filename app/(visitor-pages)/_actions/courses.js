@@ -8,6 +8,7 @@ import slugify from "react-slugify";
 import { getErrorMessage } from "@/utils/errorHandler";
 import { revalidatePath } from "next/cache";
 import CourseModule from "@/utils/models/courseModule.model";
+import sendEmail from "@/utils/sendEmail";
 
 const CourseApplicationSchema = z.object({
     course: z.string(),
@@ -20,9 +21,9 @@ const CourseApplicationSchema = z.object({
     residence: z.string().min(3, "Residence is required"),
     linkedInAccount: z.string().optional(),
     githubAccount: z.string().optional(),
-    doYouHaveALaptop: z.string().min(4, "This field is required"),
-    doYouHaveAccessToInternet: z.string().min(4, "This field is required"),
-    availability: z.string().min(4, "This field is required"),
+    doYouHaveALaptop: z.string().min(2, "This field is required"),
+    doYouHaveAccessToInternet: z.string().min(2, "This field is required"),
+    availability: z.string().min(1, "This field is required"),
     howDidYouHearAboutThisJob: z.string().min(4, "This field is required"),
     academicBackground: z.string().min(4, "Academic background is required"),
     universityBeingAttended: z.string().optional(),
@@ -79,7 +80,7 @@ export const updateCourse = async (formData) => {
         course.status = status && status;
         course.category = category && category;
         course.subTitle = subTitle && subTitle,
-            course.description = description && description;
+        course.description = description && description;
         course.duration = duration && duration;
         course.durationType = durationType && durationType;
         course.startDate = startDate && startDate;
@@ -190,6 +191,7 @@ export const applyForCourse = async (prevState, formData) => {
         }
         const application = await CourseApplication.create(data);
         if (application) {
+            await sendEmail(data.email, "Application Successufully Submitted", `Dear ${data.lastName},\n\nThank you for applying to our course. We will get back to you soon. \n\nBest regards,\nSheCanCODE Bootcamp Team`);
             return {
                 message: "Successfully applied for course.",
             }
