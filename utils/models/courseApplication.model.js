@@ -42,6 +42,16 @@ const CourseApplicationSchema = new Schema({
         type: String,
         required: true
     },
+    doYouHaveALaptop: {
+        type: String,
+        required: true,
+        enum: ["Yes", "No"]
+    },
+    doYouHaveAccessToInternet: {
+        type: String,
+        required: true,
+        enum: ["Yes", "No"]
+    },
     howDidYouHearAboutThisJob: {
         type: String,
         required: true
@@ -58,9 +68,20 @@ const CourseApplicationSchema = new Schema({
         type: String,
         required: false
     },
+    availability: {
+        type: String,
+        required: true,
+        enum: ["Day", "Evening", "Flexible"]
+    },
     motivation: {
         type: String,
         required: true
+    },
+    selectionLevel: {
+        type: String,
+        required: true,
+        enum: [ "Pending Review", "Preparatory Period", "Scheduled For Technical Interview", "Completed Technical Interview", "Scheduled For One-on-One Interview", "Completed One-on-One Interview", "Offer Letter Sent - Admitted", "Rejection Letter Sent - Rejected"],
+        default: "Pending Review"
     }
 }, {
     timestamps: true,
