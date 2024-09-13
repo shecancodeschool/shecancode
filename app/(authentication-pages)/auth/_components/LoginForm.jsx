@@ -120,12 +120,6 @@ export default function LoginForm() {
           </Button> */}
         </form>
       </Form>
-      <div className="mt-4 text-center text-sm">
-        You do not have an account?{" "}
-        <Link href="/auth/signup" className="underline">
-          Sign Up
-        </Link>
-      </div>
     </div>
   )
 }
