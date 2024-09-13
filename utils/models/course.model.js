@@ -8,7 +8,7 @@ const CourseSchema = new Schema({
     },
     level: {
         type: String,
-        enum: ['Beginner', 'Intermediate', 'Advanced']
+        enum: ['Beginner', 'Intermediate', 'Advanced', 'All']
     },
     location: {
         type: String,
