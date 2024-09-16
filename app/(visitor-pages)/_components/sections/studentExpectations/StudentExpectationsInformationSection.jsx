@@ -19,7 +19,7 @@ export default function StudentExpectationsInformationSection({ LearnerExpectati
                     <section class="section">
                         <h3>Introduction</h3>
                         <p>SheCanCODE Bootcamp understands that your admission is important to you and that we care about how your personal data is used. We respect and value the admission of all our customers and users and we will only collect and use personal data in ways that are described here and in a way that is consistent with our obligations and your rights under the Data Protection legislation.</p>
-                        <p>This is SheCanCODE Admission Notice (“Admission Notice”) which may be accessed from <a href="https://www.shecancodeschool.org/">https://www.shecancodeschool.org/</a> where you submit personal data to access the service or may be obtained as a hard copy when you submit personal data at our medical laboratory.</p>
+                        <p>This is SheCanCODE Admission Notice (“Admission Notice”) which may be accessed from <a href="https://www.www.shecancodeschool.org/">https://www.www.shecancodeschool.org/</a> where you submit personal data to access the service or may be obtained as a hard copy when you submit personal data at our medical laboratory.</p>
                     </section>
 
                     <section class="section">
@@ -30,7 +30,7 @@ export default function StudentExpectationsInformationSection({ LearnerExpectati
                             <p>Address: Kacyiru Gasabo, KG 549 St 36, Kigali RWANDA</p>
                             <p>Email: <a href="mailto:education@igirerwanda.org">education@igirerwanda.org</a></p>
                             <p>Telephone: 0788473533 (General Enquiries), 0780599859 (Admission & Academics)</p>
-                            <p>Website: <a href="https://www.shecancodeschool.org/">https://www.shecancodeschool.org/</a></p>
+                            <p>Website: <a href="https://www.www.shecancodeschool.org/">https://www.www.shecancodeschool.org/</a></p>
                         </div>
                     </section>
 

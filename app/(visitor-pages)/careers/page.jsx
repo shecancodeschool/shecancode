@@ -8,8 +8,8 @@ import PageTitle from "../_components/PageTitle";
 import ReusableSection from "../_components/ReusableSection";
 import { getArticlesByCategory } from "@/app/(dashboard-pages)/dashboard/_actions/articlesActions";
 import { Suspense } from "react";
-import Loading from "@/app/(dashboard-pages)/dashboard/loading";
 import { ErrorBoundary } from "next/dist/client/components/error-boundary";
+import { Skeleton } from "@/components/ui/skeleton";
 
 const cardColors = [
   "bg-sky-100",
@@ -30,10 +30,10 @@ export const metadata = {
 };
 
 const jsonLd = {
-  '@context': 'https://shecancodeschool.org/careers',
+  '@context': 'https://www.shecancodeschool.org/careers',
   '@type': 'Careers',
   name: 'Careers at SheCanCODE Bootcamp',
-  image: 'https://shecancodeschool.org/F8.jpeg',
+  image: 'https://www.shecancodeschool.org/F8.jpeg',
   description: 'Careers and Open positions at SheCanCODE. How to Join our team and More.',
 }
 
@@ -112,4 +112,16 @@ export default async function page() {
       </ErrorBoundary>
     </>
   );
+}
+
+const Loading = () => {
+  return (
+    <div className="flex items-center space-x-4">
+      <Skeleton className="h-12 w-12 rounded-full" />
+      <div className="space-y-2">
+        <Skeleton className="h-4 w-[250px]" />
+        <Skeleton className="h-4 w-[200px]" />
+      </div>
+    </div>
+  )
 }

@@ -18,10 +18,10 @@ export const metadata = {
 };
 
 const jsonLd = {
-  '@context': 'https://shecancodeschool.org/about-us',
+  '@context': 'https://www.shecancodeschool.org/about-us',
   '@type': 'About Us',
   name: 'About SheCanCODE Bootcamp',
-  image: 'https://shecancodeschool.org/F8.jpeg',
+  image: 'https://www.shecancodeschool.org/F8.jpeg',
   description: 'Learn more about SheCanCODE Bootcamp. Historical Background, Mission, Vision and Values of SheCanCODE.',
 }
 

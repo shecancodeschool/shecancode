@@ -80,7 +80,7 @@ export const updateCourse = async (formData) => {
         course.status = status && status;
         course.category = category && category;
         course.subTitle = subTitle && subTitle,
-        course.description = description && description;
+            course.description = description && description;
         course.duration = duration && duration;
         course.durationType = durationType && durationType;
         course.startDate = startDate && startDate;
@@ -192,6 +192,8 @@ export const applyForCourse = async (prevState, formData) => {
         const application = await CourseApplication.create(data);
         if (application) {
             await sendEmail(data.email, "Application Successufully Submitted", `Dear ${data.lastName},\n\nThank you for applying to our course. We will get back to you soon. \n\nBest regards,\nSheCanCODE Bootcamp Team`);
+            await sendEmail("education@igirerwanda.org", `New Applicant Alert`, `Dear Admin, \n\nA new applicant has applied for ${data.course} course. \n\nName: ${data.firstName} ${data.lastName} \nEmail: ${data.email} \nPhone: ${data.phone}`);
+            await sendEmail("jeaneric@igirerwanda.org", `New Applicant Alert`, `Dear Admin, \n\nA new applicant has applied for ${data.course} course. \n\nName: ${data.firstName} ${data.lastName} \nEmail: ${data.email} \nPhone: ${data.phone}`);
             return {
                 message: "Successfully applied for course.",
             }

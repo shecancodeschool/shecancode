@@ -15,10 +15,10 @@ export const metadata = {
 };
 
 const jsonLd = {
-  '@context': 'https://shecancodeschool.org/contact-us',
+  '@context': 'https://www.shecancodeschool.org/contact-us',
   '@type': 'Contact-us',
   name: 'Contact Us',
-  image: 'https://shecancodeschool.org/F8.jpeg',
+  image: 'https://www.shecancodeschool.org/banner_img.png',
   description: 'Do you have a question or would like to visit our training center, or join our program, do not hesitate to contac us.',
 }
 

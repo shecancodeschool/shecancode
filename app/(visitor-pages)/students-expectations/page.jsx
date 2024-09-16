@@ -15,10 +15,10 @@ export const metadata = {
 };
 
 const jsonLd = {
-  '@context': 'https://shecancodeschool.org/students-expectations',
+  '@context': 'https://www.shecancodeschool.org/students-expectations',
   '@type': 'Student Expectations',
   name: 'Student Expectations',
-  image: 'https://shecancodeschool.org/F8.jpeg',
+  image: 'https://www.shecancodeschool.org/F8.jpeg',
   description: 'What you should expect by joining SheCanCODE Bootcamp and what SheCanCODE expects from you as a trainee.',
 }
 

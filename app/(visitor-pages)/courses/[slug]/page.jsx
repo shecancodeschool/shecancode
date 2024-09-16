@@ -25,7 +25,7 @@ const page = async ({ params }) => {
   };
   
   const jsonLd = {
-    '@context': `https://shecancodeschool.org/courses/${course.slug}`,
+    '@context': `https://www.shecancodeschool.org/courses/${course.slug}`,
     '@type': 'Courses',
     name: `${course.title}`,
     image: `${course.coverImage}`,

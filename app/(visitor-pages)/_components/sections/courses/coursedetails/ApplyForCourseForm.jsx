@@ -1,11 +1,9 @@
 "use client"
 
-// import ReusableSection from '../../../ReusableSection';
 import { toast } from "sonner";
 import { useFormState, useFormStatus } from "react-dom";
 import { applyForCourse } from '@/app/(visitor-pages)/_actions/courses';
 import { useRouter } from 'next/navigation';
-import { revalidatePath } from "next/cache";
 
 export default function ApplyForCourseForm({ courseId, slug }) {
     const [response, action] = useFormState(applyForCourse, {});

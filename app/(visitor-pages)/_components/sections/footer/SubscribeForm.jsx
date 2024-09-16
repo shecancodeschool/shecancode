@@ -22,16 +22,16 @@ export default function SubscribeForm() {
             
             <input type="email" name="email" required placeholder="Enter your email address" className='px-3 py-2 rounded-sm w-full' />
             {response?.email && <p className="text-red-500">{response?.email}</p>}
-            <SubmitButton />
+            <SubmitButton label={"SUBSCRIBE"}/>
         </form>
     )
 }
 
-function SubmitButton() {
+export function SubmitButton({ label }) {
     const { pending } = useFormStatus();
     return (
         <button type="submit" disabled={pending} className='px-3 py-2 rounded-sm bg-sky-950 hover:bg-sky-500 text-white font-bold w-full'>
-            {pending ? "Submitting..." : "SUBSCRIBE"}
+            {pending ? "Submitting..." : label}
         </button>
     )
 }

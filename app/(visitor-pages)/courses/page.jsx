@@ -20,10 +20,10 @@ export const metadata = {
 };
 
 const jsonLd = {
-  '@context': 'https://shecancodeschool.org/courses',
+  '@context': 'https://www.shecancodeschool.org/courses',
   '@type': 'Product',
   name: 'Courses and Programs',
-  image: 'https://shecancodeschool.org/F8.jpeg',
+  image: 'https://www.shecancodeschool.org/F8.jpeg',
   description: 'SheCanCODE Software Development Courses and Programs. Apply Today.',
 }
 

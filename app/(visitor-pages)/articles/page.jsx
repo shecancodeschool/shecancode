@@ -4,6 +4,8 @@ import ArticlesContainer from "../_components/sections/articles/ArticlesContaine
 import DefaultPageBanner from "../_components/DefaultPageBanner";
 import { getCategories } from "@/app/(dashboard-pages)/dashboard/_actions/blogCategoryActions";
 import { getOnlyPublishedArticlesForBlog } from "@/app/(dashboard-pages)/dashboard/_actions/articlesActions";
+import { ErrorBoundary } from "next/dist/client/components/error-boundary";
+import { Suspense } from "react";
 
 export const metadata = {
   title: 'Blog',
@@ -17,10 +19,10 @@ export const metadata = {
 };
 
 const jsonLd = {
-  '@context': 'https://shecancodeschool.org/articles',
+  '@context': 'https://www.shecancodeschool.org/articles',
   '@type': 'Blog',
   name: 'Updates and Articles',
-  image: 'https://shecancodeschool.org/F8.jpeg',
+  image: 'https://www.shecancodeschool.org/F8.jpeg',
   description: 'What is new in SheCanCode? Updates and news from SheCanCode.',
 }
 

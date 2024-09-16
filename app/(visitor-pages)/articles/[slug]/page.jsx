@@ -53,7 +53,7 @@ const page = async ({ params }) => {
   };
 
   const jsonLd = {
-    '@context': `https://shecancodeschool.org/articles/${blog.slug}`,
+    '@context': `https://www.shecancodeschool.org/articles/${blog.slug}`,
     '@type': 'Courses',
     name: `${blog.title}`,
     image: `${blog.image}`,

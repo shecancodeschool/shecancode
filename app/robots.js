@@ -11,6 +11,6 @@ export default function robots() {
           disallow: ['/'],
         },
       ],
-      sitemap: 'https://shecancodeschool.org/sitemap.xml',
+      sitemap: 'https://www.shecancodeschool.org/sitemap.xml',
     }
   }

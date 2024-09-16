@@ -15,10 +15,10 @@ export const metadata = {
 };
 
 const jsonLd = {
-  '@context': 'https://shecancodeschool.org/admission-policy',
+  '@context': 'https://www.shecancodeschool.org/admission-policy',
   '@type': 'Admission Policy',
   name: 'Admission policy for SheCanCODE Bootcamp',
-  image: 'https://shecancodeschool.org/F8.jpeg',
+  image: 'https://www.shecancodeschool.org/F8.jpeg',
   description: 'How we select and onboard new trainees at SheCanCODE.',
 }
 

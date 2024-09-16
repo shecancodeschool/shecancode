@@ -20,7 +20,7 @@ const jsonLd = {
   '@context': 'https://shecancode.vercel.app',
   '@type': 'Training Program',
   name: 'Welcome to SheCanCODE Bootcamp',
-  image: 'https://shecancodeschool.org/F8.jpeg',
+  image: 'https://www.shecancodeschool.org/F8.jpeg',
   description: 'Welcome to the best and the most intense coding training program for women in Rwanda.',
 }
 

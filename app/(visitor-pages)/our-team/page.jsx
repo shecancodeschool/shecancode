@@ -16,10 +16,10 @@ export const metadata = {
 };
 
 const jsonLd = {
-  '@context': 'https://shecancodeschool.org/our-team',
+  '@context': 'https://www.shecancodeschool.org/our-team',
   '@type': '',
   name: 'Our team',
-  image: 'https://shecancodeschool.org/F8.jpeg',
+  image: 'https://www.shecancodeschool.org/F8.jpeg',
   description: 'The team at SheCanCODE Bootcamp.',
 }
 function Page() {

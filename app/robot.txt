@@ -1,4 +1,4 @@
 User-Agent: *
 Allow: /
 Disallow: /private/
-Sitemap: https://shecancodeschool.org/sitemap.xml
+Sitemap: https://www.shecancodeschool.org/sitemap.xml
