@@ -43,11 +43,11 @@ const page = async ({ params }) => {
 
   metadata = {
     title: `${blog.title}`,
-    description: `${blog.subTitle}`,
+    description: `${blog.description}`,
     keywords: "SheCanCODE, Courses, Programs at SheCanCODE, SheCanCode Courses, Bootcamp, Women in tech, Training bootcamp, IT, IT Bootcamp, Free bootcamp, Girls, Girls bootcamp in Rwanda, Igire Rwanda Organization",
     openGraph: {
       title: `${blog.title}`,
-      description: `${blog.subTitle}`,
+      description: `${blog.description}`,
       ...{ images: [blog.image] },
     },
   };
@@ -57,7 +57,7 @@ const page = async ({ params }) => {
     '@type': 'Courses',
     name: `${blog.title}`,
     image: `${blog.image}`,
-    description: `${blog.subTitle}`,
+    description: `${blog.description}`,
   }
 
   return (
