@@ -1,65 +1,23 @@
 "use server"
 
-import { getErrorMessage } from "./userActions";
-import slugify from "react-slugify";
 import { revalidatePath } from "next/cache";
 import connectMongo from "@/utils/database/ConnectToDB";
-import ArticleCategory from "@/utils/models/articleCategory";
+import User from "@/utils/models/auth.model";
+import bcrypt from "bcryptjs";
+import sendEmail from "@/utils/sendEmail";
+import { getErrorMessage } from "@/utils/errorHandler";
 
-export const createCat = async (formData) => {
-    try {
-        const { name } = formData;
-        if (!name) {
-            return { error: "Please add a category name" };
-        }
-        await connectMongo();
-        const categoryExists = await ArticleCategory.findOne({ name });
-        const slugExists = await ArticleCategory.findOne({ slug: slugify(name) });
-        if (categoryExists || slugExists) {
-            return { error: "Category name or slug already exists" };
-        }
-        await Category.create({ name, slug: slugify(name) });
-        revalidatePath("/dashboard/blog/categories");
-        
-        return { message: "Category created successful!" }
-    } catch (e) {
-        return {
-            error: getErrorMessage(e)
-        }
-    }
-}
-export const getCategories = async () => {
+export const addUser = async (formData) => {
+    const { name, email, role, password } = formData;
     try {
         await connectMongo();
-        const categories = await ArticleCategory.find({}).sort({ createdAt: -1 });
-        return JSON.stringify(categories);
-    } catch (e) {
-        return {
-            error: getErrorMessage(e)
+        const hashedPassword = await bcrypt.hash(password, 10);
+        const newUser = await User.create({ name, email, role, active: true, password: hashedPassword });
+        if (newUser) {
+            sendEmail(email, "Your Account Credentials for SheCanCODE Website", `Dear ${name}, \n\nThis serves as a confirmation that we have successfully created your account. \n\nYour account credentials are as follows: \n\nEmail: ${email} \nPassword: ${password} \nAccess Point: http://shecancodeschool.org/auth/signin \n\nPlease keep these credentials safe and secure. \n\nBest regards,\nSheCanCODE Bootcamp`);
+            revalidatePath("/dashboard/users");
+            return { message: "User created successfully!" }
         }
-    }
-}
-
-export const deleteCategory = async (id) => {
-    try {
-        await connectMongo();
-        await ArticleCategory.findByIdAndDelete(id);
-        revalidatePath("/dashboard/blog/categories");
-        return { message: "Category deleted successfully!" }
-    } catch (e) {
-        return {
-            error: getErrorMessage(e)
-        }
-    }
-}
-
-export const updateCategory = async (formData) => {
-    const { name, id } = formData;
-    try {
-        await connectMongo();
-        await ArticleCategory.findByIdAndUpdate(id, { name, slug: slugify(name) });
-        revalidatePath("/dashboard/blog/categories");
-        return { message: "Category updated successfully!" }
     } catch (e) {
         return {
             error: getErrorMessage(e)
