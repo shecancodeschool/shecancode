@@ -9,9 +9,6 @@ import { revalidatePath } from "next/cache";
 export const registerUser = async (formData) => {
     try {
         const { name, email, password } = formData;
-        if (!name || !email || !password) {
-            return { error: "All fields are required" };
-        }
         await connectMongo();
         const userExist = await User.findOne({ email });
         if (userExist) {
@@ -20,7 +17,7 @@ export const registerUser = async (formData) => {
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(password, salt);
         await User.create({ name, email, password: hashedPassword })
-        return { message: "Registration successful, please login!" }
+        return { message: "Registration successful, please login!" };
     } catch (e) {
         console.log("Error registering user", e);
         return {
