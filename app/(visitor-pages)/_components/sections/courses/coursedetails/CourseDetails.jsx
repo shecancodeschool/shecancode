@@ -23,34 +23,34 @@ const CourseDetails = ({ course, modules }) => {
 
     return (
         <ReusableSection>
-            <div className='flex flex-col mx-auto w-full'>
-                {/* First Section */}
-                <div className="flex flex-wrap-reverse gap-8 items-start justify-between md:flex-nowrap w-full md:gap-0">
-                    <div className="blog-container text-black w-full md:w-[70%] lg:w-[65%]">
-                        <section className='section flex flex-col mb-4 md:mb-8 gap-4'>
-                            {parse(description)}
-                        </section>
-                        <Image src={coverImage} alt={"Prerequisites"} className="rounded-lg mb-4 md:mb-8 w-full" width={800} height={500} />
-                        {/* Course Modules  */}
-                        {modules?.length !== 0 && <div className="blog-container flex flex-col my-8 gap-4 md:gap-1">
-                            <h2 className={"text-2xl md:text-2xl mb-4 mt-0 md:mt-8 font-bold text-[#317ACC] text-left w-full"}>Modules</h2>
-                            <Accordion type="single" collapsible className='bg-white shadow-md border border-slate-200 text-black rounded-md'>
-                                {modules && modules.map((module, index) => (
-                                    <AccordionItem value={index + 1} key={index}>
-                                        <AccordionTrigger className="text-base md:text-lg font-bold text-left px-4 text-sky-800">{module.title}</AccordionTrigger>
-                                        <AccordionContent className="text-base md:text-lg">
-                                            <section className="section bg-sky-100 border border-sky-200 p-4">
-                                                {HTMLReactParser(module.description)}
-                                            </section>
-                                        </AccordionContent>
-                                    </AccordionItem>))}
-                            </Accordion>
-                        </div>}
-                        <section className='section mt-4 md:mt-12'>
-                            {parse(prerequisites)}
-                        </section>
-                    </div>
-                    <div className="w-full md:w-[27%] lg:w-[32%] flex flex-col space-y-4 md:mt-0 bg-sky-200 px-4 py-6 rounded-md border border-sky-400">
+            {/* First Section */}
+            <div className="flex flex-wrap-reverse gap-8 items-start justify-between md:flex-nowrap w-full md:gap-0">
+                <div className="blog-container text-black w-full md:w-[70%] lg:w-[65%]">
+                    <section className='section flex flex-col mb-4 md:mb-8 gap-4'>
+                        {parse(description)}
+                    </section>
+                    <Image src={coverImage} alt={"Prerequisites"} className="rounded-lg mb-4 md:mb-8 w-full" width={800} height={500} />
+                    {/* Course Modules  */}
+                    {modules?.length !== 0 && <div className="blog-container flex flex-col my-8 gap-4 md:gap-1">
+                        <h2 className={"text-2xl md:text-2xl mb-4 mt-4 md:mt-8 font-bold text-[#317ACC] text-left w-full"}>Modules</h2>
+                        <Accordion type="single" collapsible className='bg-white shadow-md border border-slate-200 text-black rounded-md'>
+                            {modules && modules.map((module, index) => (
+                                <AccordionItem value={index + 1} key={index}>
+                                    <AccordionTrigger className="text-base md:text-lg font-bold text-left px-4 text-sky-800">{module.title}</AccordionTrigger>
+                                    <AccordionContent className="text-base md:text-lg">
+                                        <section className="section bg-sky-100 border border-sky-200 p-4">
+                                            {HTMLReactParser(module.description)}
+                                        </section>
+                                    </AccordionContent>
+                                </AccordionItem>))}
+                        </Accordion>
+                    </div>}
+                    <section className='section mt-8 md:mt-12'>
+                        {parse(prerequisites)}
+                    </section>
+                </div>
+                <div className="w-full md:w-[27%] lg:w-[32%] flex flex-col">
+                    <div className="w-full flex flex-col space-y-4 md:mt-0 bg-sky-200 px-4 py-6 rounded-md border border-sky-400">
                         <div className="flex items-start gap-4 flex-nowrap">
                             <PiStepsDuotone className='text-sky-600 min-w-[10%]' size={30} />
                             <div className="flex flex-col text-black">
@@ -112,13 +112,13 @@ const CourseDetails = ({ course, modules }) => {
                         </div>}
                     </div>
                 </div>
-
-                {isOpen === "Yes" && <div className='w-full mt-8 flex items-center justify-center'>
-                    <Link href={`/courses/${slug}/apply`} className="bg-[#317ACC] w-fit text-center py-3 px-6 text-white rounded-md hover:bg-[#296494]">
-                        Apply Now
-                    </Link>
-                </div>}
             </div>
+
+            {isOpen === "Yes" && <div className='w-full mt-8 flex items-center justify-center'>
+                <Link href={`/courses/${slug}/apply`} className="bg-[#317ACC] w-fit text-center py-3 px-6 text-white rounded-md hover:bg-[#296494]">
+                    Apply Now
+                </Link>
+            </div>}
         </ReusableSection>
     );
 };

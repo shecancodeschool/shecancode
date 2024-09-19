@@ -96,7 +96,7 @@ const page = async ({ params }) => {
           <section id="content" className={`flex items-center justify-center mx-auto w-full px-4 md:px-12 py-20 md:pb-24 overflow-hidden`}>
             <div className={`flex flex-col gap-6 items-center justify-center text-white w-full max-w-screen-xl`}>
               <div className="flex justify-between flex-wrap w-full">
-                <div className="blog-container flex space-x-4 mb-8 flex-col w-full lg:w-[69%] text-black text-base md:text-xl">
+                <div className="blog-container flex justify-start items-start mb-8 flex-col w-full lg:w-[69%] text-black text-base md:text-xl">
                   {blog?.image && <Image src={blog?.image} alt={blog?.title} width={900} height={500} className="mb-8" />}
                   <div className="section">
                     {parse(blog?.content)}
