@@ -24,11 +24,12 @@ const CourseApplicationSchema = z.object({
     doYouHaveALaptop: z.string().min(2, "This field is required"),
     doYouHaveAccessToInternet: z.string().min(2, "This field is required"),
     availability: z.string().min(1, "This field is required"),
-    howDidYouHearAboutThisJob: z.string().min(4, "This field is required"),
+    howDidYouHearAboutThisJob: z.string().min(1, "This field is required"),
     academicBackground: z.string().min(4, "Academic background is required"),
     universityBeingAttended: z.string().optional(),
     currentOccupation: z.string().min(4, "Occupation is required"),
     motivation: z.string().min(1, "Motivation is required"),
+    confirmationOfWillingnessToPay: z.string().default("No")
 });
 
 export const addNewCourse = async (formData) => {
@@ -63,7 +64,7 @@ export const addNewCourse = async (formData) => {
 }
 
 export const updateCourse = async (formData) => {
-    const { id, title, level, location, schedule, coverImage, status, category, subTitle, description, duration, durationType, startDate, endDate, applicationDeadLine, feeDescription, fee, isOpen, isFeatured, prerequisites } = formData;
+    const { id, title, level, location, schedule, coverImage, status, category, subTitle, description, duration, durationType, startDate, endDate, applicationDeadLine, feeDescription, fee, isOpen, isFeatured, prerequisites, confirmationOfWillingnessToPay } = formData;
     try {
         await connectMongo();
         const course = await Course.findById(id);
@@ -80,7 +81,7 @@ export const updateCourse = async (formData) => {
         course.status = status && status;
         course.category = category && category;
         course.subTitle = subTitle && subTitle,
-            course.description = description && description;
+        course.description = description && description;
         course.duration = duration && duration;
         course.durationType = durationType && durationType;
         course.startDate = startDate && startDate;

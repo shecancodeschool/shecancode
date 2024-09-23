@@ -74,8 +74,6 @@ export default function ApplyForCourseForm({ courseId, slug }) {
                                 <input type='text' name='githubAccount' id='githubAccount' className='border border-gray-300 rounded-md p-2 w-full' placeholder="GitHub Account" />
                                 {response?.githubAccount && <span className="text-red-400 text-sm">{response?.githubAccount}</span>}
                             </label>
-                        </div>
-                        <div className='flex flex-col space-y-4'>
                             <label htmlFor='doYouHaveALaptop' className='flex flex-col space-y-2'>
                                 <span className='text-lg font-semibold text-black'>Do you have access to a Laptop?</span>
                                 <select name='doYouHaveALaptop' id='doYouHaveALaptop' className='border text-black border-gray-300 rounded-md p-2 w-full' >
@@ -85,6 +83,8 @@ export default function ApplyForCourseForm({ courseId, slug }) {
                                 </select>
                                 {response?.doYouHaveALaptop && <span className="text-red-400 text-sm">{response?.doYouHaveALaptop}</span>}
                             </label>
+                        </div>
+                        <div className='flex flex-col space-y-4'>
                             <label htmlFor='doYouHaveAccessToInternet' className='flex flex-col space-y-2'>
                                 <span className='text-lg font-semibold text-black'>Do you have access to Internet?</span>
                                 <select name='doYouHaveAccessToInternet' id='doYouHaveAccessToInternet' className='border text-black border-gray-300 rounded-md p-2 w-full' >
@@ -163,8 +163,15 @@ export default function ApplyForCourseForm({ courseId, slug }) {
                             </label>
                             <label htmlFor='motivation' className='flex flex-col space-y-2'>
                                 <span className='text-lg font-semibold text-black'>What motivated you to join this course/program? <span className="text-sm">(Required)</span></span>
-                                <textarea name='motivation' rows={5} id='motivation' className='border border-gray-300 text-black rounded-md p-2 w-full h-30' placeholder="Your response goes here..." />
+                                <textarea name='motivation' rows={7} id='motivation' className='border border-gray-300 text-black rounded-md p-2 w-full h-30' placeholder="Your response goes here..." />
                                 {response?.motivation && <span className="text-red-400 text-sm">{response?.motivation}</span>}
+                            </label>
+                            <label htmlFor="confirmationOfWillingnessToPay" className='flex flex-col space-y-2'>
+                                <span className='text-lg font-semibold text-black'>Confirmation<span className="text-sm"> (Optional)</span></span>
+                                <div>
+                                    <input type="checkbox" name="confirmationOfWillingnessToPay" id="confirmationOfWillingnessToPay" value={"Yes"} />
+                                    <span className="ml-2">By checking this box, I confirm that I am willing to pay for this course, and ready for the next stage of the admission process.</span>
+                                </div>
                             </label>
                             <label htmlFor='course' className='flex-col space-y-2 hidden'>
                                 <input type='text' name='course' value={courseId} id='course' className='text-black border border-gray-300 rounded-md p-2 w-full' />
@@ -183,7 +190,7 @@ export default function ApplyForCourseForm({ courseId, slug }) {
 function SubmitButton() {
     const { pending } = useFormStatus();
     return (
-        <button type="submit" disabled={pending} className='px-3 py-2 rounded-sm bg-sky-950 hover:bg-sky-500 text-white font-bold w-full'>
+        <button type="submit" disabled={pending} className='px-6 py-2 w-fit rounded-sm bg-sky-950 hover:bg-sky-500 text-white font-bold'>
             {pending ? "Submitting..." : "Apply"}
         </button>
     )
