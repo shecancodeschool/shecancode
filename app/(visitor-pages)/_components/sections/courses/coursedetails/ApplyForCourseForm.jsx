@@ -163,8 +163,8 @@ export default function ApplyForCourseForm({ courseId, slug }) {
                                 {response?.availability && <span className="text-red-400 text-sm">{response?.availability}</span>}
                             </label>
                             <label htmlFor='motivation' className='flex flex-col space-y-2'>
-                                <span className='text-lg font-semibold text-black'>What motivated you to join this course/program? <span className="text-sm">(Required - 500 words minimum)</span></span>
-                                <textarea name='motivation' id='motivation' className='border border-gray-300 text-black rounded-md p-2 w-full h-30' placeholder="Your response goes here..." />
+                                <span className='text-lg font-semibold text-black'>What motivated you to join this course/program? <span className="text-sm">(Required)</span></span>
+                                <textarea name='motivation' id='motivation' rows={5} className='border border-gray-300 text-black rounded-md p-2 w-full h-30' placeholder="Your response goes here..." />
                                 {response?.motivation && <span className="text-red-400 text-sm">{response?.motivation}</span>}
                             </label>
                             <label htmlFor='course' className='flex-col space-y-2 hidden'>
