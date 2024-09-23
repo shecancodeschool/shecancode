@@ -12,8 +12,8 @@ import sendEmail from "@/utils/sendEmail";
 
 const CourseApplicationSchema = z.object({
     course: z.string(),
-    firstName: z.string().min(4, "First name is required"),
-    lastName: z.string().min(4, "Last name is required"),
+    firstName: z.string().min(2, "First name is required"),
+    lastName: z.string().min(2, "Last name is required"),
     email: z.string().email("Invalid email address").min(8, "Email is required"),
     phone: z.string().min(10, "Phone number is required"),
     gender: z.string().min(4, "Gender is required"),
@@ -191,9 +191,9 @@ export const applyForCourse = async (prevState, formData) => {
         }
         const application = await CourseApplication.create(data);
         if (application) {
-            await sendEmail(data.email, "Application Successufully Submitted", `Dear ${data.lastName},\n\nThank you for applying to our course. We will get back to you soon. \n\nBest regards,\nSheCanCODE Bootcamp Team`);
-            await sendEmail("education@igirerwanda.org", `New Applicant Alert`, `Dear Admin, \n\nA new applicant has applied for ${data.course} course. \n\nName: ${data.firstName} ${data.lastName} \nEmail: ${data.email} \nPhone: ${data.phone}`);
-            await sendEmail("jeaneric@igirerwanda.org", `New Applicant Alert`, `Dear Admin, \n\nA new applicant has applied for ${data.course} course. \n\nName: ${data.firstName} ${data.lastName} \nEmail: ${data.email} \nPhone: ${data.phone}`);
+            sendEmail(data.email, "Application Successufully Submitted", `Dear ${data.lastName},\n\nThank you for applying to our course. We will get back to you soon. \n\nBest regards,\nSheCanCODE Bootcamp Team`);
+            sendEmail("education@igirerwanda.org", `New Applicant Alert`, `Dear Admin, \n\nA new applicant has applied for ${data.course} course. \n\nName: ${data.firstName} ${data.lastName} \nEmail: ${data.email} \nPhone: ${data.phone}`);
+            sendEmail("jeaneric@igirerwanda.org", `New Applicant Alert`, `Dear Admin, \n\nA new applicant has applied for ${data.course} course. \n\nName: ${data.firstName} ${data.lastName} \nEmail: ${data.email} \nPhone: ${data.phone}`);
             return {
                 message: "Successfully applied for course.",
             }
