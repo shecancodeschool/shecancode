@@ -519,10 +519,10 @@ export default function CourseForm({ categories, storedImages, id, course }) {
                   <FormItem>
                     <FormLabel>Fee</FormLabel>
                     <FormControl>
-                      <Input placeholder="Course fee" {...field} />
+                      <Input placeholder="Example: 500,000 Rwf" {...field} />
                     </FormControl>
                     <FormDescription>
-                      Course fee in RWF
+                      Course fee in RWF. If the course is free, just write &apos;Free&apos;
                     </FormDescription>
                     <FormMessage />
                   </FormItem>
