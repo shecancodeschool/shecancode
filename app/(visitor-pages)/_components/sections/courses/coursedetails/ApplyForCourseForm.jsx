@@ -12,8 +12,7 @@ export default function ApplyForCourseForm({ courseId, slug }) {
     if (response.error) {
         toast.error(response.error);
     } else if (response.message) {
-        toast.success(response.message);
-        router.push(`/courses/${slug}`);
+        router.push(`/courses/${slug}/success`);
     }
 
     return (
@@ -164,7 +163,7 @@ export default function ApplyForCourseForm({ courseId, slug }) {
                             </label>
                             <label htmlFor='motivation' className='flex flex-col space-y-2'>
                                 <span className='text-lg font-semibold text-black'>What motivated you to join this course/program? <span className="text-sm">(Required)</span></span>
-                                <textarea name='motivation' id='motivation' rows={5} className='border border-gray-300 text-black rounded-md p-2 w-full h-30' placeholder="Your response goes here..." />
+                                <textarea name='motivation' rows={5} id='motivation' className='border border-gray-300 text-black rounded-md p-2 w-full h-30' placeholder="Your response goes here..." />
                                 {response?.motivation && <span className="text-red-400 text-sm">{response?.motivation}</span>}
                             </label>
                             <label htmlFor='course' className='flex-col space-y-2 hidden'>
