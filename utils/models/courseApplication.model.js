@@ -36,11 +36,11 @@ const CourseApplicationSchema = new Schema({
     },
     linkedInAccount: {
         type: String,
-        required: true
+        required: false
     },
     githubAccount: {
         type: String,
-        required: true
+        required: false
     },
     doYouHaveALaptop: {
         type: String,
