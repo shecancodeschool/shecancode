@@ -82,6 +82,12 @@ const CourseApplicationSchema = new Schema({
         required: true,
         enum: [ "Pending Review", "Preparatory Period", "Scheduled For Technical Interview", "Completed Technical Interview", "Scheduled For One-on-One Interview", "Completed One-on-One Interview", "Offer Letter Sent - Admitted", "Rejection Letter Sent - Rejected"],
         default: "Pending Review"
+    },
+    confirmationOfWillingnessToPay: {
+        type: String,
+        required: true,
+        enum: ["Yes", "No"],
+        default: "No"
     }
 }, {
     timestamps: true,
