@@ -1,4 +1,5 @@
 import ReusableSection from '../../ReusableSection';
+import parse from 'html-react-parser';
 
 const HistoricalBackground = ({ historicalBackground }) => {
     const { title, description, videoAddress } = historicalBackground;
@@ -10,9 +11,9 @@ const HistoricalBackground = ({ historicalBackground }) => {
                     <h3 className="section-sub-title">
                         {title}
                     </h3>
-                    <p className="font-light text-base font lg:text-xl text-justify text-sky-950">
-                        {description}
-                    </p>
+                    <div className="font-light text-base font lg:text-xl text-justify text-sky-950">
+                        {parse(description)}
+                    </div>
                 </div>
                 <div className="flex flex-col w-full md:w-[48%]">
                     <iframe
