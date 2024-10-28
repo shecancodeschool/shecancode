@@ -12,7 +12,6 @@ import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useState } from "react";
 import { signIn } from "next-auth/react";
-import Image from "next/image";
 import { LoadingButton } from "@/app/(dashboard-pages)/dashboard/_components/widgets/Loader";
 
 const formSchema = z.object({
@@ -44,6 +43,7 @@ export default function LoginForm() {
       password,
       redirect: false,
     });
+
     if (response?.error) {
       console.log(response.error);
       if (response.error === "CredentialsSignin") {
@@ -114,10 +114,6 @@ export default function LoginForm() {
             Sign in
           </Button>
           )}
-          {/* <Button type="button" variant="outline" className="w-full flex gap-2" onClick={() => signIn("github")}>
-            Sign in with GitHub
-            <Image src="/github-logo.png" alt="GitHub" width={20} height={20} />
-          </Button> */}
         </form>
       </Form>
     </div>
