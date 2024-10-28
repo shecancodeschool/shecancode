@@ -205,6 +205,7 @@ export const updateArticle = async (formData) => {
         
         await article.save();
         revalidatePath("/dashboard/blog");
+        revalidatePath("/articles");
         return { message: "Article updated successfully!" }
     } catch (e) {
         return {
