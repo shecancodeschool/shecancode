@@ -38,9 +38,12 @@ const jsonLd = {
 }
 
 export default async function page() {
-  const jobs = await getArticlesByCategory("Careers");
+  var jobs = [];
+  const fetchedJobs = await getArticlesByCategory("careers");
+  jobs = JSON.parse(fetchedJobs);
 
   const { backgroundImage, title, titleDescription, subTitle, processOfJoiningTeam, reasonsToJoinOurTeam } = CareerPageFakes;
+
   return (
     <>
       <script
