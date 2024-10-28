@@ -10,11 +10,14 @@ import { getArticleBySlug } from "../../../_actions/articlesActions";
 
 export default async function page({ params }) {
     const { slug } = params;
-    var post = {};
+    
     let allCategories = await getCategories();
     const categories = JSON.parse(allCategories);
     let rawStoredImages = await getStoredImages();
     const storedImages = JSON.parse(rawStoredImages);
+    
+    var post = {};
+    
     if (slug) {
         let fetchedPost = await getArticleBySlug(slug);
         if (fetchedPost) {
@@ -38,9 +41,9 @@ export default async function page({ params }) {
             <Separator className="my-4 border-b-[2px] border-sky-600" />
             <CreatePost
                 categories={categories}
-                post={post}
                 storedImages={storedImages}
                 slug={slug}
+                post={post}
             />
         </div>
     )

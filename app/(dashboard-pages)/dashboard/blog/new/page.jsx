@@ -22,7 +22,6 @@ export default async function page({ params }) {
 
     if (slug) {
         let fetchedPost = await getArticleBySlug(slug);
-        console.log(fetchedPost);
         if (fetchedPost) {
             post = JSON.parse(fetchedPost);
         }

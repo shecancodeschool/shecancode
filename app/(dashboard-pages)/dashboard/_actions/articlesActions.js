@@ -115,7 +115,6 @@ export const getArticlesByCategory = async (slug) => {
     try {
         await connectMongo();
         const category = await ArticleCategory.findOne({ slug });
-
         if (!category) {
             return [];
         }
@@ -144,6 +143,7 @@ export const getArticleById = async (id) => {
     try {
         await connectMongo();
         const article = await Article.findById(id);
+        console.log(id);
         return JSON.stringify(article);
     } catch (e) {
         return {
