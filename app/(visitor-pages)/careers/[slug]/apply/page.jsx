@@ -1,9 +1,9 @@
-import { getArticleById } from '@/app/(dashboard-pages)/dashboard/_actions/articlesActions';
+import { getArticleBySlug } from '@/app/(dashboard-pages)/dashboard/_actions/articlesActions';
 import JobDescriptionPageBanner from '@/app/(visitor-pages)/_components/sections/careers/JobDescriptionPageBanner';
 
 export default async function page({ params }) {
-  const { id } = params;
-  const response = await getArticleById(id);
+  const { slug } = params;
+  const response = await getArticleBySlug(slug);
   const job = JSON.parse(response);
 
   return (

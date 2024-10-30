@@ -96,7 +96,7 @@ export default async function page() {
               <h3 className="text-2xl md:text-3xl text-left w-full font-bold text-[#317ACC]">Open Positions</h3>
               {(jobs && jobs?.length > 0) && <div className="grid grid-cols-1 mt-3 md:grid-cols-2 gap-3 md:gap-4 w-full">
                 {jobs?.map((job, index) => (
-                  <Link key={index} href={`/careers/${job._id}`} className="bg-sky-950 p-6 cursor-pointer rounded-md flex items-center justify-between gap-2">
+                  <Link key={index} href={`/careers/${job.slug}`} className="bg-sky-950 p-6 cursor-pointer rounded-md flex items-center justify-between gap-2">
                     <p className="text-xl md:text-xl">{job.title}</p>
                     <div className="bg-white p-2 md:p-4 rounded-full w-fit">
                       <FaArrowRight className="text-black text-2xl md:text-3xl" />

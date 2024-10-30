@@ -1,14 +1,14 @@
 import JobDescriptionPageBanner from '../../_components/sections/careers/JobDescriptionPageBanner';
 import JobDescriptionContainter from '../../_components/sections/careers/JobDescriptionContainter';
-import { getArticleById } from '@/app/(dashboard-pages)/dashboard/_actions/articlesActions';
+import { getArticleBySlug } from '@/app/(dashboard-pages)/dashboard/_actions/articlesActions';
 
 var metadata = {};
 
 const page = async ({ params }) => {
   
 
-  const { id } = params;
-  const response = await getArticleById(id);
+  const { slug } = params;
+  const response = await getArticleBySlug(slug);
   const job = JSON.parse(response);
 
   metadata = {
