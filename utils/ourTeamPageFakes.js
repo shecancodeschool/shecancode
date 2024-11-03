@@ -39,7 +39,7 @@ const ourTeamData = {
             position: "Operations Manager",
             picture: "https://media.licdn.com/dms/image/D4E03AQEOWYWX-_WX_Q/profile-displayphoto-shrink_200_200/0/1686306845073?e=2147483647&v=beta&t=dEGAWexroP3JXk8w8h0d4GG3Hv5dkBYp0_ueFFA2HxY",
             linkedIn: "https://www.linkedin.com/in/liliane-uwase-28b138182/",
-            github: "https://github.com/hirwajeaneric",
+            github: "",
             x: "",
             dribble: "",
             instagram: "",
