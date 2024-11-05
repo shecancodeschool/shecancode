@@ -6,10 +6,10 @@ const TeamCard = ({ teamMember }) => {
   const { name, position, picture, linkedIn, github, x, instagram, dribbble } = teamMember;
   return (
     <div className="w-full sm:w-[48%] md:w-1/5 md:min-w-[23%] flex flex-col bg-white mb-10 rounded-md border">
-      <div className="h-60 w-full" style={{
+      <div className="h-80 w-full" style={{
         backgroundImage: `url(${picture})`,
         backgroundSize: 'cover',
-        backgroundPosition: 'center',
+        backgroundPosition: 'top',
         transition: 'background-image 0.3s ease-in-out',
         willChange: 'background-image',
       }}>
