@@ -100,7 +100,7 @@ export const getOnlyPublishedArticlesForBlog = async (includeFeatured, limit = 5
         const articles = await Article.find({ status: "Published", allowedForBlog: true }).sort({ createdAt: -1 }).limit(limit);
         if (includeFeatured) {
             const featuredArticle = await Article.findOne({ status: "Published", isFeatured: true, allowedForBlog: true });
-            let articlesExcludingFeaturedArticle = articles.filter(article => article._id.toString() !== featuredArticle._id.toString());   
+            let articlesExcludingFeaturedArticle = articles.filter(article => article._id.toString() !== featuredArticle._id.toString());
             return JSON.stringify({ featuredArticle, articles: articlesExcludingFeaturedArticle });
         }
         return JSON.stringify({ articles });
@@ -119,6 +119,10 @@ export const getArticlesByCategory = async (slug) => {
             return [];
         }
         const articles = await Article.find({ category: category?.name, status: "Published", allowedForBlog: true }).sort({ createdAt: -1 });
+        if (articles.length === 0) {
+            console.log("No articles");
+            return [];
+        }
         return JSON.stringify(articles);
     } catch (e) {
         return {
@@ -202,7 +206,7 @@ export const updateArticle = async (formData) => {
         if (image !== article.image) {
             article.image = image;
         }
-        
+
         await article.save();
         revalidatePath("/dashboard/blog");
         revalidatePath("/articles");
