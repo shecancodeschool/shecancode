@@ -4,8 +4,6 @@ import ArticlesContainer from "../_components/sections/articles/ArticlesContaine
 import DefaultPageBanner from "../_components/DefaultPageBanner";
 import { getCategories } from "@/app/(dashboard-pages)/dashboard/_actions/blogCategoryActions";
 import { getOnlyPublishedArticlesForBlog } from "@/app/(dashboard-pages)/dashboard/_actions/articlesActions";
-import { ErrorBoundary } from "next/dist/client/components/error-boundary";
-import { Suspense } from "react";
 
 export const metadata = {
   title: 'Blog',
@@ -34,7 +32,7 @@ export default async function page() {
   if (typeof allCategories === "string") {
     categories = JSON.parse(allCategories);
     categories.forEach(element => {
-      if (element.name !== "Policies") {
+      if (element.name !== "Policies" && element.name !== "Archive") {
         categoriesExcludingPolicies.push(element);
       }
     });
