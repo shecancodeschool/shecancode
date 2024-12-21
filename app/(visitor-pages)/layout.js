@@ -6,7 +6,6 @@ import Navbar from "./_components/Navbar/Navbar";
 import Footer from "./_components/Footer";
 import ProgressBarProvider from "../ProgressBarProvider";
 import { SpeedInsights } from "@vercel/speed-insights/next"
-import { openGraphImage } from "../shared-metadata";
 
 const fontSans = FontSans({
   subsets: ["latin"],

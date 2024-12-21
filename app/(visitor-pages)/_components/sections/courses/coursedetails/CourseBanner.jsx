@@ -21,9 +21,9 @@ export default function CourseBanner({ coverImage, title, subTitle, slug, isOpen
                 <p className="text-lg md:text-xl text-start w-full sm:w-full md:w-2/3">
                     {subTitle}
                 </p>
-                {isOpen === "Yes" && <Link href={`/courses/${slug}/apply/#form`} className="bg-[#317ACC] py-3 px-6 text-white rounded-md hover:bg-[#296494]">
+                {/* {isOpen === "Yes" && <Link href={`/courses/${slug}/apply/#form`} className="bg-[#317ACC] py-3 px-6 text-white rounded-md hover:bg-[#296494]">
                     Apply Now
-                </Link>}
+                </Link>} */}
             </div>
         </div>
     )
