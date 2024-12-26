@@ -102,12 +102,13 @@ const page = async ({ params }) => {
                     {parse(blog?.content)}
                   </div>
                 </div>
-                <div className="flex flex-col items-start w-full md:w-[28%] justify-start gap-8 text-black">
+                <div className="flex flex-col items-start w-full lg:w-[28%] justify-start gap-8 text-black">
                   <h3 className="text-3xl font-extrabold">Recent stories</h3>
                   <div className="flex flex-col">
                     {recentBlogs && recentBlogs?.map((item, index) => (
                       <Link href={`/articles/${item.slug}`} key={index} className="flex gap-4 py-4 hover:bg-slate-200 cursor-pointer">
-                        <Image src={item.image} alt={item.title} width={100} height={50} className="rounded-lg aspect-video w-auto" />
+                        <div className='flex justify-between rounded-md items-center w-[48%] lg:w-[30%] h-40 md:h-20' style={{ backgroundImage: `url(${item.image})`, backgroundSize: 'cover', backgroundPosition: 'center', transition: 'background-image 0.3s ease-in-out', willChange: 'background-image', }}>
+                        </div>
                         <h4 className="w-[70%] font-bold">{item.title}</h4>
                       </Link>
                     ))}
