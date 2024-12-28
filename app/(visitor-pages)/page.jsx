@@ -19,7 +19,7 @@ export const metadata = {
   description: "Welcome to the best and the most intense coding training program for women in Rwanda.",
   keywords: "SheCanCODE, SheCanCode, SheCanCode Bootcamp, SheCanCode School, SheCanCODE Rwanda, Rwanda, Empowering Women, Training Bootcamps in Rwanda, Coding bootcamps in Rwanda, Coding bootcamp near me, IT Bootcamp in Rwanda, IT Bootcamp near me, Women in tech bootcamp in Rwanda, Women in tech bootcamp near me, Girls only bootcamp, girls only coding bootcamp near me, Coding Bootcamp, Women in tech, Training bootcamp, IT, IT Bootcamp, Free bootcamp, Girls, Girls bootcamp in Rwanda",
   openGraph: {
-    title: "Home - Welcome to Igire Rwanda Organization",
+    title: "Home - Welcome to SheCanCODE Bootcamp",
     description: "Welcome to the best and the most intense coding training program for women in Rwanda.",
     url: "https://www.shecancodeschool.org",
     siteName: "SheCanCODE Bootcamp",
