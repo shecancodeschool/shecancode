@@ -14,12 +14,50 @@ import { getOnlyPublishedArticlesForBlog } from "../(dashboard-pages)/dashboard/
 import Loading from "../(dashboard-pages)/dashboard/loading";
 import { Suspense } from "react";
 
+export const metadata = {
+  title: "Home - Welcome to the SheCanCODE Bootcamp",
+  description: "Welcome to the best and the most intense coding training program for women in Rwanda.",
+  keywords: "SheCanCODE, SheCanCode, SheCanCode Bootcamp, SheCanCode School, SheCanCODE Rwanda, Rwanda, Empowering Women, Training Bootcamps in Rwanda, Coding bootcamps in Rwanda, Coding bootcamp near me, IT Bootcamp in Rwanda, IT Bootcamp near me, Women in tech bootcamp in Rwanda, Women in tech bootcamp near me, Girls only bootcamp, girls only coding bootcamp near me, Coding Bootcamp, Women in tech, Training bootcamp, IT, IT Bootcamp, Free bootcamp, Girls, Girls bootcamp in Rwanda",
+  openGraph: {
+    title: "Home - Welcome to Igire Rwanda Organization",
+    description: "Welcome to the best and the most intense coding training program for women in Rwanda.",
+    url: "https://www.shecancodeschool.org",
+    siteName: "SheCanCODE Bootcamp",
+    images: [
+      {
+        url: "/F9.jpeg",
+        width: 800,
+        height: 600,
+      },
+    ],
+    locale: "en-US",
+    type: "website",
+  }
+}
+
 const jsonLd = {
-  '@context': 'https://shecancode.vercel.app',
-  '@type': 'Training Program',
-  name: 'Welcome to SheCanCODE Bootcamp',
-  image: 'https://www.shecancodeschool.org/F8.jpeg',
-  description: 'Welcome to the best and the most intense coding training program for women in Rwanda.',
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Home - Welcome to SheCanCODE Bootcamp",
+  "url": "https://www.shecancodeschool.org",
+  "description": "Welcome to the best and the most intense coding training program for women in Rwanda.",
+  "image": "/F8.jpeg",
+  "author": {
+    "@type": "Organization",
+    "name": "SheCanCODE Bootcamp",
+    "url": "https://www.shecancodeschool.org",
+    "image": "/F8.jpeg",
+    "sameAs": [
+      "https://www.youtube.com/channel/UCh-zTmgW9gWFl4Va__6AsjQ",
+      "https://www.facebook.com/igirerwandaorganization",
+      "https://www.instagram.com/shecancode_bootcamp",
+      "https://twitter.com/ShecancodeRW"
+    ]
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": `https://www.shecancodeschool.org`
+  }
 }
 
 const page = async () => {
