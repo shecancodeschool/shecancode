@@ -210,6 +210,11 @@ export const updateArticle = async (formData) => {
         await article.save();
         revalidatePath("/dashboard/blog");
         revalidatePath("/articles");
+        revalidatePath(`/articles/${article.slug}`);
+        revalidatePath("/careers");
+        revalidatePath(`/careers/${article.slug}`);
+        revalidatePath(`/careers/${article.slug}`);
+        revalidatePath("/");
         return { message: "Article updated successfully!" }
     } catch (e) {
         return {
