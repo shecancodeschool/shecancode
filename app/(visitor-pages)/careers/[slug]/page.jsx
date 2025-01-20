@@ -23,7 +23,7 @@ const page = async ({ params }) => {
   };
 
   const jsonLd = {
-    '@context': `https://www.shecancodeschool.org/careers/${job.id}`,
+    '@context': `https://www.shecancodeschool.org/careers/${job.slug}`,
     '@type': 'Job',
     name: `${job.title}`,
     image: `${job.image}`,
