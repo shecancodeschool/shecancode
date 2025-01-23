@@ -1,5 +1,4 @@
 import { textLimiter } from '../../../../../utils/textLimiter';
-import Image from 'next/image';
 import Link from 'next/link';
 import ReusableSection from '../../ReusableSection';
 import PageTitle from '../../PageTitle';
@@ -36,12 +35,11 @@ export default function ArticlesSection({ featuredArticle, articles }) {
                             }
                             return (
                                 <Link key={index} href={`/articles/${article.slug}`} className='flex w-full rounded-lg gap-4 justify-between items-start'>
-                                    <div className='flex justify-between items-center w-[22%]'>
-                                        <Image src={article.image} alt={article.title} width={10} height={10} className='rounded-lg aspect-video w-auto' layout='responsive' />
+                                    <div className='flex justify-between rounded-md items-center w-[48%] md:w-[30%] lg:w-[22%] h-full' style={{ backgroundImage: `url(${article.image})`, backgroundSize: 'cover', backgroundPosition: 'center', transition: 'background-image 0.3s ease-in-out',willChange: 'background-image', }}>
                                     </div>
-                                    <div className='flex flex-col gap-1 w-[75%] text-black justify-end'>
-                                        <h4 className='text-lg font-bold'>{article.title}</h4>
-                                        <p>{textLimiter(article.description, 120)}</p>
+                                    <div className='flex flex-col gap-2 w-[50%] md:w-[68%] lg:w-[76%] text-black justify-end'>
+                                        <h4 className='text-lg leading-tight font-bold'>{article.title}</h4>
+                                        <p className="leading-tight">{textLimiter(article.description, 120)}</p>
                                         <span className='text-orange-400 text-sm'>Published on {new Date(article.createdAt).toDateString()}</span>
                                     </div>
                                 </Link>

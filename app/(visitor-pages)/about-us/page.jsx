@@ -7,22 +7,39 @@ import VisionMission from "../_components/sections/about-us/VisionMission";
 import CoreValues from "../_components/sections/about-us/CoreValues";
 
 export const metadata = {
-  title: 'About us',
+  title: "About us",
   description: "Learn more about SheCanCODE Bootcamp. Historical Background, Mission, Vision and Values of SheCanCODE.",
-  keywords: "SheCanCODE, Courses, Programs at SheCanCODE, SheCanCode Courses, Bootcamp, Women in tech, Training bootcamp, IT, IT Bootcamp, Free bootcamp, Girls, Girls bootcamp in Rwanda, Igire Rwanda Organization",
+  keywords: "SheCanCODE, About SheCanCODE, About SheCanCode Bootcamp, SheCanCode Bootcamp, SheCanCode School, SheCanCODE Rwanda, Rwanda, Empowering Women, Training Bootcamps in Rwanda, Coding bootcamps in Rwanda, Coding bootcamp near me, IT Bootcamp in Rwanda, IT Bootcamp near me, Women in tech bootcamp in Rwanda, Women in tech bootcamp near me, Girls only bootcamp, girls only coding bootcamp near me, Coding Bootcamp, Women in tech, Training bootcamp, IT, IT Bootcamp, Free bootcamp, Girls, Girls bootcamp in Rwanda",
   openGraph: {
-    title: 'About us',
+    title: "About us",
     description: "Learn more about SheCanCODE Bootcamp. Historical Background, Mission, Vision and Values of SheCanCODE.",
     ...openGraphImage,
   },
 };
 
 const jsonLd = {
-  '@context': 'https://www.shecancodeschool.org/about-us',
-  '@type': 'About Us',
-  name: 'About SheCanCODE Bootcamp',
-  image: 'https://www.shecancodeschool.org/F8.jpeg',
-  description: 'Learn more about SheCanCODE Bootcamp. Historical Background, Mission, Vision and Values of SheCanCODE.',
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "About us",
+  "url": "https://www.shecancodeschool.org/about-us",
+  "description": "Learn more about SheCanCODE Bootcamp. Historical Background, Mission, Vision and Values of SheCanCODE.",
+  "image": "/F8.jpeg",
+  "author": {
+    "@type": "Organization",
+    "name": "SheCanCODE Bootcamp",
+    "url": "https://www.shecancodeschool.org",
+    "image": "/F8.jpeg",
+    "sameAs": [
+      "https://www.youtube.com/channel/UCh-zTmgW9gWFl4Va__6AsjQ",
+      "https://www.facebook.com/igirerwandaorganization",
+      "https://www.instagram.com/shecancode_bootcamp",
+      "https://twitter.com/ShecancodeRW"
+    ]
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": `https://www.shecancodeschool.org/about-us`
+  }
 }
 
 const page = () => {

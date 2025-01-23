@@ -72,7 +72,7 @@ export default function ContactForm() {
                 Impact Center, Kacyiru
               </a>
             </p>
-            <p>+2507828293894</p>
+            <p>+250 788 473 533</p>
             <p>education@igirerwanda.org</p>
           </div>
           <div className="w-full flex justify-start items-cente md:w-full h-40 overflow-hidden">

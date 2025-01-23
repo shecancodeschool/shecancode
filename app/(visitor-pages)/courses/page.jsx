@@ -20,11 +20,28 @@ export const metadata = {
 };
 
 const jsonLd = {
-  '@context': 'https://www.shecancodeschool.org/courses',
-  '@type': 'Product',
-  name: 'Courses and Programs',
-  image: 'https://www.shecancodeschool.org/F8.jpeg',
-  description: 'SheCanCODE Software Development Courses and Programs. Apply Today.',
+"@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Courses",
+  "url": "https://www.shecancodeschool.org/courses",
+  "description": "Courses and program provided by SheCanCODE Bootcamp.",
+  "image": "/F9.jpeg",
+  "author": {
+    "@type": "Organization",
+    "name": "SheCanCODE Bootcamp",
+    "url": "https://www.shecancodeschool.org",
+    "image": "/F9.jpeg",
+    "sameAs": [
+      "https://www.youtube.com/channel/UCh-zTmgW9gWFl4Va__6AsjQ",
+      "https://www.facebook.com/igirerwandaorganization",
+      "https://www.instagram.com/shecancode_bootcamp",
+      "https://twitter.com/ShecancodeRW"
+    ]
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": `https://www.shecancodeschool.org/courses`
+  }
 }
 
 const page = async () => {
