@@ -166,13 +166,13 @@ export default function ApplyForCourseForm({ courseId, slug }) {
                                 <textarea name='motivation' rows={7} id='motivation' className='border border-gray-300 text-black rounded-md p-2 w-full h-30' placeholder="Your response goes here..." />
                                 {response?.motivation && <span className="text-red-400 text-sm">{response?.motivation}</span>}
                             </label>
-                            <label htmlFor="confirmationOfWillingnessToPay" className='flex flex-col space-y-2'>
+{/*                             <label htmlFor="confirmationOfWillingnessToPay" className='flex flex-col space-y-2'>
                                 <span className='text-lg font-semibold text-black'>Confirmation<span className="text-sm"> (Optional)</span></span>
                                 <div>
                                     <input type="checkbox" name="confirmationOfWillingnessToPay" id="confirmationOfWillingnessToPay" value={"Yes"} />
                                     <span className="ml-2">By checking this box, I confirm that I am willing to pay for this course, and ready for the next stage of the admission process.</span>
                                 </div>
-                            </label>
+                            </label> */}
                             <label htmlFor='course' className='flex-col space-y-2 hidden'>
                                 <input type='text' name='course' value={courseId} id='course' className='text-black border border-gray-300 rounded-md p-2 w-full' />
                             </label>

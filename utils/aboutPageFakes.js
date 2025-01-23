@@ -10,7 +10,7 @@ const AboutPageData = {
     },
     vision: {
         title: "Our Vision",
-        description: "The vision calls for more women to be at the forefront of technological advancements, research, and innovation, The graduates from this program will be supported with job placement and apprenticeships. The bootcamp seeks to advance young women into positions where they can influence the direction of technology by equipping them with the most up-to-date technical knowledge and abilities.",
+        description: "Our vision is to create a future where all Rwandan youth, especially women, are empowered with digital skills ad an opportunities driving sustainable growth & innovation in their communities & beyond.",
     },
     mission: {
         title: "Our Mission",

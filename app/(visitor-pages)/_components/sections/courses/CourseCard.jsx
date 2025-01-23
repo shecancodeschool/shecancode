@@ -30,7 +30,7 @@ const CourseCard = ({ course }) => {
         </div>
         <div className='flex flex-col gap-2'>
           {isOpen === "Yes" && <Link href={`/courses/${slug}`} className='w-full text-center bg-sky-600 hover:bg-sky-700 text-white text-sm rounded-2xl p-1'>Enroll Now</Link>}
-          {/* <Link href={`/courses/${slug}`} className='w-full text-sky-600 text-ce nter hover:text-sky-900'>Read more</Link> */}
+          {/* <Link href={`/courses/${slug}`} className='w-full text-sky-600 text-center hover:text-sky-900'>Read more</Link> */}
         </div>
       </div>
     </div>

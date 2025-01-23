@@ -20,7 +20,7 @@ const VisionMission = ({ mission, vision }) => {
               {mission.title}
             </h3>
             <p className="font-light text-base font lg:text-xl text-justify text-sky-950">
-              {vision.description}
+              {mission.description}
             </p>
           </div>
         </div>
