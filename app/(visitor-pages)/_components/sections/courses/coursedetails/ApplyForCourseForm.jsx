@@ -8,11 +8,11 @@ import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, For
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
-import ApplicationPriceConfirmationAlert from "./ApplicationPriceConfirmationAlert"
-import { useActionState, useEffect, useState } from "react"
+import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
 import { applyForCourse } from "@/app/(visitor-pages)/_actions/courses"
+import { useRouter } from "next/navigation"
 
 const formSchema = z.object({
   firstName: z.string(),
@@ -40,6 +40,8 @@ export default function ApplyForCourseForm({ courseId, registrationFee, courseNa
   const [fee, setFee] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [isRegistrationFeeCorrect, setIsRegistrationFeeCorrect] = useState(false);
+
+  const router = useRouter();
 
   const handleRegistrationFee = (e) => {
     setFee(e.target.value);
@@ -78,12 +80,19 @@ export default function ApplyForCourseForm({ courseId, registrationFee, courseNa
       disabled: values.disabled,
     })
       .then((response) => {
-        toast.success(response.message);
+        if (response.error) {
+          toast.error(response.error);
+        } else {
+          toast.success(response.message);
+          form.reset();
+          router.push(`/courses/${slug}/success`);
+        }
         setSubmitting(false);
       })
       .catch((error) => {
         toast.error(error.message);
         setSubmitting(false);
+        form.reset();
       })
   }
 
@@ -556,7 +565,7 @@ export default function ApplyForCourseForm({ courseId, registrationFee, courseNa
         </div>
         {/* <Button type="submit">Continue</Button> */}
         {/* <ApplicationPriceConfirmationAlert fee={registrationFee} applicationData={applicationData} /> */}
-        <Button type="submit" disabled={!isRegistrationFeeCorrect}>{submitting ? "Submitting..." : "Submit"}</Button>
+        <Button type="submit" disabled={!isRegistrationFeeCorrect || submitting}>{submitting ? "Submitting..." : "Submit"}</Button>
       </form>
     </Form>
   )

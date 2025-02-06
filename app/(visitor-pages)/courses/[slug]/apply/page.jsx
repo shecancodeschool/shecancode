@@ -23,7 +23,12 @@ export default async function Apply({ params }) {
         startDate={course.startDate}
         isOpen={course.isOpen}
       />
-      <ApplyForCourseForm courseId={course._id} registrationFee={course.fee} courseName={course.title} slug={course.slug}/>
+      <ApplyForCourseForm 
+        courseId={course._id} 
+        registrationFee={course.fee} 
+        courseName={course.title} 
+        slug={course.slug}
+      />
     </div>
   )
 }
