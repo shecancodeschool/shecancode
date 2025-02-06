@@ -97,6 +97,16 @@ const CourseSchema = new Schema({
         type: String,
         required: true
     },
+    doYouHaveAnyDisability: {
+        type: String,
+        required: true,
+        enum: ['Yes', 'No'],
+        default: 'No'
+    },
+    whatIsYourDisability: {
+        type: String,
+        required: false,
+    },
     isFeatured: {
         type: String,
         required: true,

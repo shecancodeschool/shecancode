@@ -5,6 +5,10 @@ const CourseApplicationSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "Course"
     },
+    courseName: {
+        type: String,
+        required: true
+    },
     firstName: {
         type: String,
         required: true
@@ -42,15 +46,24 @@ const CourseApplicationSchema = new Schema({
         type: String,
         required: false
     },
+    disabled: {
+        type: String,
+        required: true,
+        default: "No"
+    },
+    disability: {
+        type: String,
+        required: false
+    },
     doYouHaveALaptop: {
         type: String,
         required: true,
-        enum: ["Yes", "No"]
+        enum: ["Yes", "No", "Not in good condition"]
     },
     doYouHaveAccessToInternet: {
         type: String,
-        required: true,
-        enum: ["Yes", "No"]
+        required: false,
+        enum: ["Yes", "No", "Not Mentioned"]
     },
     howDidYouHearAboutThisJob: {
         type: String,
@@ -68,10 +81,16 @@ const CourseApplicationSchema = new Schema({
         type: String,
         required: false
     },
-    availability: {
+    refugeeStatus:  {
         type: String,
         required: true,
-        enum: ["Day", "Evening", "Flexible"]
+        enum: ["Refugee", "Not a Refugee"]
+    },
+    availability: {
+        type: String,
+        required: false,
+        enum: ["Day", "Evening", "Flexible"],
+        default: "Day",
     },
     motivation: {
         type: String,
@@ -80,7 +99,7 @@ const CourseApplicationSchema = new Schema({
     selectionLevel: {
         type: String,
         required: true,
-        enum: [ "Pending Review", "Preparatory Period", "Scheduled For Technical Interview", "Completed Technical Interview", "Scheduled For One-on-One Interview", "Completed One-on-One Interview", "Offer Letter Sent - Admitted", "Rejection Letter Sent - Rejected"],
+        enum: ["Pending Review", "Preparatory Period", "Scheduled For Technical Interview", "Completed Technical Interview", "Scheduled For One-on-One Interview", "Completed One-on-One Interview", "Offer Letter Sent - Admitted", "Rejection Letter Sent - Rejected"],
         default: "Pending Review"
     },
     confirmationOfWillingnessToPay: {
@@ -88,6 +107,16 @@ const CourseApplicationSchema = new Schema({
         required: true,
         enum: ["Yes", "No"],
         default: "No"
+    },
+    degree: {
+        type: String,
+        required: false
+    },
+    status: {
+        type: String,
+        required: true,
+        enum: ["Pending", "Invited for Coding Interview", "Completed Coding Interview", "Invited for One-on-One Interview", "Completed One-on-One Interview", "Rejected", "Admitted"],
+        default: "Pending"
     }
 }, {
     timestamps: true,
