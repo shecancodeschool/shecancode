@@ -27,9 +27,9 @@ export default function PrivacyPolicyInformationSection({PrivacyPolicyPageData})
                             <li className={`mb-2 ${pathname === "/privacy-policy" ? "text-[#317ACC]" : ""}`}>
                                 <Link href="/privacy-policy">1. Privacy policy</Link>
                             </li>
-                            <li className={`mb-2 ${pathname === "/admission-policy" ? "text-[#317ACC]" : ""}`}>
+                            {/* <li className={`mb-2 ${pathname === "/admission-policy" ? "text-[#317ACC]" : ""}`}>
                                 <Link href="/admission-policy">2. Admission Policy</Link>
-                            </li>
+                            </li> */}
                             {/* <li className={`mb-2 ${pathname === "/students-expectations" ? "text-[#317ACC]" : ""}`}>
                                 <Link href="/students-expectations">3. SheCanCode Learners expectations</Link>
                             </li> */}

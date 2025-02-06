@@ -47,6 +47,7 @@ const page = async ({ params }) => {
         title={course.title}
         subTitle={course.subTitle}
         slug={course.slug}
+        fee={course.fee}
         startDate={course.startDate}
         isOpen={course.isOpen}
       />

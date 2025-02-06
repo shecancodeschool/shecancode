@@ -13,16 +13,17 @@ export default async function Apply({ params }) {
   }
 
   return (
-    <>
+    <div className='bg-white'>
       <CourseBanner
         coverImage={course.coverImage}
         title={course.title}
         subTitle={course.subTitle}
         slug={course.slug}
+        fee={course.fee}
         startDate={course.startDate}
         isOpen={course.isOpen}
       />
-      <ApplyForCourseForm courseId={course._id} slug={course.slug}/>
-    </>
+      <ApplyForCourseForm courseId={course._id} registrationFee={course.fee} courseName={course.title} slug={course.slug}/>
+    </div>
   )
 }

@@ -176,21 +176,17 @@ export const findCoursesByCategory = async (category) => {
     }
 }
 
-export const applyForCourse = async (prevState, formData) => {
-    const result = CourseApplicationSchema.safeParse(Object.fromEntries(formData.entries()));
-
-    if (result.success === false) {
-        return result.error.formErrors.fieldErrors;
-    }
-    const data = result.data;
-
+export const applyForCourse = async (data) => {
     try {
+        console.log(data);
         await connectMongo();
         const alreadyApplied = await CourseApplication.findOne({ course: data.course, email: data.email });
         if (alreadyApplied) {
             return { error: "You have already applied to this course." };
         }
         const application = await CourseApplication.create(data);
+        console.log(application);
+        revalidatePath(`/dashboard/courses/course/${slugify(data.course)}/applicants`);
         if (application) {
             sendEmail(data.email, "Application Successufully Submitted", `Dear ${data.lastName},\n\nThank you for applying to our course. We will get back to you soon. \n\nBest regards,\nSheCanCODE Bootcamp Team`);
             sendEmail("education@igirerwanda.org", `New Applicant Alert`, `Dear Admin, \n\nA new applicant has applied for ${data.course} course. \n\nName: ${data.firstName} ${data.lastName} \nEmail: ${data.email} \nPhone: ${data.phone}`);
@@ -201,9 +197,7 @@ export const applyForCourse = async (prevState, formData) => {
         }
     } catch (e) {
         console.log("Error while applying for course", e);
-        return {
-            error: getErrorMessage(e)
-        }
+        throw new Error(e);
     }
 }
 
