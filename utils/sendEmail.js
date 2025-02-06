@@ -14,7 +14,7 @@ const sendEmail = (recipient, subject, body) => {
         to: recipient,
         subject: subject,
         text: body,
-        replyTo: "education@igirerwanda.org",
+        replyTo: "education@shecancodeschool.org",
         // html: `
         //     <div style="color: #333; background-color: #eee; padding: 20px; border-radius: 5px;">
         //     <h1>${subject}</h1>
