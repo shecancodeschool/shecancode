@@ -522,8 +522,8 @@ export default function ApplyForCourseForm({ courseId, registrationFee, courseNa
 
         <div className="flex flex-col gap-4 bg-sky-300 p-4 rounded-lg">
           <h3 className="text-lg font-bold">Are you ready to submit this application?</h3>
-          <span className="font-bold text-sm">Upon the confirmation of your admission to this course, you will pay a non-refundable registration fee. By submitting your application you will have confirmed that you are ready to proceed with the application process.</span>
-          <span className="text-sm italic font-extrabold">Please confirm that you are aware of this and that you are ready to proceed by writing the application fee in the box bellow.</span>
+          <span className="font-bold text-sm">Upon confirming your admission to this course, you will pay a non-refundable registration fee. By submitting your application you will have confirmed that you are ready to proceed with the application process.</span>
+          <span className="text-sm italic font-extrabold">Please confirm that you are aware of this and ready to proceed by writing the application fee in the box below.</span>
           <div className="flex flex-col ">
             <Label htmlFor="registrationFee">Write the text in red:
               <em className="font-bold text-red-700">{registrationFee}</em>
