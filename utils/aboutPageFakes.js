@@ -10,11 +10,11 @@ const AboutPageData = {
     },
     vision: {
         title: "Our Vision",
-        description: "Our vision is to create a future where all Rwandan youth, especially women, are empowered with digital skills ad an opportunities driving sustainable growth & innovation in their communities & beyond.",
+        description: "Our vision is to create a future where all Rwandan youth especially women are empowered with digital skills and opportunities driving sustainable growth and innovation in their communities and beyond.",
     },
     mission: {
         title: "Our Mission",
-        description: "We empower young women to pursue and excel in their careers within the tech industry so that to bridge gender gap in technology, which has historically been male-dominated. The bootcamp aims to provide an inclusive and supportive learning environment that equips participants with the necessary technical skills, knowledge, and confidence to thrive in this field.",
+        description: "Our mission is to empower young women to pursue and excel in their careers within the tech industry so that to bridge gender gap in technology which has historically been male-dominated. The bootcamp aims to provide an inclusive and supportive learning environment that equips participants with the necessary technical skills, knowledge, and confidence to thrive in this field.",
     },
     values: {
         title: "Our Values",
