@@ -186,12 +186,14 @@ export const applyForCourse = async (data) => {
             };
         }
         const application = await CourseApplication.create(data);
-        const totalApplicants = await CourseApplication.countDocuments({ course: data.course });
+        // const totalApplicants = await CourseApplication.countDocuments({ course: data.course });
+        const totalApplicants = await CourseApplication.countDocuments();
         
         revalidatePath(`/dashboard/courses/course/${slugify(data.course)}/applicants`);
         if (application) {
             sendEmail(data.email, "Application Successufully Submitted", `Dear ${data.lastName},\n\nThank you for applying to our course. We will get back to you soon. \n\nBest regards,\nSheCanCODE Bootcamp Team`);
-            // sendEmail("education@shecancodeschool.org", `New Applicant Alert`, `Dear Admin, \n\nA new applicant has applied for ${data.courseName} course. \n\nName: ${data.firstName} ${data.lastName} \nEmail: ${data.email} \nPhone: ${data.phone}`);
+            sendEmail("education@shecancodeschool.org", `New Applicant Alert`, `Dear Admin, \n\nA new applicant has applied for ${data.courseName} course. The total number of applicants for now is: ${totalApplicants}. \n\nName: ${data.firstName} ${data.lastName} \nEmail: ${data.email} \nPhone: ${data.phone}`);
+            sendEmail("phiona@shecancodeschool.org", `New Applicant Alert`, `Dear Phiona, \n\nA new applicant has applied for ${data.courseName} course. The total number of applicants for now is: ${totalApplicants}. \n\nName: ${data.firstName} ${data.lastName} \nEmail: ${data.email} \nPhone: ${data.phone}`);
             sendEmail("jeaneric@shecancodeschool.org", `New Applicant Alert`, `Dear Admin, \n\nA new applicant has applied for ${data.courseName} course. The total number of applicants for now is: ${totalApplicants}. \n\nName: ${data.firstName} ${data.lastName} \nEmail: ${data.email} \nPhone: ${data.phone}`);
             return { 
                 message: "Successfully applied for course.",
