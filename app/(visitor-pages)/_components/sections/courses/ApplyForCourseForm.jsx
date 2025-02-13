@@ -391,31 +391,6 @@ export default function ApplyForCourseForm({ courseId, registrationFee, courseNa
           </div>
         </div>
 
-        <FormField
-          control={form.control}
-          name="currentOccupation"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Current Occupation</FormLabel>
-              <Select onValueChange={field.onChange} defaultValue={field.value}>
-                <FormControl className="border-2 border-black">
-                  <SelectTrigger>
-                    <SelectValue placeholder="Choose the option that applies to you" />
-                  </SelectTrigger>
-                </FormControl>
-                <SelectContent>
-                  <SelectItem value="Student">Student</SelectItem>
-                  <SelectItem value="Employed Full-time">Employed Full-time</SelectItem>
-                  <SelectItem value="Employed Part-time">Employed Part-time</SelectItem>
-                  <SelectItem value="Unemployed">Unemployed</SelectItem>
-                  <SelectItem value="In waiting year">In waiting year</SelectItem>
-                </SelectContent>
-              </Select>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-
         <div className="grid grid-cols-12 gap-4">
           <div className="col-span-12 md:col-span-6">
             <FormField
