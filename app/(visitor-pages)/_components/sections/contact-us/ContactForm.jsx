@@ -64,12 +64,12 @@
               <p>KG 549 St, 36 Kacyiru</p>
               <p>
                 <a
-                  href="https://www.google.com/maps?q=Impact+Center,+Kacyiru"
+                  href="https://maps.app.goo.gl/iRoJAuvj1EA5Xb827"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="underline"
                 >
-                  Impact Center, Kacyiru
+                  Google Maps Location
                 </a>
               </p>
               <p>+250 788 473 533</p>
