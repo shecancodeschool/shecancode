@@ -15,7 +15,13 @@ export default function sitemap() {
       {
         url: 'https://www.shecancodeschool.org/articles',
         lastModified: new Date(),
-        changeFrequency: 'weekly',
+        changeFrequency: 'daily',
+        priority: 0.8,
+      },
+      {
+        url: 'https://www.shecancodeschool.org/contact-us',
+        lastModified: new Date(),
+        changeFrequency: 'daily',
         priority: 0.8,
       },
       {
@@ -39,8 +45,8 @@ export default function sitemap() {
       {
         url: 'https://www.shecancodeschool.org/contact-us',
         lastModified: new Date(),
-        changeFrequency: 'yearly',
-        priority: 0.5,
+        changeFrequency: 'daily',
+        priority: 0.8,
       },
     ]
   }
