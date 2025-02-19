@@ -56,15 +56,15 @@ const Footer = () => {
               <div className="flex flex-col gap-2">
                 <div className="flex items-center space-x-2 hover:text-sky-800">
                   <FaLocationDot className='text-sky-600' />
-                  <p className='font text-[#CFD3D7]'>KG 549 St, Kacyiru, Gsabo</p>
+                  <p className='font text-[#CFD3D7]'>KG 549 St, Kacyiru, Gasabo</p>
                 </div>
                 <div className="flex items-center space-x-2 hover:text-sky-800">
                   <MdOutlineEmail className='text-sky-600' />
-                  <p className='font text-[#CFD3D7]'>education@igirerwanda.org</p>
+                  <p className='font text-[#CFD3D7]'>education@shecancodeschool.org</p>
                 </div>
                 <div className="flex items-center space-x-2 hover:text-sky-800">
                   <FaPhoneAlt className='text-sky-600' />
-                  <p className='font text-[#CFD3D7]'>0787819193</p>
+                  <p className='font text-[#CFD3D7]'>+250 788 473 533</p>
                 </div>
               </div>
             </div>
@@ -110,7 +110,7 @@ const Footer = () => {
                 </Link>
               </li>
             </ul>
-            <p className=" text-[#CFD3D7] md:text-sm text-start text-base">&copy; {new Date().getFullYear()} SheCanCode School. All rights reserved.</p>
+            <p className=" text-[#CFD3D7] md:text-sm text-start text-base">&copy; {new Date().getFullYear()} SheCanCODE Bootcamp. All rights reserved.</p>
           </div>
 
         </div>
