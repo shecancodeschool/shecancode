@@ -115,7 +115,7 @@ const CourseDetails = ({ course, modules }) => {
             </div>
 
             {isOpen === "Yes" && <div className='w-full mt-8 flex items-center justify-center'>
-                <Link href={`/courses/${slug}/apply`} className="bg-[#317ACC] w-fit text-center py-3 px-6 text-white rounded-md hover:bg-[#296494]">
+                <Link href={`https://apply.shecancodeschool.org`} className="bg-[#317ACC] w-fit text-center py-3 px-6 text-white rounded-md hover:bg-[#296494]">
                     Apply Now
                 </Link>
             </div>}
