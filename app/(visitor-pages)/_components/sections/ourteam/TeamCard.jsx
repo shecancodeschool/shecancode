@@ -35,7 +35,7 @@ const TeamCard = ({ teamMember }) => {
             </span>
           }
           {github &&
-            <span className="p-2 rounded-full bg-gray-100 hover:bg-red-400 hover:text-white">
+            <span className="p-2 rounded-full bg-gray-100 hover:bg-blue-400 hover:text-white">
               <Link href={github} target="_blank">
                 <FiGithub />
               </Link>
