@@ -2,8 +2,7 @@ import "@/styles/globals.css";
 import { Inter as FontSans } from "next/font/google";
 import { cn } from "@/lib/utils"
 import { Toaster } from 'sonner'
-import Navbar from "./_components/Navbar/Navbar";
-import Footer from "./_components/Footer";
+import ComingSoon from "./_components/ComingSoon";
 import ProgressBarProvider from "../ProgressBarProvider";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
@@ -33,9 +32,7 @@ export default function RootLayout({ children }) {
       <body className={cn("flex flex-col justify-start", fontSans.variable)}>
         <ProgressBarProvider>
           <Toaster position="top-right" richColors />
-          <Navbar />
-          {children}
-          <Footer />
+          <ComingSoon />
         </ProgressBarProvider>
         <SpeedInsights />
       </body>
